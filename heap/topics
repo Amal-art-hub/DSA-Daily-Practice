@@ -1,0 +1,173 @@
+STAGE 1 — Heap Basics
+
+These build the foundation.
+
+1. Complete Binary Tree
+
+Understand:
+
+All levels filled
+Last level left to right
+
+Without this, heap makes no sense.
+
+2. Array Representation
+
+Learn formulas:
+
+Left child  = 2i + 1
+Right child = 2i + 2
+Parent      = (i - 1) / 2
+
+This is how heaps are stored.
+
+3. Min Heap
+
+Rule:
+
+Parent smaller than children
+
+Root contains minimum element.
+
+4. Max Heap
+
+Rule:
+
+Parent greater than children
+
+Root contains maximum element.
+
+STAGE 2 — HEART OF HEAP
+
+MOST IMPORTANT PART.
+
+5. Heapify
+
+Two types:
+
+Heapify Up
+Heapify Down
+
+This powers everything.
+
+Without heapify:
+
+insert impossible
+delete impossible
+heap sort impossible
+STAGE 3 — Core Operations
+6. Insert
+
+Steps:
+
+Insert at end
+Heapify Up
+
+Complexity:
+
+O(logn)
+
+7. Delete
+
+Usually delete root.
+
+Steps:
+
+Replace root with last node
+Remove last node
+Heapify Down
+
+Complexity:
+
+O(logn)
+
+8. Build Heap
+
+Convert normal array into heap.
+
+Very important interview topic.
+
+Complexity:
+
+O(n)
+
+Interviewers LOVE asking:
+
+Why build heap is O(n) not O(n log n)?
+STAGE 4 — Analysis
+9. Complexity
+
+Must know:
+
+Operation	Complexity
+Insert	O(log n)
+Delete	O(log n)
+Peek	O(1)
+Build Heap	O(n)
+Heap Sort	O(n log n)
+STAGE 5 — Advanced Concepts
+10. Heap Sort
+
+Uses:
+
+Build Heap
+Repeated delete
+
+Very common interview algorithm.
+
+Complexity:
+
+O(nlogn)
+
+11. Priority Queue
+
+REAL-WORLD use of heap.
+
+Highest priority item comes first.
+
+Used in:
+
+OS scheduling
+Dijkstra algorithm
+Task scheduling
+12. Kth Largest Element
+
+Classic heap interview problem.
+
+Examples:
+
+kth largest
+kth smallest
+top k elements
+
+VERY common in coding rounds.
+
+STAGE 6 — Comparison & Theory
+13. BST vs Heap
+
+Extremely important theory question.
+
+Main difference:
+
+Heap	BST
+Partial ordering	Full ordering
+Fast max/min	Fast searching
+Complete tree	Not necessarily complete
+14. Applications
+
+Know where heaps are used:
+
+Priority Queue
+Dijkstra
+Heap Sort
+Median finding
+CPU scheduling
+15. Limitations
+
+Interviewers ask this too.
+
+Examples:
+
+Searching is slow
+Not fully sorted
+Arbitrary deletion difficult
