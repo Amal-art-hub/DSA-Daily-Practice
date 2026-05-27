@@ -31,54 +31,54 @@
 
 //===============delete the elem from maxheap
 
-let heap=[50,40,30,20];
+// let heap=[50,40,30,20];
 
-function heapfy(heap){
+// function heapfy(heap){
     
-    if(heap.length===0)return null;
+//     if(heap.length===0)return null;
     
     
     
-    let root=heap[0];
+//     let root=heap[0];
     
-     heap[0]=heap[heap.length-1];
-     heap.pop();
+//      heap[0]=heap[heap.length-1];
+//      heap.pop();
      
      
-     let i=0;
+//      let i=0;
      
-     while(true){
+//      while(true){
          
          
-        let left=Math.floor((i*2)+1);
-        let right=Math.floor((i*2)+2);
-        let  smallest=i;
+//         let left=Math.floor((i*2)+1);
+//         let right=Math.floor((i*2)+2);
+//         let  smallest=i;
         
-        if(left<heap.length  && heap[left]>heap[smallest]){
-            smallest=left
-        }
+//         if(left<heap.length  && heap[left]>heap[smallest]){
+//             smallest=left
+//         }
            
-        if(right<heap.length  && heap[right]>heap[smallest]){
-            smallest=right
-        }
+//         if(right<heap.length  && heap[right]>heap[smallest]){
+//             smallest=right
+//         }
         
         
-        if(smallest===i)break;
+//         if(smallest===i)break;
         
-        [heap[i],heap[smallest]]=[heap[smallest],heap[i]];
-        i=smallest
+//         [heap[i],heap[smallest]]=[heap[smallest],heap[i]];
+//         i=smallest
          
-     }
+//      }
      
-     return {"heap": heap,
-         "deleted":root
-     }
+//      return {"heap": heap,
+//          "deleted":root
+//      }
     
-}
+// }
 
 
 
-console.log(heapfy(heap));
+// console.log(heapfy(heap));
 
 
 
@@ -116,54 +116,54 @@ console.log(heapfy(heap));
 
 //===============delete the elem from maxheap
 
-let heap=[50,40,30,20];
+// let heap=[50,40,30,20];
 
-function heapfy(heap){
+// function heapfy(heap){
     
-    if(heap.length===0)return null;
+//     if(heap.length===0)return null;
     
     
     
-    let root=heap[0];
+//     let root=heap[0];
     
-     heap[0]=heap[heap.length-1];
-     heap.pop();
+//      heap[0]=heap[heap.length-1];
+//      heap.pop();
      
      
-     let i=0;
+//      let i=0;
      
-     while(true){
+//      while(true){
          
          
-        let left=Math.floor((i*2)+1);
-        let right=Math.floor((i*2)+2);
-        let  smallest=i;
+//         let left=Math.floor((i*2)+1);
+//         let right=Math.floor((i*2)+2);
+//         let  smallest=i;
         
-        if(left<heap.length  && heap[left]>heap[smallest]){
-            smallest=left
-        }
+//         if(left<heap.length  && heap[left]>heap[smallest]){
+//             smallest=left
+//         }
            
-        if(right<heap.length  && heap[right]>heap[smallest]){
-            smallest=right
-        }
+//         if(right<heap.length  && heap[right]>heap[smallest]){
+//             smallest=right
+//         }
         
         
-        if(smallest===i)break;
+//         if(smallest===i)break;
         
-        [heap[i],heap[smallest]]=[heap[smallest],heap[i]];
-        i=smallest
+//         [heap[i],heap[smallest]]=[heap[smallest],heap[i]];
+//         i=smallest
          
-     }
+//      }
      
-     return {"heap": heap,
-         "deleted":root
-     }
+//      return {"heap": heap,
+//          "deleted":root
+//      }
     
-}
+// }
 
 
 
-console.log(heapfy(heap));
+// console.log(heapfy(heap));
 
 
 
@@ -178,7 +178,21 @@ function heapifyd(arr,n,i){
     let right=i*2+2;
     
     
-    if(left<n  &&  heap)
+    if(left<n  &&  arr[left]<arr[smallest]){
+        smallest=left;
+    }
+
+       if(right<n  &&  arr[right]<arr[smallest]){
+        smallest=right;
+    }
+
+
+    if(smallest !==i){
+        [arr[smallest],arr[i]]=[arr[i],arr[smallest]];
+        heapifyd(arr,n,smallest)
+    }
+
+    
 }
 
 
@@ -189,7 +203,7 @@ function heapifyd(arr,n,i){
 
 
 
-function buildminheap(){
+function buildminheap(arr){
     
     
     let n=arr.length;
@@ -205,13 +219,43 @@ function buildminheap(){
 }
 
 
+console.log(buildminheap(arr))
 
 
 
 
 
+//===========find the k the largest element
+
+let arr = [3, 2, 1, 5, 6, 4];
+let k = 2;
+
+class Minheap(){
+  constructor(){
+      this.heap=[];
+  }
+  
+  
+  inser()
+    
+}
 
 
+
+function kth(arr,k){
+    let mheap=new Minheap();
+    
+    for(let num of arr){
+        mheap.insert(num);
+    }
+    
+    if(mheap.length>k){
+        mheap.delete()
+    }
+    
+    
+    return mheap.peek()
+}
 
 
 
