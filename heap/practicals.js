@@ -236,7 +236,23 @@ class Minheap(){
   }
   
   
-  inser()
+    
+  heapifyup(){
+      let index=this.heap.length-1;
+      
+      while(index>0){
+          let parent=Math.floor((index-1)/2);
+          
+          
+          if(this.heap[parent]>this.heap[index]){
+              [this.heap[parent],this.heap[index]]=[this.heap[index],this.heap[parent]];
+              
+              index=parent;
+          }else{
+              break;
+          }
+      }
+  }
     
 }
 
