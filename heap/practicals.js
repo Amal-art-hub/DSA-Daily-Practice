@@ -230,9 +230,15 @@ console.log(buildminheap(arr))
 let arr = [3, 2, 1, 5, 6, 4];
 let k = 2;
 
-class Minheap(){
+class Minheap{
   constructor(){
       this.heap=[];
+  }
+  
+  
+  insert(num){
+      this.heap.push(num);
+      this.heapifyup();
   }
   
   
@@ -253,6 +259,69 @@ class Minheap(){
           }
       }
   }
+  
+  
+  
+  remove(){
+      
+      if(this.heap.length===1)return this.heap.pop();
+      
+      
+      let min=this.heap[0];
+      
+      this.heap[0]=this.heap.pop();
+      
+      
+      
+      this.heapifydown();
+      return min;
+      
+  }
+  
+  heapifydown(){
+      
+     let index=0;
+     
+     let length=this.heap.length;
+     
+
+     
+     
+     while(true){
+          let left=index*2+1;
+      let right=index*2+2;
+      
+      
+           let smallest=index;
+      
+      if(left<length  && this.heap[left]<this.heap[smallest]){
+          smallest=left;
+      }
+      
+        
+      if(right<length  && this.heap[right]<this.heap[smallest]){
+          smallest=right;
+      }
+      
+      
+        
+     if(smallest !==index){
+         [this.heap[smallest],this.heap[index]]=[this.heap[index],this.heap[smallest]];
+         index=smallest;
+     }else{
+         break;
+     }
+      
+     }
+   
+      
+      
+  }
+  
+  
+  peek(){
+     return this.heap[0];
+  }
     
 }
 
@@ -263,11 +332,14 @@ function kth(arr,k){
     
     for(let num of arr){
         mheap.insert(num);
+        
+        
+            if(mheap.heap.length>k){
+        mheap.remove()
+    }
     }
     
-    if(mheap.length>k){
-        mheap.delete()
-    }
+
     
     
     return mheap.peek()
@@ -276,17 +348,4 @@ function kth(arr,k){
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+console.log(kth(arr,2));
