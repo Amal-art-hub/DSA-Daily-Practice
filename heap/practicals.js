@@ -478,3 +478,52 @@ function kth(arr,k){
 
 
 console.log(kth(arr,2));
+
+
+//=============convert any arry or minheap into maxheap
+
+let arr = [1, 3, 5, 7, 9, 8];
+
+
+
+function heapifydown(arr,n,i){
+    let largest=i;
+    
+    
+    let left=Math.floor((i*2)+1);
+    let right=Math.floor((i*2)+2);
+    
+    
+
+    
+    if(left<n  &&  arr[largest]<arr[left]){
+        largest=left
+    }
+    
+    
+    
+    if(right<n  &&  arr[largest]<arr[right]){
+        largest=right
+    }
+    
+    
+    if(largest !==i){
+        [arr[largest],arr[i]]=[arr[i],arr[largest]]
+        heapifydown(arr,n,largest);
+        
+    }
+}
+
+function cmax(arr){
+    let n=arr.length;
+    let lpara=Math.floor((n/2)-1);
+    
+    for(let i=lpara;i>=0;i--){
+        heapifydown(arr,n,i)
+    }
+    
+    return arr;
+}
+
+
+console.log(cmax(arr));
