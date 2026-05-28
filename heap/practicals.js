@@ -527,3 +527,59 @@ function cmax(arr){
 
 
 console.log(cmax(arr));
+
+//=================heap sort
+let arr=[1,3,2,5,4];
+
+
+function heapifydown(arr,n,i){
+    
+    let left=Math.floor((i*2)+1)
+        
+    let right=Math.floor((i*2)+2)
+    let larg=i
+    
+    if(left<n && arr[left]>arr[larg]){
+       
+        larg=left
+    }
+    
+    
+       if(right<n && arr[right]>arr[larg]){
+       
+        larg=right;
+    }
+    
+    
+    if(larg !==i){
+        [arr[larg],arr[i]]=[arr[i],arr[larg]];
+        heapifydown(arr,n,larg)
+    }
+    
+    
+}
+
+
+
+
+
+
+function hsort(arr){
+    let n=arr.length;
+    let par=Math.floor((n/2)-1);
+    
+    for(let i=par;i>=0;i--){
+        heapifydown(arr,n,i)
+    }
+    
+    for( i=n-1;i>=0;i--){
+        [arr[0],arr[i]]=[arr[i],arr[0]];
+        
+        
+        heapifydown(arr,i,0);
+    }
+    
+    return arr;
+}
+
+console.log(hsort(arr));
