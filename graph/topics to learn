@@ -1,0 +1,62 @@
+Section 1 — Basics Theory
+Graph representation
+Adjacency matrix and list
+Methods to implement graph
+Types of graph
+Directed vs undirected graph
+Weighted graph
+Degree of vertex
+Complete graph
+Loop in graph
+Disconnect graph
+Graph vs tree
+Classification of graph
+Section 2 — Core Practical Coding
+Graph traversal
+BFS and DFS in graph
+Path in graph
+Find shortest distance between vertices
+Cycle in graph
+Check cycle in graph
+Detect cycle in undirected graph
+Bipartite graph
+Number of Islands
+
+These are the main coding/practical interview problems.
+
+Section 3 — Applications
+Graph applications
+Social media graph for mutual friends
+Graph used in maps
+
+Mostly explanation-based interview questions.
+
+Section 4 — Advanced Practical Concepts
+Shortest path in graph
+Minimum spanning tree
+Prims and Kruskal algorithms
+Backtracking
+Graph algorithms
+Tarjans algorithm
+
+These are advanced coding/interview topics.
+
+Section 5 — Low Priority
+Graph indexing
+
+Usually theory-based and low chance compared to others.
+
+Most Important Coding Topics for Your 2 Days
+
+If time becomes short, prioritize these:
+
+BFS
+DFS
+Cycle detection
+Bipartite graph
+Number of Islands
+Shortest path
+Prim’s Algorithm
+Kruskal Algorithm
+
+These cover most practical graph interview questions.
