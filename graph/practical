@@ -1,0 +1,41 @@
+//========finding shortest distance using bfs in unweighted graph
+
+let graph = {
+    A: ["B", "C"],
+    B: ["D"],
+    C: ["E"],
+    D: [],
+    E: []
+};
+
+
+
+function shortdis(graph,start,target){
+    
+    let visited=new Set();
+    let queue=[[start,0]];
+    
+    visited.add(start);
+    
+    while(queue.length>0){
+        let [node,distance]=queue.shift();
+        
+        if(node===target){
+            return distance;
+        }
+        
+        
+        for(let neigh of graph[node]){
+            if(!visited.has(neigh)){
+                visited.add(neigh);
+                
+                queue.push([neigh,distance+1])
+            }
+        }
+    }
+    return -1;
+    
+}
+
+
+console.log(shortdis(graph,"A","D"));
