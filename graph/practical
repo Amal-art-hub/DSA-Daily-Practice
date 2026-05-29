@@ -42,3 +42,50 @@ console.log(shortdis(graph,"A","D"));
 
 
 
+//============ Check whether an undirected graph contains a cycle
+
+let graph = {
+    A: ["B", "D"],
+    B: ["A", "C"],
+    C: ["B", "D"],
+    D: ["A", "C"]
+};
+
+function hascycle(graph){
+     let visited=new Set();
+     
+     function dfs(node,par){
+         visited.add(node);
+         
+         for(let neigh of graph[node]){
+             if(!visited.has(neigh)){
+                 if(dfs(neigh,node)){
+                     return true;
+                 }
+             }else if(neigh !==par){
+                 return true;
+             }
+         }
+         
+         return false;
+     }
+     
+     
+     
+     
+     
+     
+     
+     for(let node in graph){
+         if(!visited.has(node)){
+             if(dfs(node,null)){
+                 return true;
+             }
+         }
+     }
+     return false;
+     
+}
+
+
+console.log(hascycle(graph));
