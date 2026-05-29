@@ -39,3 +39,6 @@ function shortdis(graph,start,target){
 
 
 console.log(shortdis(graph,"A","D"));
+
+
+
