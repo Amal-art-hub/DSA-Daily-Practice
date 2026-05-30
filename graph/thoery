@@ -52,3 +52,70 @@ Question: What is a Minimum Spanning Tree (MST)?
 Answer:
 
 "A Minimum Spanning Tree (MST) is a tree formed from a connected weighted undirected graph that connects all vertices with no cycles and has the minimum possible total edge weight. An MST always contains V−1 edges, where V is the number of vertices."
+
+//=============1. Kruskal's Algorithm Idea
+
+Pick the smallest edge first and keep adding edges as long as they don't form a cycle.
+"Kruskal's Algorithm finds the MST by sorting all edges by weight and repeatedly selecting the smallest edge that does not create a cycle."
+
+//====Prim's Algorithm
+
+
+
+Start from any vertex and keep adding the minimum-weight edge that connects a new vertex.
+
+Unlike Kruskal, Prim grows the MST from a starting node.
+
+Steps
+Start from any vertex.
+Add the smallest edge connected to the current tree.
+Add the new vertex.
+Repeat until all vertices are included.
+"Prim's Algorithm finds the MST by starting from a vertex and repeatedly adding the minimum-weight edge that connects a new vertex to the growing tree."
+
+
+//========Backtracking
+"Backtracking is a recursive problem-solving technique where we build a solution step by step. If a choice leads to an invalid solution, we undo that choice and try another possibility."
+
+//=========graph algoithums
+
+Graph Traversal Algorithms
+
+Used to visit nodes in a graph.
+
+BFS (Breadth-First Search)
+DFS (Depth-First Search)
+Shortest Path Algorithms
+
+Used to find the shortest path between nodes.
+
+Dijkstra's Algorithm
+Bellman-Ford Algorithm
+Floyd-Warshall Algorithm
+Minimum Spanning Tree Algorithms
+
+Used to connect all vertices with minimum cost.
+
+Kruskal's Algorithm
+Prim's Algorithm
+Ordering Algorithm
+
+Used when nodes have dependencies.
+
+Topological Sorting
+Cycle Detection Algorithms
+
+Used to check whether a graph contains a cycle.
+
+Cycle Detection (DFS / Union-Find)
+Graph Data Structure / Technique
+
+Not exactly a traversal algorithm, but a powerful graph technique.
+
+Union-Find (Disjoint Set)
+
+Used for:
+
+Cycle detection
+Connected components
+Kruskal's Algorithm
