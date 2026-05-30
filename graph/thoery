@@ -1,0 +1,54 @@
+1. What is a Bipartite Graph?
+
+Answer:
+A bipartite graph is a graph whose vertices can be divided into two disjoint sets such that every edge connects a vertex from one set to a vertex in the other set. No two vertices in the same set are connected.
+
+2. What are the rules of a Bipartite Graph?
+
+Answer:
+
+Vertices are divided into two sets.
+Edges can exist only between the two sets.
+No edge can connect two vertices within the same set.
+3. Give a real-world example of a Bipartite Graph.
+
+Answer:
+Students and Courses.
+
+Students form one set.
+Courses form another set.
+An edge represents a student enrolled in a course.
+
+//===============
+Graph Applications (Interview Answer)
+
+Question: What are the applications of Graphs?
+Graphs are used to represent relationships between objects. They are widely used in computer science and real-world systems.
+
+Example:
+
+Facebook friends
+Instagram followers
+LinkedIn connections
+2. Maps and Navigation
+
+Cities/locations are nodes and roads are edges.
+
+Used by:
+
+Google Maps
+Uber
+
+To find the shortest path between locations.
+
+3. Computer Networks
+
+Computers, routers, and servers are nodes.
+Network connections are edges.
+
+//===============
+Question: What is a Minimum Spanning Tree (MST)?
+
+Answer:
+
+"A Minimum Spanning Tree (MST) is a tree formed from a connected weighted undirected graph that connects all vertices with no cycles and has the minimum possible total edge weight. An MST always contains V−1 edges, where V is the number of vertices."
