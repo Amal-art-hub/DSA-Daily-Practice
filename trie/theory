@@ -1,0 +1,39 @@
+//================Trie
+
+A Trie (pronounced "try") is a special tree-like data structure used to store and search strings (words) efficiently.
+
+//=====What are the types of Trie?
+
+Answer:
+
+There are several types of Trie:
+
+Standard Trie (Prefix Trie) – Stores words character by character for efficient prefix searching.
+Suffix Trie – Stores all suffixes of a string and is used for pattern matching.
+Compressed Trie (Radix Trie) – Merges single-child nodes to reduce memory usage.
+Ternary Search Trie (TST) – Combines features of a Trie and Binary Search Tree.
+Patricia Trie – An optimized compressed Trie commonly used in networking.
+What are the advantages of Trie?
+
+Answer:
+
+//====The main advantages of a Trie are:
+
+Fast insertion and search operations.
+Efficient prefix-based searching.
+Ideal for autocomplete and suggestion systems.
+No hash collisions unlike hash tables.
+Words can be retrieved in lexicographical (dictionary) order.
+What are the applications of Trie?
+
+Answer:
+
+//============================Trie is commonly used in:
+
+Autocomplete systems.
+Spell checkers.
+Dictionaries and word lookup applications.
+Search engine suggestions.
+Contact search applications.
+IP routing tables in networking.
+Pattern matching and string processing.

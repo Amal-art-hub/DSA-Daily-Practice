@@ -1,0 +1,35 @@
+Basic (Theory + Core Practical)
+Theory
+Types of Trie
+Advantages of Trie
+Applications of Trie
+Complexity of Trie Operations
+
+Practical
+Insert Word in Trie
+Search in Trie
+Prefix Search in Trie
+
+These are the most important topics. Many interviews start here.
+
+Medium (Theory + Practical)
+Theory
+Trie with Autocomplete
+Longest Common Prefix
+Suffix vs Prefix Trie
+Practical
+Longest Common Prefix using Trie
+Autocomplete using Trie
+
+These topics test whether you can use Trie to solve real problems.
+
+Pro / Advanced (Theory + Practical)
+Theory
+Compressed Trie
+Trie Inefficiency in Memory
+Trie Serialization
+Self Balancing Trie
+Practical
+Deletion in Trie
+
+Deletion is usually considered advanced because you must carefully remove nodes without affecting other words.
