@@ -2,6 +2,7 @@
 
 These are the foundations. Understand these before coding.
 
+
 Tree Terminologies
 Tree terminologies
 Degree of tree
@@ -26,6 +27,8 @@ BST Concepts
 Applications of BST
 Balanced vs unbalanced tree
 Allow duplicates in BST
+
+
 2. BASIC PRACTICAL (Must Know Coding)
 BST Operations
 Find min in BST using recursion
@@ -38,6 +41,8 @@ Closest element in BST to target
 Tree Properties
 Check if binary tree is full
 Check if BST is perfect
+
+
 3. MEDIUM THEORY
 Performance
 Complexity of BST operations
@@ -49,6 +54,8 @@ Self-balancing tree
 AVL tree
 Red-Black tree
 Rotations in AVL trees
+
+
 4. MEDIUM PRACTICAL
 BST Problems
 Second largest in BST
@@ -66,6 +73,8 @@ Convert sorted array to balanced BST
 Convert BT to BST
 BST Deletion
 Special case deletion in BST
+
+
 5. ADVANCED THEORY
 Advanced Trees
 B-tree
@@ -74,12 +83,17 @@ Binary indexed tree (Fenwick Tree)
 Splay tree
 Special Trees
 Complete BST
+
+
 6. ADVANCED PRACTICAL
 Heap + Tree Combination
 K largest elements from array using min-heap
 Tree Modification
 Remove duplicates from BT
+
+
 Recommended Study Order
+
 Week 1
 Tree terminologies
 Height / Depth
@@ -89,6 +103,7 @@ Traversals
 Level Order Traversal
 Validate BST
 Find Min in BST
+
 Week 2
 Complexity of BST
 BFS vs DFS
@@ -98,6 +113,7 @@ Third Largest
 Closest Element
 Identical Trees
 Subtree
+
 Week 3
 Convert BT to BST
 Sorted Array to Balanced BST
@@ -106,6 +122,7 @@ Count Single Child Nodes
 Sum of Left Leaves
 Check Full Tree
 Check Perfect BST
+
 Week 4
 AVL Tree
 Rotations
