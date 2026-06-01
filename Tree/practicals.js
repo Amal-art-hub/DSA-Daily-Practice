@@ -541,3 +541,20 @@ for(let val of arr){
 
 B.delete(50);
 B.inorder();
+
+
+function isvalidate(root,min=-Infinity,max=Infinity){
+ 
+    if(root===null)return true;
+    
+    if(root.data<=min ||root.data >=max){
+        return false;
+    }
+    
+    return (
+        isvalidate(root.left,min,root.data)  && isvalidate(root.right,root.data,max)
+        
+        )
+}
+
+console.log(isvalidate(B.root));
