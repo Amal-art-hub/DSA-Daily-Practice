@@ -384,3 +384,160 @@ return closest;
 }
 
 console.log(clsest(root,13))
+
+
+//=======creating bst and  inserting ,searching,deleteing,preorder,postorder,inorder
+
+let arr = [50, 30, 70, 20, 40, 60, 80];
+
+class Node{
+    constructor(data){
+        this.data=data;
+        this.left=null;
+        this.right=null;
+    }
+}
+
+class bst{
+    constructor(){
+        this.root=null;
+    }
+    
+    insert(val){
+        
+        let newNode=new Node(val)
+        if(this.root ===null){
+            this.root=newNode;
+            return;
+        }
+        
+        let curr=this.root;
+        
+        
+        while(true){
+            
+            if(val<curr.data){
+                if(curr.left===null){
+                    curr.left=newNode;
+                    return;
+                }
+                curr=curr.left;
+            }else{
+                if(curr.right===null){
+                    curr.right=newNode;
+                    return;
+                }
+                curr=curr.right;
+            }
+            
+            
+            
+            
+            
+        }
+        
+        
+        
+     
+        
+    }
+    
+    
+    
+       preorder(node=this.root){
+            if(node===null)return;
+            
+            console.log(node.data);
+            this.preorder(node.left);
+            this.preorder(node.right);
+            
+        }
+        
+        
+        inorder(node=this.root){
+            if(node===null)return;
+            this.inorder(node.left);
+            console.log(node.data);
+            this.inorder(node.right);
+        }
+        
+        
+        
+        search(val){
+            let curr=this.root;
+            
+            while(curr){
+                if(curr.data===val)return true;
+                
+                
+                if(val<curr.data){
+                    curr=curr.left;
+                }else{
+                    curr=curr.right;
+                }
+            }
+            
+            return false;
+            
+        }
+        
+        
+        delete(value){
+            this.root=this.deleteNode(this.root,value);
+        }
+        
+        
+        deleteNode(node,value){
+            if(node===null)return null;
+            
+            if(value<node.data){
+                node.left=this.deleteNode(node.left,value)
+            }else if(value>node.data){
+                node.right=this.deleteNode(node.right,value)
+            }else{
+                if(!node.right && !node.left){
+                    return null
+                }
+                
+                if(!node.left) return node.right;
+                if(!node.right)return node.left;
+                
+                
+                
+                let minNode=this.minNode(node.right);
+                
+                node.data=minNode.data;
+                
+                node.right=this.deleteNode(node.right,minNode.data);
+                
+            }
+            
+            return node;
+        }
+        
+        
+        minNode(node){
+            while(node.left){
+                node=node.left
+            }
+            return node;
+        }
+        
+    
+    
+}
+
+let B=new bst();
+
+
+for(let val of arr){
+    B.insert(val);
+}
+
+// B.preorder();
+// B.inorder();
+// B.search(50);
+// console.log(B.search(90));
+
+B.delete(50);
+B.inorder();
