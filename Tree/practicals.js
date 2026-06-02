@@ -1,139 +1,193 @@
-//
+// //
 
-//=================create a simple binary tree and find the lca of 5,7
+// //=================create a simple binary tree and find the lca of 5,7
 
-// class Node{
-//     constructor(data){
-//         this.data=data;
-//         this.left=null;
-//         this.right=null;
-//     }
-// }
+// // class Node{
+// //     constructor(data){
+// //         this.data=data;
+// //         this.left=null;
+// //         this.right=null;
+// //     }
+// // }
 
-// let arr=[1,2,3,4,5,6,7,8];
+// // let arr=[1,2,3,4,5,6,7,8];
 
-// function insert(arr){
+// // function insert(arr){
 
-//     let root=new Node(arr[0]);
+// //     let root=new Node(arr[0]);
 
-//     let q=[root];
+// //     let q=[root];
 
-//     let i=1;
+// //     let i=1;
 
-//     while(i<arr.length){
+// //     while(i<arr.length){
 
-//         let curr=q.shift();
+// //         let curr=q.shift();
 
-//         if(i<arr.length){
-//             curr.left=new Node(arr[i]);
-//             q.push(curr.left);
-//             i++;
-//         }
+// //         if(i<arr.length){
+// //             curr.left=new Node(arr[i]);
+// //             q.push(curr.left);
+// //             i++;
+// //         }
 
-//         if(i<arr.length){
-//             curr.right=new Node(arr[i]);
-//             q.push(curr.right);
-//             i++
-//         }
+// //         if(i<arr.length){
+// //             curr.right=new Node(arr[i]);
+// //             q.push(curr.right);
+// //             i++
+// //         }
 
-//     }
+// //     }
 
-//     return root;
+// //     return root;
 
-// }
-// let root=insert(arr);
-// console.log(root);
+// // }
+// // let root=insert(arr);
+// // console.log(root);
 
-// function lca(root,p1,p2){
+// // function lca(root,p1,p2){
 
-//     if(root===null){
-//         return null;
-//     }
+// //     if(root===null){
+// //         return null;
+// //     }
 
-//     if(p1<root.data  && p2<root.data){
-//         return lca(root.left,p1,p2);
-//     }
+// //     if(p1<root.data  && p2<root.data){
+// //         return lca(root.left,p1,p2);
+// //     }
 
-//     if(p1>root.data )
+// //     if(p1>root.data )
 
-// }
+// // }
 
-//=================create a bst and find smallest elemnt in bst
+// //=================create a bst and find smallest elemnt in bst
 
-// class Node{
-//     constructor(data){
-//         this.data=data;
-//         this.left=null;
-//         this.right=null;
-//     }
-// }
+// // class Node{
+// //     constructor(data){
+// //         this.data=data;
+// //         this.left=null;
+// //         this.right=null;
+// //     }
+// // }
 
-// let arr= [10, 5, 15, 3, 7, 12, 18];
+// // let arr= [10, 5, 15, 3, 7, 12, 18];
 
-// function insert(node,ele){
-//     if(node===null){
-//         return new Node(ele);
-//     };
+// // function insert(node,ele){
+// //     if(node===null){
+// //         return new Node(ele);
+// //     };
 
-//     if(ele<node.data){
-//         node.left=insert(node.left,ele);
-//     }else{
-//         node.right=insert(node.right,ele);
-//     }
+// //     if(ele<node.data){
+// //         node.left=insert(node.left,ele);
+// //     }else{
+// //         node.right=insert(node.right,ele);
+// //     }
 
-//     return node;
-// }
+// //     return node;
+// // }
 
-// function bst(arr){
+// // function bst(arr){
 
-//     let root =null;
-//   for(let ele of arr){
-//       root=insert(root,ele)
-//   }
+// //     let root =null;
+// //   for(let ele of arr){
+// //       root=insert(root,ele)
+// //   }
 
-//   return root;
-// }
+// //   return root;
+// // }
 
-// function display(node){
-//     if(node===null)return;
+// // function display(node){
+// //     if(node===null)return;
 
-//     display(node.left);
-//     console.log(node.data);
-//     display(node.right);
+// //     display(node.left);
+// //     console.log(node.data);
+// //     display(node.right);
 
-// }
+// // }
 
-// let root=bst(arr);
-// // display(root);
+// // let root=bst(arr);
+// // // display(root);
 
-// //finding the smallest
+// // //finding the smallest
+// // // function smallest(node){
+// // //     if(node===null)return null;
+
+// // //     while(node.left !==null){
+// // //         node=node.left;
+// // //     }
+
+// // //     return node.data;
+// // // }
+
+// // //finding the smallest by rescursion
+
 // // function smallest(node){
 // //     if(node===null)return null;
 
-// //     while(node.left !==null){
-// //         node=node.left;
-// //     }
+// //   if(node.left===null){
+// //       return node.data;
 
-// //     return node.data;
+// //   }
+
+// //   return smallest(node.left);
+
 // // }
 
-// //finding the smallest by rescursion
+// // console.log(smallest(root));
 
-// function smallest(node){
-//     if(node===null)return null;
+// //==========create simple tree and find the smallest elemet
 
-//   if(node.left===null){
-//       return node.data;
+// // class Node{
+// // constructor(data){
+// // this.data=data;
+// // this.left=null;
+// // this.right=null;
+// // }
+// // }
 
-//   }
+// // let arr=[1,2,3,4,5,6,7,8];
 
-//   return smallest(node.left);
+// // function Bt(arr){
+// // let root=new Node(arr[0]);
 
-// }
+// // let q=[root];
+// // let i=1;
 
-// console.log(smallest(root));
+// // while(i<arr.length){
 
-//==========create simple tree and find the smallest elemet
+// //     let curr=q.shift();
+
+// //     if(i<arr.length){
+// //         curr.left=new Node(arr[i])
+// //         q.push(curr.left)
+// //         i++;
+// //     }
+
+// //     if(i<arr.length){
+// //         curr.right=new Node(arr[i]);
+// //         q.push(curr.right);
+// //         i++;
+// //     }
+
+// // }
+
+// // return root
+
+// // }
+
+// // function small(node){
+// // if(node===null)return Infinity;
+
+// // let left=small(node.left);
+// // let right=small(node.right);
+
+// // return Math.min(node.data,left,right);
+
+// // }
+
+// // let root=Bt(arr);
+
+// // console.log(small(root))
+
+// ///==================create bst and find second larget element
 
 // class Node{
 // constructor(data){
@@ -143,247 +197,193 @@
 // }
 // }
 
-// let arr=[1,2,3,4,5,6,7,8];
+// let arr= [10, 5, 15, 3, 7, 12, 18];
 
-// function Bt(arr){
-// let root=new Node(arr[0]);
+// function insert(node,val){
+// if(node===null)return new Node(val);
 
-// let q=[root];
-// let i=1;
+// ```
+// if(val<node.data){
+//     node.left=insert(node.left,val);
+// }else{
+//     node.right=insert(node.right,val);
+// }
 
-// while(i<arr.length){
-
-//     let curr=q.shift();
-
-//     if(i<arr.length){
-//         curr.left=new Node(arr[i])
-//         q.push(curr.left)
-//         i++;
-//     }
-
-//     if(i<arr.length){
-//         curr.right=new Node(arr[i]);
-//         q.push(curr.right);
-//         i++;
-//     }
+// return node;
+// ```
 
 // }
 
-// return root
+// function print(node){
+// if(node===null){
+// return;
+// }
+
+// ```
+// print(node.left);
+// console.log(node.data);
+// print(node.right);
+// ```
 
 // }
 
-// function small(node){
-// if(node===null)return Infinity;
+// function bst(arr){
+// let root=null;
 
-// let left=small(node.left);
-// let right=small(node.right);
+// ```
+// for(let val of arr){
+//     root=insert(root,val)
+// }
 
-// return Math.min(node.data,left,right);
+// return root;
+// ```
 
 // }
 
-// let root=Bt(arr);
+// let root=bst(arr);
 
-// console.log(small(root))
+// // print(root);
 
-///==================create bst and find second larget element
+// //========find the second largest largest
 
-class Node{
-constructor(data){
-this.data=data;
-this.left=null;
-this.right=null;
-}
-}
+// // function slarg(root){
+// //     if(root===null ||(root.left===null && root.right===null)){
+// //         return "no second largest element"
+// //     }
 
-let arr= [10, 5, 15, 3, 7, 12, 18];
+// //      let curr=root;
 
-function insert(node,val){
-if(node===null)return new Node(val);
+// //   while(curr){
 
-```
-if(val<node.data){
-    node.left=insert(node.left,val);
-}else{
-    node.right=insert(node.right,val);
-}
+// //          if(curr.right && curr.right.left ===null && curr.right.right===null){
+// //          return curr.data;
+// //      }
 
-return node;
-```
+// //      if(curr.right===null ){
+// //          let temp=curr.left;
 
-}
+// //          while(temp.right!==null){
+// //              temp=temp.right;
+// //          }
 
-function print(node){
-if(node===null){
-return;
-}
+// //          return temp.data
 
-```
-print(node.left);
-console.log(node.data);
-print(node.right);
-```
+// //      }
 
-}
+// //       curr=curr.right;
 
-function bst(arr){
-let root=null;
+// //   }
 
-```
-for(let val of arr){
-    root=insert(root,val)
-}
+// // }
 
-return root;
-```
+// // console.log(slarg(root))
 
-}
+// //smallest and largest
 
-let root=bst(arr);
+// // function largest(root){
+// //     if(root===null){
+// //         return "no tree";
+// //     }
 
-// print(root);
+// //     let curr=root;
 
-//========find the second largest largest
+// //     while(curr.left!==null){
+// //         curr=curr.left;
+// //     }
 
-// function slarg(root){
-//     if(root===null ||(root.left===null && root.right===null)){
-//         return "no second largest element"
-//     }
+// //     return curr.data;
+// // }
 
-//      let curr=root;
+// // console.log(largest(root))
 
-//   while(curr){
+// //  function slarg(root){
+// //     if(root===null ||(root.left===null && root.right===null)){
+// //         return "no second smallest element"
+// //     }
 
-//          if(curr.right && curr.right.left ===null && curr.right.right===null){
-//          return curr.data;
-//      }
+// //      let curr=root;
 
-//      if(curr.right===null ){
-//          let temp=curr.left;
+// //   while(curr){
 
-//          while(temp.right!==null){
-//              temp=temp.right;
-//          }
+// //          if(curr.left && curr.left.left ===null && curr.left.right===null){
+// //          return curr.data;
+// //      }
 
-//          return temp.data
+// //      if(curr.left===null ){
+// //          let temp=curr.right;
 
-//      }
+// //          while(temp.left!==null){
+// //              temp=temp.left;
+// //          }
 
-//       curr=curr.right;
+// //          return temp.data
 
-//   }
+// //      }
+
+// //       curr=curr.left;
+
+// //   }
+
+// // }
+
+// // console.log(slarg(root))
+
+// //==================finding k th largest element
+
+// // function kthlarg(root,k){
+// // let count=0;
+// // let ans=null;
+
+// // function dfs(node){
+// //     if(node===null  ||  ans !==null){
+// //         return;
+// //     }
+
+// //     dfs(node.left);
+// //      count++;
+
+// //      if(count===k){
+// //          ans=node.data;
+// //          return;
+// //      }
+
+// //      dfs(node.right);
+// // }
+
+// // dfs(root);
+
+// // return ans;
+// // }
+
+// // console.log(kthlarg(root,1))
+
+// //=======================closest element to target
+
+// function clsest(root,tar){
+// let closest=root.data;
+
+// while(root !==null){
+// if(Math.abs(tar-root.data)<Math.abs(tar-closest)){
+// closest=root.data;
+// }
+
+// ```
+// if(tar<root.data){
+//     root=root.left
+// }else if(tar>root.data){
+//     root=root.right
+// }else{
+//     return root;
+// }
+// ```
 
 // }
 
-// console.log(slarg(root))
-
-//smallest and largest
-
-// function largest(root){
-//     if(root===null){
-//         return "no tree";
-//     }
-
-//     let curr=root;
-
-//     while(curr.left!==null){
-//         curr=curr.left;
-//     }
-
-//     return curr.data;
-// }
-
-// console.log(largest(root))
-
-//  function slarg(root){
-//     if(root===null ||(root.left===null && root.right===null)){
-//         return "no second smallest element"
-//     }
-
-//      let curr=root;
-
-//   while(curr){
-
-//          if(curr.left && curr.left.left ===null && curr.left.right===null){
-//          return curr.data;
-//      }
-
-//      if(curr.left===null ){
-//          let temp=curr.right;
-
-//          while(temp.left!==null){
-//              temp=temp.left;
-//          }
-
-//          return temp.data
-
-//      }
-
-//       curr=curr.left;
-
-//   }
+// return closest;
 
 // }
 
-// console.log(slarg(root))
-
-//==================finding k th largest element
-
-// function kthlarg(root,k){
-// let count=0;
-// let ans=null;
-
-// function dfs(node){
-//     if(node===null  ||  ans !==null){
-//         return;
-//     }
-
-//     dfs(node.left);
-//      count++;
-
-//      if(count===k){
-//          ans=node.data;
-//          return;
-//      }
-
-//      dfs(node.right);
-// }
-
-// dfs(root);
-
-// return ans;
-// }
-
-// console.log(kthlarg(root,1))
-
-//=======================closest element to target
-
-function clsest(root,tar){
-let closest=root.data;
-
-while(root !==null){
-if(Math.abs(tar-root.data)<Math.abs(tar-closest)){
-closest=root.data;
-}
-
-```
-if(tar<root.data){
-    root=root.left
-}else if(tar>root.data){
-    root=root.right
-}else{
-    return root;
-}
-```
-
-}
-
-return closest;
-
-}
-
-console.log(clsest(root,13))
+// console.log(clsest(root,13))
 
 
 //=======creating bst and  inserting ,searching,deleteing,preorder,postorder,inorder
@@ -556,5 +556,35 @@ function isvalidate(root,min=-Infinity,max=Infinity){
         
         )
 }
+
+
+
+
+
+
+
+function level(root){
+    if(root===null )return null;
+    
+    let q=[root];
+    
+    while(q.length>0){
+        let node=q.shift();
+        
+        
+        console.log(node.data);
+        if(node.left){
+            q.push(node.left)
+        }
+        
+        if(node.right){
+            q.push(node.right);
+        }
+        
+        
+    }
+}
+
+level(B.root);
 
 console.log(isvalidate(B.root));
