@@ -1,0 +1,108 @@
+
+//testeditor  undo redo
+// class Textfounder{
+//     constructor(){
+//         this.text="";
+//         this.undoStack=[];
+//         this.redoStack=[];
+//     }
+    
+//     write(word){
+//         this.undoStack.push(this.text);
+//         this.text +=word;
+//         this.redoStack=[];
+//     }
+    
+//     undo(){
+//         if(this.undoStack.length===0){
+//             console.log("nothing to undo");
+//             return;
+//         }
+        
+//         this.redoStack.push(this.text);
+        
+//         this.text=this.undoStack.pop();
+        
+//     }
+    
+//     redo(){
+//         if(this.redoStack.length===0){
+//             console.log("nothing to redo");
+            
+//         }
+        
+//         this.undoStack.push(this.text);
+        
+        
+//         this.text=this.redoStack.pop()
+//     }
+    
+//     show(){
+//         console.log(this.text);
+//     }
+    
+    
+// }
+
+// let txt=new Textfounder();
+
+// txt.write("hi ")
+
+// txt.write("amal ")
+
+// txt.show();
+// txt.undo();
+// txt.show();
+
+// txt.redo();
+
+// txt.show();
+
+//====================merge sort
+let students = [
+    { name: "Amal", mark: 85 },
+    { name: "Rahul", mark: 60 },
+    { name: "Akhil", mark: 95 },
+    { name: "Nikhil", mark: 70 }
+];
+
+
+function mergesort(students){
+    if(students.length<=1)return students;
+    
+    let mid=Math.floor(students.length/2);
+    
+    let left=mergesort(students.slice(0,mid));
+    let right=mergesort(students.slice(mid));
+    
+    return sort(left,right)
+}
+
+
+function sort(left,right){
+    
+let i=0;
+let j=0;
+let result=[]
+
+while(i<left.length && j<right.length){
+    if(left[i].mark>right[j].mark){
+        result.push(left[i]);
+        i++
+    }else{
+        result.push(right[j])
+        j++
+    }
+}
+
+return result.concat(left.slice(i)).concat(right.slice(j));
+
+}
+
+
+
+
+
+
+
+console.log(mergesort(students))
