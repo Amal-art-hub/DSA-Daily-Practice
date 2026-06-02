@@ -589,6 +589,8 @@ level(B.root);
 
 console.log(isvalidate(B.root));
 
+
+/////////////////////////////2-06-2026
 //========create a bt from arr
 
 let arr = [1, 2, 3, 4, 5, 6, 7];

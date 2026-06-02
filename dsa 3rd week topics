@@ -1,0 +1,199 @@
+1. Tree Theory
+Applications of BST
+Complete BST
+Self-balancing tree
+AVL tree
+Red-Black tree
+Height of tree
+Depth of tree
+Balanced vs unbalanced tree
+Full binary tree
+Complete binary tree
+Perfect binary tree
+Complexity of BST operations
+Tree traversals (Preorder, Inorder, Postorder)
+Validate BST
+Lowest Common Ancestor (LCA)
+Leaf nodes in tree
+Max number of nodes in binary tree of height h
+Check if binary tree is full
+Internal nodes
+Siblings
+Degree of tree
+Degree of node
+N-ary tree
+Degenerate tree
+Ternary tree
+Difference between BT and BST
+Time complexity of operations in BT vs BST
+Tree terminologies
+Use cases of BFS and DFS in trees
+Relationship between depth and height
+Rotations in AVL trees
+Allow duplicates in BST
+Special case deletion in BST
+
+
+
+2. Tree Practical
+Convert BT to BST
+Level order traversal
+Second largest in BST
+Third largest in BST
+Check if BST is perfect
+Convert sorted array to balanced BST
+Check if two trees are identical
+Check if subtree
+Sum of left leaf nodes
+Remove duplicates from BT
+Count single child nodes in BST
+Closest element in BST to target
+Find min in BST using recursion
+Implement a binary tree
+Implement BST with insertion, contains, delete
+Convert sorted array into balanced BST
+Check if tree is balanced
+Program to find the depth of a binary tree
+Program to check whether tree is balanced or not
+Binary Tree Level Order Traversal (102)
+Kth Smallest Element in a BST (230)
+
+
+
+3. Graph Theory
+Adjacency matrix and list
+Weighted graph
+Cycle in graph
+Types of graph
+Directed vs undirected graph
+Graph applications
+Shortest path in graph
+Minimum spanning tree
+BFS and DFS in graph
+Detect cycle in undirected graph
+Graph representation
+Disconnect graph
+Degree of vertex
+Methods to implement graph
+Graph traversal
+Graph vs tree
+Complete graph
+Loop in graph
+Backtracking
+Prims and Kruskal algorithms
+Bipartite graph
+Social media graph for mutual friends
+Graph used in maps
+Graph algorithms
+Tarjans algorithm
+Graph indexing
+Classification of graph
+Check cycle in graph
+Path in graph
+Complexity of BFS in graph
+Complexity of DFS in graph
+Time complexity of graph operations
+Complexity of initialization of graph
+
+
+
+4. Graph Practical
+Find shortest distance between vertices
+Number of Islands
+Implement BFS and DFS for graph
+Implement graph traversal (DFS, BFS)
+BFS using graph
+Clone graph
+Clone Graph (133)
+
+
+
+5. Heap Theory
+Priority queue
+Min heap and max heap
+Heap sort
+Heapify
+Time complexity of heap insert
+Applications of heap
+BST vs heap
+Is heap complete binary tree
+Limitation of heap
+Build heap
+Find right child in heap
+Time complexity of heap sort
+Time complexity of insert operation to heap
+
+
+
+6. Heap Practical
+K largest elements from array using min-heap
+Convert min heap to max heap
+Delete node from heap
+Kth largest in array using heap
+Implement min-heap
+Implement max-heap
+Build a heap
+Array to max/min heap
+Find Kth Largest Element in an Array (215)
+Heap sort to sort the string
+
+
+
+7. Trie Theory
+Types of trie
+Advantages of trie
+Suffix vs prefix trie
+Compressed trie
+Trie inefficiency in memory
+Search in trie
+Prefix search in trie
+Applications of trie
+Complexity of trie operations
+Trie serialization
+Self balancing trie
+
+
+
+8. Trie Practical
+Trie with autocomplete
+Longest common prefix
+Deletion in trie
+Insert word in trie
+Implement trie
+Create autocomplete using trie
+Find longest common prefix from array
+
+
+
+9. Complexity Theory
+Big O notation
+Linear time complexity
+Quadratic time complexity
+Logarithmic values and functions
+Learn how to find complexities of various algorithm
+Complexity of BST operations
+Complexity of trie operations
+Complexity of BST insertion
+Complexity of removing second largest element
+
+
+10. General Coding Practical
+Remove duplicate from nested array
+Convert string 1st character in upper case
+Find palindromic sub-string
+Remove duplicates from array in O(n)
+Sort transaction objects based on amount
+Queue with ability to dequeue from both ends
+PascalCase to snake_case
+2D array syntax
+Implementation using hash table
+Merge sort to sort the string
+
+
+11. LeetCode Practice
+Clone Graph (133)
+Binary Tree Level Order Traversal (102)
+Kth Smallest Element in a BST (230)
+Find Kth Largest Element in an Array (215)
+Number of Islands (200)
+Blind 75 LeetCode problems
