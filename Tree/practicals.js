@@ -588,3 +588,268 @@ function level(root){
 level(B.root);
 
 console.log(isvalidate(B.root));
+
+//========create a bt from arr
+
+let arr = [1, 2, 3, 4, 5, 6, 7];
+class Node{
+    constructor(data){
+        this.data=data;
+        this.left=null;
+        this.right=null;
+        
+    }
+}
+
+function Bt(arr){
+    
+    if(arr.length===0)return null;
+    
+    let root=new Node(arr[0]);
+    let q=[root];
+    let i=1;
+    
+    while(i<arr.length){
+        let node=q.shift();
+        
+        if(i<arr.length){
+            node.left=new Node(arr[i++]);
+            q.push(node.left)
+        }
+        
+        
+        if(i<arr.length){
+            node.right=new Node(arr[i++]);
+            q.push(node.right)
+        }
+    }
+    
+    return root;
+}
+
+function preorder(root){
+    if(root===null)return null;
+    
+    console.log(root.data);
+    preorder(root.left);
+    preorder(root.right);
+}
+
+let root=Bt(arr);
+
+preorder(root)
+
+//==========create bst from array
+
+ let arr = [1, 2, 3, 4, 5, 6, 7];
+class Node{
+    constructor(data){
+        this.data=data;
+        this.left=null;
+        this.right=null;
+        
+    }
+}
+
+
+function insert(node,val){
+    if(node===null)return new Node(val);
+    
+    if(val<node.data){
+        node.left=insert(node.left,val);
+    }else{
+        node.right=insert(node.right,val);
+    }
+    
+    return node;
+    
+}
+
+
+
+
+
+function bst(arr){
+    let root=null;
+    for(let ele of arr){
+         root=insert(root,ele)
+    }
+    
+    return root;
+}
+
+function inorder(root){
+    if(root===null)return null;
+    
+    
+    inorder(root.left);
+    console.log(root.data);
+    inorder(root.right);
+}
+
+let root=bst(arr);
+inorder(root)
+
+
+
+//========create a bt from arr
+
+let arr = [1, 9, 10, 4, 11, 6, 7];
+class Node{
+    constructor(data){
+        this.data=data;
+        this.left=null;
+        this.right=null;
+        
+    }
+}
+
+function Bt(arr){
+    
+    if(arr.length===0)return null;
+    
+    let root=new Node(arr[0]);
+    let q=[root];
+    let i=1;
+    
+    while(i<arr.length){
+        let node=q.shift();
+        
+        if(i<arr.length){
+            node.left=new Node(arr[i++]);
+            q.push(node.left)
+        }
+        
+        
+        if(i<arr.length){
+            node.right=new Node(arr[i++]);
+            q.push(node.right)
+        }
+    }
+    
+    return root;
+}
+
+function preorder(root){
+    if(root===null)return null;
+    
+    console.log(root.data);
+    preorder(root.left);
+    preorder(root.right);
+}
+
+let root=Bt(arr);
+
+// preorder(root)
+
+
+//===========creating bst from array
+
+//  let arr = [1, 2, 3, 4, 5, 6, 7];
+// class Node{
+//     constructor(data){
+//         this.data=data;
+//         this.left=null;
+//         this.right=null;
+        
+//     }
+// }
+
+
+// function insert(node,val){
+//     if(node===null)return new Node(val);
+    
+//     if(val<node.data){
+//         node.left=insert(node.left,val);
+//     }else{
+//         node.right=insert(node.right,val);
+//     }
+    
+//     return node;
+    
+// }
+
+
+
+
+
+// function bst(arr){
+//     let root=null;
+//     for(let ele of arr){
+//          root=insert(root,ele)
+//     }
+    
+//     return root;
+// }
+
+// function inorder(root){
+//     if(root===null)return null;
+    
+    
+//     inorder(root.left);
+//     console.log(root.data);
+//     inorder(root.right);
+// }
+
+// let root=bst(arr);
+// inorder(root)
+
+
+
+
+
+// ====================================================== convert bt to bst
+
+
+
+
+
+function storvalue(root,arr){
+    if(root===null)return ;
+    
+    storvalue(root.left,arr);
+    arr.push(root.data);
+    storvalue(root.right,arr);
+}
+
+
+
+function builtbst(root,arr,index){
+    
+    if(root===null)return;
+    builtbst(root.left,arr,index);
+    root.data=arr[index.i++];
+    builtbst(root.right,arr,index);
+}
+
+
+
+
+
+
+function bstconv(root){
+    let arr=[];
+    
+    storvalue(root,arr);
+    
+    arr.sort((a,b)=>a-b);
+    
+    builtbst(root,arr,{i:0})
+    
+    return root;
+    
+}
+
+function inorder(root){
+    if(root===null)return ;
+    
+    inorder(root.left);
+    console.log(root.data);
+    inorder(root.right);
+    
+    
+}
+
+
+ root=bstconv(root);
+inorder(root);
