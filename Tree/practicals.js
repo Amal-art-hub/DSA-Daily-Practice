@@ -748,7 +748,7 @@
 
 //===========creating bst from array
 
- let arr = [1, 2, 3, 4, 5, 6, 7];
+ let arr = [1, 10, 33, 14, 15, 6, 7];
 class Node{
     constructor(data){
         this.data=data;
@@ -903,36 +903,67 @@ let root=bst(arr);
 //=============================k th largest node
 
 
-function kth(root,k){
-    let count=0;
-    let ans=null;
+// function kth(root,k){
+//     let count=0;
+//     let ans=null;
     
     
     
-    function dfs(node){
-        if(node===null)return;
+//     function dfs(node){
+//         if(node===null)return;
         
-        dfs(node.left);
+//         dfs(node.left);
         
-        count ++;
+//         count ++;
         
-        if(count===k){
-            ans=node.data;
-            return ;
+//         if(count===k){
+//             ans=node.data;
+//             return ;
+//         }
+        
+//         dfs(node.right);
+//     }
+    
+    
+//     dfs(root);
+    
+    
+//     return ans;
+    
+    
+    
+    
+// }
+
+// console.log(kth(root,2))
+
+//==========closest node to target
+
+
+function clos(root,tar){
+    let closest=root.data;
+    let curr=root;
+
+
+    while(curr){
+        if(Math.abs(curr.data-tar)<Math.abs(closest-tar)){
+            closest=curr.data;
         }
         
-        dfs(node.right);
+
+        if(tar<curr.data){
+            curr=curr.left;
+        }else{
+            curr=curr.right;
+        }
+
+
+
     }
-    
-    
-    dfs(root);
-    
-    
-    return ans;
-    
-    
-    
-    
+
+    return closest;
+
 }
 
-console.log(kth(root,2))
+
+console.log(clos(root,34))

@@ -1,4 +1,5 @@
-//=========type Tree
+//==================================================================3-06-2026
+//===================================================================type Tree
 
 
 🌳 1. General Tree
@@ -132,3 +133,10 @@ If interviewer asks:
 Say:
 
 “There are several types of trees such as General Tree, Binary Tree, Binary Search Tree, Balanced BST like AVL and Red-Black Tree, Heap, Trie, and N-ary Tree. Additionally, for range query problems we use Segment Trees and Fenwick Trees.”
+
+//======================Splay tree
+
+A Splay Tree is used because it is a self-adjusting Binary Search Tree that moves the recently accessed node to the root using rotations (splaying).
+This improves performance for frequently accessed elements due to locality of reference, meaning recently used data is likely to be used again.
+
+It does not require strict balancing rules like AVL or Red-Black trees, but still gives amortized O(log n) time for search, insert, and delete operations.
