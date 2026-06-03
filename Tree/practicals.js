@@ -862,39 +862,77 @@ let root=bst(arr);
 
 //==============fincing second largest in the tree in bst
 
-function slrg(root){
-    if(!root || (!root.left && !root.right)){
-        return null;
-    }
+// function slrg(root){
+//     if(!root || (!root.left && !root.right)){
+//         return null;
+//     }
 
-    let curr=root;
-    let parent=null;
+//     let curr=root;
+//     let parent=null;
 
-    while(curr.right){
-        parent=curr;
-        curr=curr.right;
-    }
+//     while(curr.right){
+//         parent=curr;
+//         curr=curr.right;
+//     }
 
 
-if(curr.left){
-    let temp=curr.left;
+// if(curr.left){
+//     let temp=curr.left;
 
-    while(temp.right){
-        temp=temp.right;
-    }
+//     while(temp.right){
+//         temp=temp.right;
+//     }
 
-    return temp.data;
-}
+//     return temp.data;
+// }
     
 
 
 
 
-    return parent.data;
+//     return parent.data;
 
 
 
+// }
+
+
+// console.log(slrg(root))
+
+
+//=============================k th largest node
+
+
+function kth(root,k){
+    let count=0;
+    let ans=null;
+    
+    
+    
+    function dfs(node){
+        if(node===null)return;
+        
+        dfs(node.right);
+        
+        count ++;
+        
+        if(count===k){
+            ans=node.data;
+            return ;
+        }
+        
+        dfs(node.left);
+    }
+    
+    
+    dfs(root);
+    
+    
+    return ans;
+    
+    
+    
+    
 }
 
-
-console.log(slrg(root))
+console.log(kth(root,2))
