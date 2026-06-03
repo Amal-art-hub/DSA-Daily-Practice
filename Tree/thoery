@@ -1,0 +1,134 @@
+//=========type Tree
+
+
+🌳 1. General Tree
+
+A tree where a node can have any number of children.
+
+    A
+  / | \
+ B  C  D
+No restriction on number of children
+Used in file systems, org charts
+🌳 2. Binary Tree
+
+Each node can have at most 2 children:
+
+Left child
+Right child
+    1
+   / \
+  2   3
+🌳 3. Binary Search Tree (BST)
+
+A special binary tree with ordering rule:
+
+Left < Root < Right
+
+Example:
+
+      50
+     /  \
+   30    70
+Used for searching, sorting
+🌳 4. Balanced Binary Tree
+
+Height difference between left and right subtree is small.
+
+Examples:
+
+AVL Tree
+Red-Black Tree
+
+Used to keep operations efficient: O(log n)
+
+🌳 5. AVL Tree
+
+A self-balancing BST
+
+Condition:
+
+Balance Factor = -1, 0, +1
+Automatically rotates to stay balanced
+🌳 6. Red-Black Tree
+
+Another self-balancing BST with rules:
+
+Every node is red or black
+No two red nodes together
+Ensures balance
+
+Used in:
+
+Maps, sets (C++ STL, Java TreeMap)
+🌳 7. Heap
+
+A complete binary tree used for priority queues.
+
+Types:
+Max Heap → parent ≥ children
+Min Heap → parent ≤ children
+      100
+     /   \
+   50     40
+
+Used in:
+
+Priority queue
+Dijkstra algorithm
+🌳 8. Trie (Prefix Tree)
+
+Used for strings.
+
+cat
+car
+cap
+
+Structure:
+
+c
+ └ a
+    ├ t
+    ├ r
+    └ p
+
+Used in:
+
+Autocomplete
+Dictionary search
+🌳 9. N-ary Tree
+
+Each node can have N children
+
+    A
+  / | \
+ B  C  D
+
+Used in:
+
+XML/HTML DOM
+File systems
+🌳 10. Segment Tree
+
+Used for range queries.
+
+Example:
+
+Sum of range
+Min/Max in range
+
+Used in competitive programming.
+
+🌳 11. Fenwick Tree (BIT)
+
+Another structure for range queries (simpler than segment tree).
+
+🧠 Interview Answer (short)
+
+If interviewer asks:
+
+"Types of trees?"
+
+Say:
+
+“There are several types of trees such as General Tree, Binary Tree, Binary Search Tree, Balanced BST like AVL and Red-Black Tree, Heap, Trie, and N-ary Tree. Additionally, for range query problems we use Segment Trees and Fenwick Trees.”

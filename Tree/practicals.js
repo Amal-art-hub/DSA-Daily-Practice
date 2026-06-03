@@ -912,7 +912,7 @@ function kth(root,k){
     function dfs(node){
         if(node===null)return;
         
-        dfs(node.right);
+        dfs(node.left);
         
         count ++;
         
@@ -921,7 +921,7 @@ function kth(root,k){
             return ;
         }
         
-        dfs(node.left);
+        dfs(node.right);
     }
     
     
