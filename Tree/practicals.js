@@ -143,419 +143,419 @@
 // // }
 // // }
 
-// // let arr=[1,2,3,4,5,6,7,8];
+// // // let arr=[1,2,3,4,5,6,7,8];
 
-// // function Bt(arr){
-// // let root=new Node(arr[0]);
+// // // function Bt(arr){
+// // // let root=new Node(arr[0]);
 
-// // let q=[root];
-// // let i=1;
+// // // let q=[root];
+// // // let i=1;
 
-// // while(i<arr.length){
+// // // while(i<arr.length){
 
-// //     let curr=q.shift();
+// // //     let curr=q.shift();
 
-// //     if(i<arr.length){
-// //         curr.left=new Node(arr[i])
-// //         q.push(curr.left)
-// //         i++;
-// //     }
+// // //     if(i<arr.length){
+// // //         curr.left=new Node(arr[i])
+// // //         q.push(curr.left)
+// // //         i++;
+// // //     }
 
-// //     if(i<arr.length){
-// //         curr.right=new Node(arr[i]);
-// //         q.push(curr.right);
-// //         i++;
-// //     }
+// // //     if(i<arr.length){
+// // //         curr.right=new Node(arr[i]);
+// // //         q.push(curr.right);
+// // //         i++;
+// // //     }
+
+// // // }
+
+// // // return root
+
+// // // }
+
+// // // function small(node){
+// // // if(node===null)return Infinity;
+
+// // // let left=small(node.left);
+// // // let right=small(node.right);
+
+// // // return Math.min(node.data,left,right);
+
+// // // }
+
+// // // let root=Bt(arr);
+
+// // // console.log(small(root))
+
+// // ///==================create bst and find second larget element
+
+// // class Node{
+// // constructor(data){
+// // this.data=data;
+// // this.left=null;
+// // this.right=null;
+// // }
+// // }
+
+// // let arr= [10, 5, 15, 3, 7, 12, 18];
+
+// // function insert(node,val){
+// // if(node===null)return new Node(val);
+
+// // ```
+// // if(val<node.data){
+// //     node.left=insert(node.left,val);
+// // }else{
+// //     node.right=insert(node.right,val);
+// // }
+
+// // return node;
+// // ```
 
 // // }
 
-// // return root
+// // function print(node){
+// // if(node===null){
+// // return;
+// // }
+
+// // ```
+// // print(node.left);
+// // console.log(node.data);
+// // print(node.right);
+// // ```
 
 // // }
 
-// // function small(node){
-// // if(node===null)return Infinity;
+// // function bst(arr){
+// // let root=null;
 
-// // let left=small(node.left);
-// // let right=small(node.right);
+// // ```
+// // for(let val of arr){
+// //     root=insert(root,val)
+// // }
 
-// // return Math.min(node.data,left,right);
+// // return root;
+// // ```
 
 // // }
 
-// // let root=Bt(arr);
+// // let root=bst(arr);
 
-// // console.log(small(root))
+// // // print(root);
 
-// ///==================create bst and find second larget element
+// // //========find the second largest largest
+
+// // // function slarg(root){
+// // //     if(root===null ||(root.left===null && root.right===null)){
+// // //         return "no second largest element"
+// // //     }
+
+// // //      let curr=root;
+
+// // //   while(curr){
+
+// // //          if(curr.right && curr.right.left ===null && curr.right.right===null){
+// // //          return curr.data;
+// // //      }
+
+// // //      if(curr.right===null ){
+// // //          let temp=curr.left;
+
+// // //          while(temp.right!==null){
+// // //              temp=temp.right;
+// // //          }
+
+// // //          return temp.data
+
+// // //      }
+
+// // //       curr=curr.right;
+
+// // //   }
+
+// // // }
+
+// // // console.log(slarg(root))
+
+// // //smallest and largest
+
+// // // function largest(root){
+// // //     if(root===null){
+// // //         return "no tree";
+// // //     }
+
+// // //     let curr=root;
+
+// // //     while(curr.left!==null){
+// // //         curr=curr.left;
+// // //     }
+
+// // //     return curr.data;
+// // // }
+
+// // // console.log(largest(root))
+
+// // //  function slarg(root){
+// // //     if(root===null ||(root.left===null && root.right===null)){
+// // //         return "no second smallest element"
+// // //     }
+
+// // //      let curr=root;
+
+// // //   while(curr){
+
+// // //          if(curr.left && curr.left.left ===null && curr.left.right===null){
+// // //          return curr.data;
+// // //      }
+
+// // //      if(curr.left===null ){
+// // //          let temp=curr.right;
+
+// // //          while(temp.left!==null){
+// // //              temp=temp.left;
+// // //          }
+
+// // //          return temp.data
+
+// // //      }
+
+// // //       curr=curr.left;
+
+// // //   }
+
+// // // }
+
+// // // console.log(slarg(root))
+
+// // //==================finding k th largest element
+
+// // // function kthlarg(root,k){
+// // // let count=0;
+// // // let ans=null;
+
+// // // function dfs(node){
+// // //     if(node===null  ||  ans !==null){
+// // //         return;
+// // //     }
+
+// // //     dfs(node.left);
+// // //      count++;
+
+// // //      if(count===k){
+// // //          ans=node.data;
+// // //          return;
+// // //      }
+
+// // //      dfs(node.right);
+// // // }
+
+// // // dfs(root);
+
+// // // return ans;
+// // // }
+
+// // // console.log(kthlarg(root,1))
+
+// // //=======================closest element to target
+
+// // function clsest(root,tar){
+// // let closest=root.data;
+
+// // while(root !==null){
+// // if(Math.abs(tar-root.data)<Math.abs(tar-closest)){
+// // closest=root.data;
+// // }
+
+// // ```
+// // if(tar<root.data){
+// //     root=root.left
+// // }else if(tar>root.data){
+// //     root=root.right
+// // }else{
+// //     return root;
+// // }
+// // ```
+
+// // }
+
+// // return closest;
+
+// // }
+
+// // console.log(clsest(root,13))
+
+
+// //=======creating bst and  inserting ,searching,deleteing,preorder,postorder,inorder
+
+// let arr = [50, 30, 70, 20, 40, 60, 80];
 
 // class Node{
-// constructor(data){
-// this.data=data;
-// this.left=null;
-// this.right=null;
-// }
-// }
-
-// let arr= [10, 5, 15, 3, 7, 12, 18];
-
-// function insert(node,val){
-// if(node===null)return new Node(val);
-
-// ```
-// if(val<node.data){
-//     node.left=insert(node.left,val);
-// }else{
-//     node.right=insert(node.right,val);
+//     constructor(data){
+//         this.data=data;
+//         this.left=null;
+//         this.right=null;
+//     }
 // }
 
-// return node;
-// ```
-
-// }
-
-// function print(node){
-// if(node===null){
-// return;
-// }
-
-// ```
-// print(node.left);
-// console.log(node.data);
-// print(node.right);
-// ```
-
-// }
-
-// function bst(arr){
-// let root=null;
-
-// ```
-// for(let val of arr){
-//     root=insert(root,val)
-// }
-
-// return root;
-// ```
-
-// }
-
-// let root=bst(arr);
-
-// // print(root);
-
-// //========find the second largest largest
-
-// // function slarg(root){
-// //     if(root===null ||(root.left===null && root.right===null)){
-// //         return "no second largest element"
-// //     }
-
-// //      let curr=root;
-
-// //   while(curr){
-
-// //          if(curr.right && curr.right.left ===null && curr.right.right===null){
-// //          return curr.data;
-// //      }
-
-// //      if(curr.right===null ){
-// //          let temp=curr.left;
-
-// //          while(temp.right!==null){
-// //              temp=temp.right;
-// //          }
-
-// //          return temp.data
-
-// //      }
-
-// //       curr=curr.right;
-
-// //   }
-
-// // }
-
-// // console.log(slarg(root))
-
-// //smallest and largest
-
-// // function largest(root){
-// //     if(root===null){
-// //         return "no tree";
-// //     }
-
-// //     let curr=root;
-
-// //     while(curr.left!==null){
-// //         curr=curr.left;
-// //     }
-
-// //     return curr.data;
-// // }
-
-// // console.log(largest(root))
-
-// //  function slarg(root){
-// //     if(root===null ||(root.left===null && root.right===null)){
-// //         return "no second smallest element"
-// //     }
-
-// //      let curr=root;
-
-// //   while(curr){
-
-// //          if(curr.left && curr.left.left ===null && curr.left.right===null){
-// //          return curr.data;
-// //      }
-
-// //      if(curr.left===null ){
-// //          let temp=curr.right;
-
-// //          while(temp.left!==null){
-// //              temp=temp.left;
-// //          }
-
-// //          return temp.data
-
-// //      }
-
-// //       curr=curr.left;
-
-// //   }
-
-// // }
-
-// // console.log(slarg(root))
-
-// //==================finding k th largest element
-
-// // function kthlarg(root,k){
-// // let count=0;
-// // let ans=null;
-
-// // function dfs(node){
-// //     if(node===null  ||  ans !==null){
-// //         return;
-// //     }
-
-// //     dfs(node.left);
-// //      count++;
-
-// //      if(count===k){
-// //          ans=node.data;
-// //          return;
-// //      }
-
-// //      dfs(node.right);
-// // }
-
-// // dfs(root);
-
-// // return ans;
-// // }
-
-// // console.log(kthlarg(root,1))
-
-// //=======================closest element to target
-
-// function clsest(root,tar){
-// let closest=root.data;
-
-// while(root !==null){
-// if(Math.abs(tar-root.data)<Math.abs(tar-closest)){
-// closest=root.data;
-// }
-
-// ```
-// if(tar<root.data){
-//     root=root.left
-// }else if(tar>root.data){
-//     root=root.right
-// }else{
-//     return root;
-// }
-// ```
-
-// }
-
-// return closest;
-
-// }
-
-// console.log(clsest(root,13))
-
-
-//=======creating bst and  inserting ,searching,deleteing,preorder,postorder,inorder
-
-let arr = [50, 30, 70, 20, 40, 60, 80];
-
-class Node{
-    constructor(data){
-        this.data=data;
-        this.left=null;
-        this.right=null;
-    }
-}
-
-class bst{
-    constructor(){
-        this.root=null;
-    }
+// class bst{
+//     constructor(){
+//         this.root=null;
+//     }
     
-    insert(val){
+//     insert(val){
         
-        let newNode=new Node(val)
-        if(this.root ===null){
-            this.root=newNode;
-            return;
-        }
+//         let newNode=new Node(val)
+//         if(this.root ===null){
+//             this.root=newNode;
+//             return;
+//         }
         
-        let curr=this.root;
+//         let curr=this.root;
         
         
-        while(true){
+//         while(true){
             
-            if(val<curr.data){
-                if(curr.left===null){
-                    curr.left=newNode;
-                    return;
-                }
-                curr=curr.left;
-            }else{
-                if(curr.right===null){
-                    curr.right=newNode;
-                    return;
-                }
-                curr=curr.right;
-            }
-            
-            
+//             if(val<curr.data){
+//                 if(curr.left===null){
+//                     curr.left=newNode;
+//                     return;
+//                 }
+//                 curr=curr.left;
+//             }else{
+//                 if(curr.right===null){
+//                     curr.right=newNode;
+//                     return;
+//                 }
+//                 curr=curr.right;
+//             }
             
             
             
-        }
+            
+            
+//         }
         
         
         
      
         
-    }
+//     }
     
     
     
-       preorder(node=this.root){
-            if(node===null)return;
+//        preorder(node=this.root){
+//             if(node===null)return;
             
-            console.log(node.data);
-            this.preorder(node.left);
-            this.preorder(node.right);
+//             console.log(node.data);
+//             this.preorder(node.left);
+//             this.preorder(node.right);
             
-        }
+//         }
         
         
-        inorder(node=this.root){
-            if(node===null)return;
-            this.inorder(node.left);
-            console.log(node.data);
-            this.inorder(node.right);
-        }
+//         inorder(node=this.root){
+//             if(node===null)return;
+//             this.inorder(node.left);
+//             console.log(node.data);
+//             this.inorder(node.right);
+//         }
         
         
         
-        search(val){
-            let curr=this.root;
+//         search(val){
+//             let curr=this.root;
             
-            while(curr){
-                if(curr.data===val)return true;
+//             while(curr){
+//                 if(curr.data===val)return true;
                 
                 
-                if(val<curr.data){
-                    curr=curr.left;
-                }else{
-                    curr=curr.right;
-                }
-            }
+//                 if(val<curr.data){
+//                     curr=curr.left;
+//                 }else{
+//                     curr=curr.right;
+//                 }
+//             }
             
-            return false;
+//             return false;
             
-        }
+//         }
         
         
-        delete(value){
-            this.root=this.deleteNode(this.root,value);
-        }
+//         delete(value){
+//             this.root=this.deleteNode(this.root,value);
+//         }
         
         
-        deleteNode(node,value){
-            if(node===null)return null;
+//         deleteNode(node,value){
+//             if(node===null)return null;
             
-            if(value<node.data){
-                node.left=this.deleteNode(node.left,value)
-            }else if(value>node.data){
-                node.right=this.deleteNode(node.right,value)
-            }else{
-                if(!node.right && !node.left){
-                    return null
-                }
+//             if(value<node.data){
+//                 node.left=this.deleteNode(node.left,value)
+//             }else if(value>node.data){
+//                 node.right=this.deleteNode(node.right,value)
+//             }else{
+//                 if(!node.right && !node.left){
+//                     return null
+//                 }
                 
-                if(!node.left) return node.right;
-                if(!node.right)return node.left;
+//                 if(!node.left) return node.right;
+//                 if(!node.right)return node.left;
                 
                 
                 
-                let minNode=this.minNode(node.right);
+//                 let minNode=this.minNode(node.right);
                 
-                node.data=minNode.data;
+//                 node.data=minNode.data;
                 
-                node.right=this.deleteNode(node.right,minNode.data);
+//                 node.right=this.deleteNode(node.right,minNode.data);
                 
-            }
+//             }
             
-            return node;
-        }
+//             return node;
+//         }
         
         
-        minNode(node){
-            while(node.left){
-                node=node.left
-            }
-            return node;
-        }
+//         minNode(node){
+//             while(node.left){
+//                 node=node.left
+//             }
+//             return node;
+//         }
         
     
     
-}
+// }
 
-let B=new bst();
+// let B=new bst();
 
 
-for(let val of arr){
-    B.insert(val);
-}
+// for(let val of arr){
+//     B.insert(val);
+// }
 
-// B.preorder();
+// // B.preorder();
+// // B.inorder();
+// // B.search(50);
+// // console.log(B.search(90));
+
+// B.delete(50);
 // B.inorder();
-// B.search(50);
-// console.log(B.search(90));
-
-B.delete(50);
-B.inorder();
 
 
-function isvalidate(root,min=-Infinity,max=Infinity){
+// function isvalidate(root,min=-Infinity,max=Infinity){
  
-    if(root===null)return true;
+//     if(root===null)return true;
     
-    if(root.data<=min ||root.data >=max){
-        return false;
-    }
+//     if(root.data<=min ||root.data >=max){
+//         return false;
+//     }
     
-    return (
-        isvalidate(root.left,min,root.data)  && isvalidate(root.right,root.data,max)
+//     return (
+//         isvalidate(root.left,min,root.data)  && isvalidate(root.right,root.data,max)
         
-        )
-}
+//         )
+// }
 
 
 
@@ -563,189 +563,86 @@ function isvalidate(root,min=-Infinity,max=Infinity){
 
 
 
-function level(root){
-    if(root===null )return null;
+// function level(root){
+//     if(root===null )return null;
     
-    let q=[root];
+//     let q=[root];
     
-    while(q.length>0){
-        let node=q.shift();
-        
-        
-        console.log(node.data);
-        if(node.left){
-            q.push(node.left)
-        }
-        
-        if(node.right){
-            q.push(node.right);
-        }
+//     while(q.length>0){
+//         let node=q.shift();
         
         
-    }
-}
-
-level(B.root);
-
-console.log(isvalidate(B.root));
-
-
-/////////////////////////////2-06-2026
-//========create a bt from arr
-
-let arr = [1, 2, 3, 4, 5, 6, 7];
-class Node{
-    constructor(data){
-        this.data=data;
-        this.left=null;
-        this.right=null;
+//         console.log(node.data);
+//         if(node.left){
+//             q.push(node.left)
+//         }
         
-    }
-}
-
-function Bt(arr){
-    
-    if(arr.length===0)return null;
-    
-    let root=new Node(arr[0]);
-    let q=[root];
-    let i=1;
-    
-    while(i<arr.length){
-        let node=q.shift();
-        
-        if(i<arr.length){
-            node.left=new Node(arr[i++]);
-            q.push(node.left)
-        }
+//         if(node.right){
+//             q.push(node.right);
+//         }
         
         
-        if(i<arr.length){
-            node.right=new Node(arr[i++]);
-            q.push(node.right)
-        }
-    }
-    
-    return root;
-}
+//     }
+// }
 
-function preorder(root){
-    if(root===null)return null;
-    
-    console.log(root.data);
-    preorder(root.left);
-    preorder(root.right);
-}
+// level(B.root);
 
-let root=Bt(arr);
+// console.log(isvalidate(B.root));
 
-preorder(root)
 
-//==========create bst from array
+// /////////////////////////////2-06-2026
+// //========create a bt from arr
 
- let arr = [1, 2, 3, 4, 5, 6, 7];
-class Node{
-    constructor(data){
-        this.data=data;
-        this.left=null;
-        this.right=null;
+// let arr = [1, 2, 3, 4, 5, 6, 7];
+
+// class Node{
+//     constructor(data){
+//         this.data=data;
+//         this.left=null;
+//         this.right=null;
         
-    }
-}
+//     }
+// }
 
-
-function insert(node,val){
-    if(node===null)return new Node(val);
+// function Bt(arr){
     
-    if(val<node.data){
-        node.left=insert(node.left,val);
-    }else{
-        node.right=insert(node.right,val);
-    }
+//     if(arr.length===0)return null;
     
-    return node;
+//     let root=new Node(arr[0]);
+//     let q=[root];
+//     let i=1;
     
-}
-
-
-
-
-
-function bst(arr){
-    let root=null;
-    for(let ele of arr){
-         root=insert(root,ele)
-    }
-    
-    return root;
-}
-
-function inorder(root){
-    if(root===null)return null;
-    
-    
-    inorder(root.left);
-    console.log(root.data);
-    inorder(root.right);
-}
-
-let root=bst(arr);
-inorder(root)
-
-
-
-//========create a bt from arr
-
-let arr = [1, 9, 10, 4, 11, 6, 7];
-class Node{
-    constructor(data){
-        this.data=data;
-        this.left=null;
-        this.right=null;
+//     while(i<arr.length){
+//         let node=q.shift();
         
-    }
-}
-
-function Bt(arr){
-    
-    if(arr.length===0)return null;
-    
-    let root=new Node(arr[0]);
-    let q=[root];
-    let i=1;
-    
-    while(i<arr.length){
-        let node=q.shift();
-        
-        if(i<arr.length){
-            node.left=new Node(arr[i++]);
-            q.push(node.left)
-        }
+//         if(i<arr.length){
+//             node.left=new Node(arr[i++]);
+//             q.push(node.left)
+//         }
         
         
-        if(i<arr.length){
-            node.right=new Node(arr[i++]);
-            q.push(node.right)
-        }
-    }
+//         if(i<arr.length){
+//             node.right=new Node(arr[i++]);
+//             q.push(node.right)
+//         }
+//     }
     
-    return root;
-}
+//     return root;
+// }
 
-function preorder(root){
-    if(root===null)return null;
+// function preorder(root){
+//     if(root===null)return null;
     
-    console.log(root.data);
-    preorder(root.left);
-    preorder(root.right);
-}
+//     console.log(root.data);
+//     preorder(root.left);
+//     preorder(root.right);
+// }
 
-let root=Bt(arr);
+// let root=Bt(arr);
 
 // preorder(root)
 
-
-//===========creating bst from array
+// //==========create bst from array
 
 //  let arr = [1, 2, 3, 4, 5, 6, 7];
 // class Node{
@@ -798,6 +695,110 @@ let root=Bt(arr);
 
 
 
+// //========create a bt from arr
+
+// let arr = [1, 9, 10, 4, 11, 6, 7];
+// class Node{
+//     constructor(data){
+//         this.data=data;
+//         this.left=null;
+//         this.right=null;
+        
+//     }
+// }
+
+// function Bt(arr){
+    
+//     if(arr.length===0)return null;
+    
+//     let root=new Node(arr[0]);
+//     let q=[root];
+//     let i=1;
+    
+//     while(i<arr.length){
+//         let node=q.shift();
+        
+//         if(i<arr.length){
+//             node.left=new Node(arr[i++]);
+//             q.push(node.left)
+//         }
+        
+        
+//         if(i<arr.length){
+//             node.right=new Node(arr[i++]);
+//             q.push(node.right)
+//         }
+//     }
+    
+//     return root;
+// }
+
+// function preorder(root){
+//     if(root===null)return null;
+    
+//     console.log(root.data);
+//     preorder(root.left);
+//     preorder(root.right);
+// }
+
+// let root=Bt(arr);
+
+// preorder(root)
+
+
+//===========creating bst from array
+
+ let arr = [1, 2, 3, 4, 5, 6, 7];
+class Node{
+    constructor(data){
+        this.data=data;
+        this.left=null;
+        this.right=null;
+        
+    }
+}
+
+
+function insert(node,val){
+    if(node===null)return new Node(val);
+    
+    if(val<node.data){
+        node.left=insert(node.left,val);
+    }else{
+        node.right=insert(node.right,val);
+    }
+    
+    return node;
+    
+}
+
+
+
+
+
+function bst(arr){
+    let root=null;
+    for(let ele of arr){
+         root=insert(root,ele)
+    }
+    
+    return root;
+}
+
+function inorder(root){
+    if(root===null)return null;
+    
+    
+    inorder(root.left);
+    console.log(root.data);
+    inorder(root.right);
+}
+
+let root=bst(arr);
+// inorder(root)
+
+
+
 
 
 // ====================================================== convert bt to bst
@@ -806,52 +807,94 @@ let root=Bt(arr);
 
 
 
-function storvalue(root,arr){
-    if(root===null)return ;
+// function storvalue(root,arr){
+//     if(root===null)return ;
     
-    storvalue(root.left,arr);
-    arr.push(root.data);
-    storvalue(root.right,arr);
+//     storvalue(root.left,arr);
+//     arr.push(root.data);
+//     storvalue(root.right,arr);
+// }
+
+
+
+// function builtbst(root,arr,index){
+    
+//     if(root===null)return;
+//     builtbst(root.left,arr,index);
+//     root.data=arr[index.i++];
+//     builtbst(root.right,arr,index);
+// }
+
+
+
+
+
+
+// function bstconv(root){
+//     let arr=[];
+    
+//     storvalue(root,arr);
+    
+//     arr.sort((a,b)=>a-b);
+    
+//     builtbst(root,arr,{i:0})
+    
+//     return root;
+    
+// }
+
+// function inorder(root){
+//     if(root===null)return ;
+    
+//     inorder(root.left);
+//     console.log(root.data);
+//     inorder(root.right);
+    
+    
+// }
+
+
+//  root=bstconv(root);
+// inorder(root);
+
+
+//====================================================================================3-06-2026
+
+//==============fincing second largest in the tree in bst
+
+function slrg(root){
+    if(!root || (!root.left && !root.right)){
+        return null;
+    }
+
+    let curr=root;
+    let parent=null;
+
+    while(curr.right){
+        parent=curr;
+        curr=curr.right;
+    }
+
+
+if(curr.left){
+    let temp=curr.left;
+
+    while(temp.right){
+        temp=temp.right;
+    }
+
+    return temp.data;
+}
+    
+
+
+
+
+    return parent.data;
+
+
+
 }
 
 
-
-function builtbst(root,arr,index){
-    
-    if(root===null)return;
-    builtbst(root.left,arr,index);
-    root.data=arr[index.i++];
-    builtbst(root.right,arr,index);
-}
-
-
-
-
-
-
-function bstconv(root){
-    let arr=[];
-    
-    storvalue(root,arr);
-    
-    arr.sort((a,b)=>a-b);
-    
-    builtbst(root,arr,{i:0})
-    
-    return root;
-    
-}
-
-function inorder(root){
-    if(root===null)return ;
-    
-    inorder(root.left);
-    console.log(root.data);
-    inorder(root.right);
-    
-    
-}
-
-
- root=bstconv(root);
-inorder(root);
+console.log(slrg(root))
