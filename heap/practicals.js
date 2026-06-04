@@ -690,3 +690,54 @@ console.log(h.heap);
 
 
 console.log(h.extractMin());
+
+
+let arr= [10, 5, 20, 2, 8];
+
+//======================================
+// Output: [2, 5, 20, 10, 8]
+
+//converting array to min heap
+
+
+function minheap(arr){
+    let n=arr.length;
+    for(let i=Math.floor((n/2)-1);i>=0;i--){
+        heapifydown(arr,i,n);
+    }
+    
+    return arr;
+}
+
+
+
+function heapifydown(arr,i,n){
+    
+    while(true){
+        let left=Math.floor((2*i)+1);
+        let right=Math.floor((2*i)+2);
+        
+        let smallest=i;
+        
+        if(left<n && arr[left]<arr[smallest]){
+            smallest=left;
+        }
+        
+        if(right<n && arr[right]<arr[smallest]){
+            smallest=right;
+        }
+        
+        
+        if(smallest===i)break;
+        
+        
+        [arr[smallest],arr[i]]=[arr[i],arr[smallest]];
+        
+        i=smallest;
+        
+        
+    }
+    
+}
+
+console.log(minheap(arr));
