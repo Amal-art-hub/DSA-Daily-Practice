@@ -583,3 +583,110 @@ function hsort(arr){
 }
 
 console.log(hsort(arr));
+
+
+
+//=========================3-06-2026
+//implementation of min heap
+
+
+class Minheap{
+    constructor(){
+        this.heap=[];
+        
+    }
+    
+    
+    insert(value){
+    
+    this.heap.push(value);
+    this.heapifyup();
+    
+}
+    
+    
+    heapifyup(){
+        let index=this.heap.length-1;
+        
+        while(index>0){
+            let parent=Math.floor((index-1)/2);
+            
+            if(this.heap[parent]<=this.heap[index]){
+                break;
+            }
+            
+            [this.heap[parent],this.heap[index]]=[this.heap[index],this.heap[parent]];
+            
+            index=parent;
+            
+        }
+    }
+    
+    
+    extractMin(){
+        if(this.heap.length===0){
+            return null;
+        }
+        
+        if(this.heap.length===1){
+            return  this.heap.pop()
+        };
+        
+        let min=this.heap[0];
+        
+        this.heap[0]=this.heap.pop();
+        
+        this.heapifydown();
+        
+        return min;
+    }
+    
+    
+    heapifydown(){
+        
+        let index=0;
+        
+        while(true){
+            let left=2*index+1;
+            let right=2*index+2;
+            
+            let smallest=index;
+            
+            if(left<this.heap.length && this.heap[left]<this.heap[smallest]){
+                smallest=left;
+            }
+            
+            if(right<this.heap.length && this.heap[right]<this.heap[smallest]){
+                smallest=right
+            }
+            
+            if(smallest===index)break;
+            
+            
+            [this.heap[smallest],this.heap[index]]=
+            [this.heap[index],this.heap[smallest]]
+            
+            index=smallest;
+            
+        }
+        
+    }
+    
+    
+    
+}
+
+
+let h=new Minheap();
+
+h.insert(2)
+h.insert(4)
+h.insert(20)
+h.insert(6)
+h.insert(8)
+
+
+console.log(h.heap);
+
+
+console.log(h.extractMin());
