@@ -748,53 +748,53 @@
 
 //===========creating bst from array
 
- let arr = [1, 10, 33, 14, 15, 6, 7];
-class Node{
-    constructor(data){
-        this.data=data;
-        this.left=null;
-        this.right=null;
+//  let arr = [1, 10, 33, 14, 15, 6, 7];
+// class Node{
+//     constructor(data){
+//         this.data=data;
+//         this.left=null;
+//         this.right=null;
         
-    }
-}
+//     }
+// }
 
 
-function insert(node,val){
-    if(node===null)return new Node(val);
+// function insert(node,val){
+//     if(node===null)return new Node(val);
     
-    if(val<node.data){
-        node.left=insert(node.left,val);
-    }else{
-        node.right=insert(node.right,val);
-    }
+//     if(val<node.data){
+//         node.left=insert(node.left,val);
+//     }else{
+//         node.right=insert(node.right,val);
+//     }
     
-    return node;
+//     return node;
     
-}
+// }
 
 
 
 
 
-function bst(arr){
-    let root=null;
-    for(let ele of arr){
-         root=insert(root,ele)
-    }
+// function bst(arr){
+//     let root=null;
+//     for(let ele of arr){
+//          root=insert(root,ele)
+//     }
     
-    return root;
-}
+//     return root;
+// }
 
-function inorder(root){
-    if(root===null)return null;
+// function inorder(root){
+//     if(root===null)return null;
     
     
-    inorder(root.left);
-    console.log(root.data);
-    inorder(root.right);
-}
+//     inorder(root.left);
+//     console.log(root.data);
+//     inorder(root.right);
+// }
 
-let root=bst(arr);
+// let root=bst(arr);
 // inorder(root)
 
 
@@ -940,35 +940,78 @@ let root=bst(arr);
 //==========closest node to target
 
 
-function clos(root,tar){
-    let closest=root.data;
-    let curr=root;
+// function clos(root,tar){
+//     let closest=root.data;
+//     let curr=root;
 
 
-    while(curr){
-        if(Math.abs(curr.data-tar)<Math.abs(closest-tar)){
-            closest=curr.data;
-        }
+//     while(curr){
+//         if(Math.abs(curr.data-tar)<Math.abs(closest-tar)){
+//             closest=curr.data;
+//         }
         
 
-        if(tar<curr.data){
-            curr=curr.left;
-        }else{
-            curr=curr.right;
-        }
+//         if(tar<curr.data){
+//             curr=curr.left;
+//         }else{
+//             curr=curr.right;
+//         }
 
 
 
-    }
+//     }
 
-    return closest;
+//     return closest;
 
-}
+// }
 
 
-console.log(clos(root,34))
+// console.log(clos(root,34))
 
+//============5-06-2026
 ////==============implementation of tree and printing it by level order traversal
+
+// class Node{
+//     constructor(data){
+//         this.data=data;
+//         this.left=null;
+//         this.right=null;
+        
+//     }
+// }
+//  let root=new Node(1);
+//  root.left=new Node(2);
+//  root.right=new Node(3);
+
+//  root.left.left=new Node(4);
+//  root.left.right=new Node(5);
+//  root.right.left=new Node(6);
+//  root.right.right=new Node(7);
+
+
+// function print(root){
+//     let q=[root];
+    
+//     while(q.length>0){
+//         let curr=q.shift();
+        
+//         console.log(curr.data);
+        
+//         if(curr.left){
+//             q.push(curr.left);
+//         }
+        
+//         if(curr.right){
+//             q.push(curr.right)
+//         }
+//     }
+// }  
+
+
+// print(root);
+
+//================getting the depth of tree
+
 
 class Node{
     constructor(data){
@@ -978,6 +1021,8 @@ class Node{
         
     }
 }
+
+
  let root=new Node(1);
  root.left=new Node(2);
  root.right=new Node(3);
@@ -988,23 +1033,13 @@ class Node{
  root.right.right=new Node(7);
 
 
-function print(root){
-    let q=[root];
-    
-    while(q.length>0){
-        let curr=q.shift();
-        
-        console.log(curr.data);
-        
-        if(curr.left){
-            q.push(curr.left);
-        }
-        
-        if(curr.right){
-            q.push(curr.right)
-        }
-    }
-}  
+ function depth(root){
+    if(!root)return 0;
 
+    let left=depth(root.left);
+    let right=depth(root.right);
 
-print(root);
+    return 1+Math.max(left,right);
+ }
+
+ console.log(depth(root))
