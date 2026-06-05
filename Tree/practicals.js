@@ -967,3 +967,44 @@ function clos(root,tar){
 
 
 console.log(clos(root,34))
+
+////==============implementation of tree and printing it by level order traversal
+
+class Node{
+    constructor(data){
+        this.data=data;
+        this.left=null;
+        this.right=null;
+        
+    }
+}
+ let root=new Node(1);
+ root.left=new Node(2);
+ root.right=new Node(3);
+
+ root.left.left=new Node(4);
+ root.left.right=new Node(5);
+ root.right.left=new Node(6);
+ root.right.right=new Node(7);
+
+
+function print(root){
+    let q=[root];
+    
+    while(q.length>0){
+        let curr=q.shift();
+        
+        console.log(curr.data);
+        
+        if(curr.left){
+            q.push(curr.left);
+        }
+        
+        if(curr.right){
+            q.push(curr.right)
+        }
+    }
+}  
+
+
+print(root);
