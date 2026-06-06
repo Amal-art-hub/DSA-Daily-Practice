@@ -1286,3 +1286,18 @@ b.insert(0);
 b.delete(14)
 b.printinorder(b.root)
 // console.log(b.search(99));
+
+
+//==============finding the smallest or largest (smalles)
+
+
+function min(node){
+    if(node===null)return null;
+    
+    if(node.right ===null){
+        return node.data;
+    }
+    
+    return min(node.right);
+}
+console.log(min(b.root));
