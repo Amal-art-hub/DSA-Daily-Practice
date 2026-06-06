@@ -1301,3 +1301,35 @@ function min(node){
     return min(node.right);
 }
 console.log(min(b.root));
+
+
+//==============second laresgest
+
+function scndlrgest(node){
+    if(!node ||(!node.left && !node.right)){
+        return null;
+    }
+    
+    if(node.right  && (!node.right.left && !node.right.right)){
+        return node.data
+    }
+    
+    if(!node.right){
+        return largest(node.left)
+    }
+    
+    return scndlrgest(node.right);
+    
+    
+}
+
+function largest(node){
+    if(!node.right){
+        return node.data;
+    }
+    return largest(node.right);
+}
+
+
+
+console.log(scndlrgest(b.root))
