@@ -1105,3 +1105,52 @@ class Node{
  
  
  console.log(sunleftleaf(root))
+
+
+ //===========6-06-2026
+ ////checking 2 binary tree are identical or not
+class Node {
+    constructor(value) {
+        this.value = value;
+        this.left = null;
+        this.right = null;
+    }
+}
+
+// Tree 1
+let root1 = new Node(10);
+root1.left = new Node(5);
+root1.right = new Node(15);
+
+root1.left.left = new Node(2);
+root1.left.right = new Node(7);
+
+root1.right.left = new Node(12);
+root1.right.right = new Node(20);
+
+
+
+let root2 = new Node(10);
+root2.left = new Node(5);
+root2.right = new Node(15);
+
+root2.left.left = new Node(2);
+root2.left.right = new Node(7);
+
+root2.right.left = new Node(12);
+root2.right.right = new Node(20);
+
+
+function checkident(root1,root2){
+    if(root1===null && root2===null)return true;
+    if(!root1||!root2)return false;
+    
+    
+    return (
+        root1.value===root2.value && checkident(root1.left ,root2.left) &&checkident(root1.right,root2.right)
+        
+        )
+}
+
+console.log(checkident(root1,root2))
+
