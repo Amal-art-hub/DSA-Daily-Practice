@@ -1338,170 +1338,331 @@
 
 
 
-class Node{
-    constructor(data){
-        this.data=data;
-        this.left=null;
-        this.right=null
-    }
-}
+// class Node{
+//     constructor(data){
+//         this.data=data;
+//         this.left=null;
+//         this.right=null
+//     }
+// }
 
 
-class Bst{
-    constructor(){
-        this.root=null
-    }
+// class Bst{
+//     constructor(){
+//         this.root=null
+//     }
     
-    insert(val){
-        let newNode=new Node(val);
+//     insert(val){
+//         let newNode=new Node(val);
         
-        if(this.root===null){
-            this.root=newNode;
-            return;
-        }
+//         if(this.root===null){
+//             this.root=newNode;
+//             return;
+//         }
         
-        let curr=this.root;
+//         let curr=this.root;
         
-        while(true){
-            if(val<curr.data){
-                if(curr.left===null){
-                    curr.left=newNode;
-                    return;
-                }
-                curr=curr.left;
-            }else{
-                if(curr.right===null){
-                    curr.right=newNode;
-                    return;
-                }
-                curr=curr.right;
-            }
-        }
+//         while(true){
+//             if(val<curr.data){
+//                 if(curr.left===null){
+//                     curr.left=newNode;
+//                     return;
+//                 }
+//                 curr=curr.left;
+//             }else{
+//                 if(curr.right===null){
+//                     curr.right=newNode;
+//                     return;
+//                 }
+//                 curr=curr.right;
+//             }
+//         }
         
-    }
+//     }
     
     
-    search(val){
-        let curr=this.root;
+//     search(val){
+//         let curr=this.root;
         
-        while(curr !==null){
+//         while(curr !==null){
           
-            if(curr.data===val)return true;
+//             if(curr.data===val)return true;
             
-            if(val<curr.data){
-                curr=curr.left;
-            }else{
-                curr=curr.right;
-            }
-        }
+//             if(val<curr.data){
+//                 curr=curr.left;
+//             }else{
+//                 curr=curr.right;
+//             }
+//         }
         
-        return false;
+//         return false;
         
-    }
+//     }
     
-    delete(val){
-        this.root=this.deletnode(this.root,val);
-    }
+//     delete(val){
+//         this.root=this.deletnode(this.root,val);
+//     }
     
     
-    deletnode(root,val){
-        if(root===null)return null;
-        if(val<root.data){
-            root.left=this.deletnode(root.left,val)
-        }else if(val>root.data){
-            root.right=this.deletnode(root.right,val)
-        }else{
-            if(!root.left && !root.right){
-                return null
-            }
+//     deletnode(root,val){
+//         if(root===null)return null;
+//         if(val<root.data){
+//             root.left=this.deletnode(root.left,val)
+//         }else if(val>root.data){
+//             root.right=this.deletnode(root.right,val)
+//         }else{
+//             if(!root.left && !root.right){
+//                 return null
+//             }
             
-            if(!root.left)return root.right;
+//             if(!root.left)return root.right;
             
-            if(!root.right)return root.left;
+//             if(!root.right)return root.left;
             
             
-            let minNode=this.finmin(root.right);
-            root.data=minNode.data;
+//             let minNode=this.finmin(root.right);
+//             root.data=minNode.data;
             
-            deletnode(root.right,minNode.data)
-        }
+//             deletnode(root.right,minNode.data)
+//         }
         
-        return root;
-    }
+//         return root;
+//     }
     
-    finmin(node){
-        while(node.left !==null){
-            node=node.left;
-        }
+//     finmin(node){
+//         while(node.left !==null){
+//             node=node.left;
+//         }
         
-        return node;
-    }
+//         return node;
+//     }
     
     
-    printinorder(node){
+//     printinorder(node){
         
         
-        if(node===null)return;
+//         if(node===null)return;
         
-        this.printinorder(node.left);
-        console.log(node.data);
-        this.printinorder(node.right);
+//         this.printinorder(node.left);
+//         console.log(node.data);
+//         this.printinorder(node.right);
         
-    }
+//     }
     
     
     
     
-}
+// }
 
 
-let b=new Bst();
+// let b=new Bst();
 
-b.insert(1);
-b.insert(2);
-b.insert(14);
-b.insert(6);
-b.insert(0);
-
-
-b.delete(14)
-// b.printinorder(b.root)
-// console.log(b.search(99));
+// b.insert(1);
+// b.insert(2);
+// b.insert(14);
+// b.insert(6);
+// b.insert(0);
 
 
+// b.delete(14)
+// // b.printinorder(b.root)
+// // console.log(b.search(99));
 
-function scndsmallst(node){
-    if(!node ||(!node.left && !node.right)){
-        return null;
-    }
+
+
+// function scndsmallst(node){
+//     if(!node ||(!node.left && !node.right)){
+//         return null;
+//     }
     
-    if(node.left  && (!node.left.left && !node.left.right)){
-        return node.data
-    }
+//     if(node.left  && (!node.left.left && !node.left.right)){
+//         return node.data
+//     }
     
-    if(!node.left){
-        return smallest(node.right)
-    }
+//     if(!node.left){
+//         return smallest(node.right)
+//     }
     
-    return scndsmallst(node.right);
+//     return scndsmallst(node.right);
     
     
-}
+// }
 
-function smallest(node){
-    if(!node.left){
-        return node.data;
-    }
-    return largest(node.left);
-}
-
-
-
-console.log(scndsmallst(b.root))
+// function smallest(node){
+//     if(!node.left){
+//         return node.data;
+//     }
+//     return largest(node.left);
+// }
 
 
 
-//====================find  k th smallest
+// console.log(scndsmallst(b.root))
+
+
+
+// //====================find  k th smallest
+
+
+
+// class Node{
+//     constructor(data){
+//         this.data=data;
+//         this.left=null;
+//         this.right=null
+//     }
+// }
+
+
+// class Bst{
+//     constructor(){
+//         this.root=null
+//     }
+    
+//     insert(val){
+//         let newNode=new Node(val);
+        
+//         if(this.root===null){
+//             this.root=newNode;
+//             return;
+//         }
+        
+//         let curr=this.root;
+        
+//         while(true){
+//             if(val<curr.data){
+//                 if(curr.left===null){
+//                     curr.left=newNode;
+//                     return;
+//                 }
+//                 curr=curr.left;
+//             }else{
+//                 if(curr.right===null){
+//                     curr.right=newNode;
+//                     return;
+//                 }
+//                 curr=curr.right;
+//             }
+//         }
+        
+//     }
+    
+    
+//     search(val){
+//         let curr=this.root;
+        
+//         while(curr !==null){
+          
+//             if(curr.data===val)return true;
+            
+//             if(val<curr.data){
+//                 curr=curr.left;
+//             }else{
+//                 curr=curr.right;
+//             }
+//         }
+        
+//         return false;
+        
+//     }
+    
+//     delete(val){
+//         this.root=this.deletnode(this.root,val);
+//     }
+    
+    
+//     deletnode(root,val){
+//         if(root===null)return null;
+//         if(val<root.data){
+//             root.left=this.deletnode(root.left,val)
+//         }else if(val>root.data){
+//             root.right=this.deletnode(root.right,val)
+//         }else{
+//             if(!root.left && !root.right){
+//                 return null
+//             }
+            
+//             if(!root.left)return root.right;
+            
+//             if(!root.right)return root.left;
+            
+            
+//             let minNode=this.finmin(root.right);
+//             root.data=minNode.data;
+            
+//             deletnode(root.right,minNode.data)
+//         }
+        
+//         return root;
+//     }
+    
+//     finmin(node){
+//         while(node.left !==null){
+//             node=node.left;
+//         }
+        
+//         return node;
+//     }
+    
+    
+//     printinorder(node){
+        
+        
+//         if(node===null)return;
+        
+//         this.printinorder(node.left);
+//         console.log(node.data);
+//         this.printinorder(node.right);
+        
+//     }
+    
+    
+    
+    
+// }
+
+
+// let b=new Bst();
+
+// b.insert(1);
+// b.insert(2);
+// b.insert(14);
+// b.insert(6);
+// b.insert(3);
+
+
+// // b.delete(14)
+// // b.printinorder(b.root)
+// // console.log(b.search(99));
+
+
+// function kth(node,k){
+    
+//     let count=0;
+//     let result=null;
+//     function inorder(node){
+//         if(node===null || !result==null)return;
+        
+//         inorder(node.left);
+//         count++;
+//         if(count===k){
+//             result=node.data;
+//             return
+//         }
+        
+//         inorder(node.right)
+//     }
+//     inorder(node);
+    
+//     return result;
+    
+// }
+
+
+// console.log(kth(b.root,3))
+
+//====================find  k th largest
+//==========just make ascending order of inorder
 
 
 
@@ -1643,14 +1804,14 @@ function kth(node,k){
     function inorder(node){
         if(node===null || !result==null)return;
         
-        inorder(node.left);
+        inorder(node.right);
         count++;
         if(count===k){
             result=node.data;
             return
         }
         
-        inorder(node.right)
+        inorder(node.left)
     }
     inorder(node);
     
@@ -1659,4 +1820,29 @@ function kth(node,k){
 }
 
 
-console.log(kth(b.root,3))
+console.log(kth(b.root,2))
+
+//==============closest to target
+
+function closestnode(node,tar){
+    let curr=node;
+    let closest=curr.data;
+    
+    while(curr !==null){
+        
+        if(Math.abs(tar-curr.data)<Math.abs(tar-closest)){
+            closest=curr.data
+        }
+        
+        if(tar<curr.data){
+            curr=curr.left;
+        }else{
+            curr=curr.right;
+        }
+    }
+    
+   return closest; 
+    
+}
+
+console.log(closestnode(b.root,4))
