@@ -188,3 +188,102 @@ console.log(tr.longestCommprefix());
 
 
 
+//============7-06-2026
+///===================implementation of trie with insert,search,startwith,autocomlte
+
+class TrieNode{
+    constructor(){
+        this.children={};
+        this.endOfWord=false;
+    }
+}
+
+class Trie{
+    constructor(){
+        this.root=new TrieNode();
+    }
+    
+    insert(word){
+        let curr=this.root;
+        
+        for(let cha of word){
+            if(!curr.children[cha]){
+                curr.children[cha]=new TrieNode();
+            }
+            curr=curr.children[cha]
+        }
+        
+        curr.endOfWord=true;
+        
+    }
+    
+    search(word){
+        
+        let curr =this.root;
+        
+        for(let cha of word){
+            if(!curr.children[cha]){
+                return false;
+            }
+            
+            curr=curr.children[cha];
+            
+        }
+        
+        return curr.endOfWord;
+        
+        
+    }
+    
+    
+    startwith(prefix){
+        let curr=this.root;
+        
+        for(let cha of prefix){
+            if(!curr.children[cha]){
+                return false;
+            }
+            curr=curr.children[cha];
+        }
+        
+        return true;
+    }
+    
+    autocomplte(prefix){
+        let curr=this.root;
+        
+        for(let cha of prefix){
+            if(!curr.children[cha]){
+                return [];
+            }
+            curr=curr.children[cha];
+        }
+        
+        let result=[];
+        
+        this.dfs(curr,prefix,result);
+        return result
+    }
+    
+    
+    dfs(node,word,result){
+        if(node.endOfWord){
+            result.push(word)
+        }
+        
+        for(let char in node.children){
+            this.dfs(node.children[char],word+char,result)
+        }
+    }
+    
+}
+
+
+let tr=new Trie();
+tr.insert("cat");
+tr.insert("caten");
+tr.insert("cot")
+
+// console.log(tr.search("caj"));
+console.log(tr.autocomplte("ca"))
+console.log(tr.startwith("co"))

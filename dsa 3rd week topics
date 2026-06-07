@@ -197,3 +197,80 @@ Kth Smallest Element in a BST (230)
 Find Kth Largest Element in an Array (215)
 Number of Islands (200)
 Blind 75 LeetCode problems
+
+
+
+
+
+Since you're preparing for interviews and DSA, don't learn these randomly. Build them in dependency order so each topic helps with the next one.
+
+Phase 1: Tree Basics (Learn First)
+Implement a Binary Tree
+Program to find the depth of a binary tree
+Level Order Traversal
+Binary Tree Level Order Traversal (LeetCode 102)
+Check if two trees are identical
+
+These teach:
+
+Tree structure
+Recursion
+Queue (BFS)
+Tree traversal patterns
+Phase 2: BST Basics
+Implement BST with insertion, contains, delete
+Find min in BST using recursion
+Second largest in BST
+Third largest in BST
+Kth Smallest Element in a BST (230)
+Closest element in BST to target
+
+These teach:
+
+BST properties
+Inorder traversal
+Searching efficiently
+Phase 3: Balanced Trees
+Check if tree is balanced
+Program to check whether tree is balanced or not
+Convert sorted array to balanced BST
+
+These teach:
+
+Height calculations
+Divide and conquer
+Phase 4: Intermediate Binary Tree Problems
+Sum of left leaf nodes
+Count single child nodes in BST
+Remove duplicates from BT
+Check if subtree
+
+These are common interview-style recursion problems.
+
+Phase 5: Advanced / Conceptual
+Convert BT to BST
+Check if BST is perfect
+
+These require understanding multiple concepts together.
+
+My recommended order for the first 7 problems:
+Implement Binary Tree
+Find Depth of Binary Tree
+Level Order Traversal
+Check if Two Trees are Identical
+Implement BST (insert, contains)
+Find Min in BST
+Kth Smallest Element in BST
+
+After these 7, most of the remaining problems will feel much easier.
+
+For MERN/backend interviews, I'd focus first on:
+
+Depth of Tree
+Level Order Traversal
+BST Insert/Search/Delete
+Kth Smallest Element in BST
+Check Balanced Tree
+Subtree Check
+
+These are asked much more often than "Perfect BST" or "Convert BT to BST."
