@@ -741,3 +741,96 @@ function heapifydown(arr,i,n){
 }
 
 console.log(minheap(arr));
+
+//============heap implementation
+
+class Maxheap{
+    constructor(){
+        this.heap=[];
+        
+    }
+    
+    insert(value){
+        this.heap.push(value);
+        this.heapifyup();
+    }
+    
+    
+    heapifyup(){
+        
+        let index=this.heap.length-1;
+        
+        while(index>0){
+            let parent=Math.floor((index-1)/2);
+            
+            if(this.heap[parent] >= this.heap[index]) break;
+            
+             [this.heap[parent],this.heap[index]]=[this.heap[index],this.heap[parent]];
+             
+             index=parent;
+        }
+        
+    }
+    
+    delete(){
+        if(this.heap.length===0)return null;
+        if(this.heap.length===1)return this.heap.pop();
+        
+        let max=this.heap[0];
+        this.heap[0]=this.heap.pop();
+        this.heapifydown();
+        return max;
+    }
+    
+    
+    heapifydown(){
+        
+        
+        let index=0;
+        let length=this.heap.length;
+        
+        
+        while(true){
+            let n=this.heap.length;
+            let left=Math.floor(index*2+1);
+            let right=Math.floor(index*2+2);
+            
+            let largest=index;
+            
+            if(left < n && this.heap[left]>this.heap[largest]){
+                largest=left;
+            }
+            
+            if(right < n && this.heap[right]>this.heap[largest]){
+                largest=right;
+            }
+            
+            if(largest===index){
+             break;
+            }
+            
+               [this.heap[largest],this.heap[index]]=[this.heap[index],this.heap[largest]]
+            
+            index=largest;
+        }
+        
+    }
+    
+    
+    
+}
+
+
+
+let h=new Maxheap();
+
+h.insert(1);
+h.insert(2)
+h.insert(4)
+h.insert(5)
+h.insert(9)
+
+// console.log(h.heap);
+
+h.delete()
+console.log(h.heap);
