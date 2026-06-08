@@ -834,3 +834,197 @@ h.insert(9)
 
 h.delete()
 console.log(h.heap);
+
+//=============kth largest elemet
+
+
+class MinHeap{
+
+    constructor(){
+
+        this.heap=[];
+
+
+
+    }
+
+
+
+insert(value){
+
+    this.heap.push(value);
+
+    this.heapifyup()
+
+}
+
+
+
+heapifyup(){
+
+    let n=this.heap.length
+
+    let index=n-1
+
+
+
+while(index>0){
+
+    let parent=Math.floor((index-1)/2);
+
+
+
+if(this.heap[parent]<=this.heap[index]){
+
+   
+
+break;
+
+}
+
+
+
+  [this.heap[parent],this.heap[index]]=[this.heap[index],this.heap[parent]];
+
+     index=parent;
+
+
+
+}
+
+
+
+}
+
+
+
+delete(){
+
+    let n=this.heap.length;
+
+    if(this.heap.length===0)return null;
+
+    if(this.heap.length===1)return this.heap.pop();
+
+    
+
+    let min=this.heap[0];
+
+    this.heap[0]=this.heap.pop();
+
+
+
+    this.heapifydown();
+
+
+
+    return min;
+
+}
+
+
+
+
+
+
+
+heapifydown(){
+
+let index=0;
+
+let n=this.heap.length;
+
+
+
+
+
+
+
+while(true){
+
+    let smallest=index;
+
+    let left=Math.floor(2*index+1);
+
+    let right=Math.floor(2*index+2);
+
+
+
+    if(left<n && this.heap[left]<this.heap[smallest]){
+
+        smallest=left;
+
+    }
+
+    if(right<n && this.heap[right]<this.heap[smallest]){
+
+        smallest=right;
+
+    }
+
+
+
+    if(smallest===index)break;
+
+
+
+    [this.heap[smallest],this.heap[index]]=[this.heap[index],this.heap[smallest]];
+
+
+
+    index=smallest
+
+}
+
+
+
+}
+
+
+
+peek(){
+
+    return this.heap[0];
+
+}
+
+
+
+}
+
+
+
+
+
+
+
+var findKthLargest = function(nums, k) {
+
+
+
+    let H=new MinHeap()
+
+
+
+    for(let num of nums){
+
+        H.insert(num);
+
+
+
+        if(H.Heap.length>k){
+
+            H.delete()
+
+        }
+
+    }
+
+
+
+    return H.peek()
+
+    
+
+};
+
