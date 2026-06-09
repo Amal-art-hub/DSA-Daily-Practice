@@ -1,91 +1,160 @@
-//========finding shortest distance using bfs in unweighted graph
+// //========finding shortest distance using bfs in unweighted graph
 
-let graph = {
-    A: ["B", "C"],
-    B: ["D"],
-    C: ["E"],
-    D: [],
-    E: []
+// let graph = {
+//     A: ["B", "C"],
+//     B: ["D"],
+//     C: ["E"],
+//     D: [],
+//     E: []
+// };
+
+
+
+// function shortdis(graph,start,target){
+    
+//     let visited=new Set();
+//     let queue=[[start,0]];
+    
+//     visited.add(start);
+    
+//     while(queue.length>0){
+//         let [node,distance]=queue.shift();
+        
+//         if(node===target){
+//             return distance;
+//         }
+        
+        
+//         for(let neigh of graph[node]){
+//             if(!visited.has(neigh)){
+//                 visited.add(neigh);
+                
+//                 queue.push([neigh,distance+1])
+//             }
+//         }
+//     }
+//     return -1;
+    
+// }
+
+
+// console.log(shortdis(graph,"A","D"));
+
+
+
+// //============ Check whether an undirected graph contains a cycle
+
+// let graph = {
+//     A: ["B", "D"],
+//     B: ["A", "C"],
+//     C: ["B", "D"],
+//     D: ["A", "C"]
+// };
+
+// function hascycle(graph){
+//      let visited=new Set();
+     
+//      function dfs(node,par){
+//          visited.add(node);
+         
+//          for(let neigh of graph[node]){
+//              if(!visited.has(neigh)){
+//                  if(dfs(neigh,node)){
+//                      return true;
+//                  }
+//              }else if(neigh !==par){
+//                  return true;
+//              }
+//          }
+         
+//          return false;
+//      }
+     
+     
+     
+     
+     
+     
+     
+//      for(let node in graph){
+//          if(!visited.has(node)){
+//              if(dfs(node,null)){
+//                  return true;
+//              }
+//          }
+//      }
+//      return false;
+     
+// }
+
+
+// console.log(hascycle(graph));
+
+/////////////9-06-2026
+
+//================implement dfs in grap
+
+
+// const graph = {
+//   A: ["B", "C"],
+//   B: ["D"],
+//   C: [],
+//   D: []
+// };
+
+
+// function print(graph,start){
+
+//     let visited=new Set();
+//     function dfs(node){
+//         if(visited.has(node))return;
+
+//         visited.add(node);
+//         console.log(node);
+
+//         for(let neig of graph[node]){
+//             dfs(neig)
+//         }
+//     }
+
+//     dfs(start);
+// }
+
+
+// print(graph,"A")
+
+
+///================printing by bfs
+
+
+const graph = {
+  A: ["B", "C"],
+  B: ["D"],
+  C: [],
+  D: []
 };
 
+function bfs(graph,start){
 
-
-function shortdis(graph,start,target){
-    
     let visited=new Set();
-    let queue=[[start,0]];
-    
-    visited.add(start);
-    
-    while(queue.length>0){
-        let [node,distance]=queue.shift();
-        
-        if(node===target){
-            return distance;
-        }
-        
-        
-        for(let neigh of graph[node]){
-            if(!visited.has(neigh)){
-                visited.add(neigh);
-                
-                queue.push([neigh,distance+1])
+
+    let q=[start];
+    visited.add(start)
+
+
+    while(q.length>0){
+        let node=q.shift();
+
+        console.log(node);
+
+        for(let neig of graph[node]){
+            if(!visited.has(neig)){
+                visited.add(neig);
+                q.push(neig);
             }
         }
     }
-    return -1;
-    
 }
 
 
-console.log(shortdis(graph,"A","D"));
-
-
-
-//============ Check whether an undirected graph contains a cycle
-
-let graph = {
-    A: ["B", "D"],
-    B: ["A", "C"],
-    C: ["B", "D"],
-    D: ["A", "C"]
-};
-
-function hascycle(graph){
-     let visited=new Set();
-     
-     function dfs(node,par){
-         visited.add(node);
-         
-         for(let neigh of graph[node]){
-             if(!visited.has(neigh)){
-                 if(dfs(neigh,node)){
-                     return true;
-                 }
-             }else if(neigh !==par){
-                 return true;
-             }
-         }
-         
-         return false;
-     }
-     
-     
-     
-     
-     
-     
-     
-     for(let node in graph){
-         if(!visited.has(node)){
-             if(dfs(node,null)){
-                 return true;
-             }
-         }
-     }
-     return false;
-     
-}
-
-
-console.log(hascycle(graph));
+bfs(graph,"A")

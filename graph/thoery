@@ -119,3 +119,54 @@ Used for:
 Cycle detection
 Connected components
 Kruskal's Algorithm
+
+
+
+//
+//============what is graphA graph 
+
+graph is a non-linear data structure consisting of vertices (nodes) and edges that connect those vertices. It is used to represent relationships or 
+connections between different entities.
+
+
+
+
+
+
+
+
+
+
+
+//==============================Adjececy matrix
+
+"An adjacency matrix is a way to represent a graph using a 2D array. Each row and column represent vertices. If there is an edge between two vertices, we store 1; otherwise,
+ we store 0. To check whether two nodes are connected, we simply look at matrix[row][column], which takes O(1) time."
+
+     0 1 2
+0 [ 0 1 1 ]
+1 [ 1 0 0 ]
+2 [ 1 0 0 ]
+
+
+And say:
+
+"Here, matrix[0][1] = 1 means vertex 0 is connected to vertex 1, while matrix[1][2] = 0 means vertex 1 is not connected to vertex 2."
+
+
+///////////
+
+
+//========================What is DFS?
+
+
+"DFS (Depth First Search) is a graph traversal algorithm that explores a path as deeply as possible before backtracking. It is commonly implemented using recursion or 
+a stack and has a time complexity of O(V + E), where V is the number of vertices and E is the number of edges."
+
+
+/////////////////
+//==========================================What is BFS Traversal?
+
+BFS (Breadth-First Search) is a graph traversal algorithm that visits nodes level by level. It starts from a source node, visits all its immediate neighbors first,
+ then moves to the neighbors of those neighbors. BFS uses a queue data structure to keep track of the nodes to visit next. The time complexity is O(V + E), 
+ where V is the number of vertices and E is the number of edges.
