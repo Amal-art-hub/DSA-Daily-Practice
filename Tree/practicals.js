@@ -1852,96 +1852,174 @@
 
 
 
-class Node{
-    constructor(data){
-   this.data=data;
-   this.left=null;
-   this.right=null;
+// class Node{
+//     constructor(data){
+//    this.data=data;
+//    this.left=null;
+//    this.right=null;
+//     }
+// }
+
+
+// class Bst{
+//     constructor(){
+//         this.root=null
+//     }
+
+//     insert(value){
+//         let newNode=new Node(value);
+//         if(this.root===null){
+//              this.root=newNode;
+//              return;
+//         }
+
+//         let curr=this.root;
+
+//       while(true){
+//         if(value<curr.data){
+//             if(curr.left===null){
+//                 curr.left=newNode;
+//                 return;
+//             }
+//             curr=curr.left;
+//         }else if(value>curr.data){
+//                 if(curr.right ===null){
+//                     curr.right=newNode;
+//                     return;
+//                 }
+//                 curr=curr.right;
+//             }else{
+//                 return;
+//             }
+//         }
+//       }
+
+
+//       search(value){
+//         let curr=this.root;
+//         while(curr !==null){
+//             if(value===curr.data){
+//                 return true;
+//             }else if(value<curr.data){
+//                 curr=curr.left
+//             }else{
+//                 curr=curr.right;
+//             }
+//         }
+
+//         return false;
+//       }
+
+
+//       delete(value,node=this.root){
+//         if(node===null)return null;
+
+//         if(value<node.data){
+//             node.left=delete(value,node.left)
+//         }else if(value>node.data){
+//            node.right= delete(value,node.right)
+//         }else{
+//             if( node.right===null && node.left===null){
+//                   return null;
+//             }
+
+//             if(node.left===null){
+//                 return node.right
+//             }
+
+//             if(node.right===null){
+//                 return node.left
+//             }
+
+//             let minnode=findmin(node.right);
+//             node.data=minnode.data;
+//               node.right=delete(minnode.data,node.right)
+//         }
+//       }
+
+
+//       findmin(node){
+//         while(node.left!==null){
+//             node=node.left
+//         }
+//         return node
+//       }
+//     }
+
+
+    //==================convert binary tree in bst
+
+class Node {
+    constructor(data) {
+        this.data = data;
+        this.left = null;
+        this.right = null;
     }
 }
 
+let root = new Node(10);
 
-class Bst{
-    constructor(){
-        this.root=null
-    }
+root.left = new Node(2);
+root.right = new Node(7);
 
-    insert(value){
-        let newNode=new Node(value);
-        if(this.root===null){
-             this.root=newNode;
-             return;
-        }
+root.left.left = new Node(8);
+root.left.right = new Node(4);
 
-        let curr=this.root;
+root.right.left = new Node(6);
 
-      while(true){
-        if(value<curr.data){
-            if(curr.left===null){
-                curr.left=newNode;
-                return;
-            }
-            curr=curr.left;
-        }else if(value>curr.data){
-                if(curr.right ===null){
-                    curr.right=newNode;
-                    return;
-                }
-                curr=curr.right;
-            }else{
-                return;
-            }
-        }
-      }
+function btToBst(root) {
 
+    let arr = [];
 
-      search(value){
-        let curr=this.root;
-        while(curr !==null){
-            if(value===curr.data){
-                return true;
-            }else if(value<curr.data){
-                curr=curr.left
-            }else{
-                curr=curr.right;
-            }
-        }
+    // Store all values
+    putIntoArray(root, arr);
 
-        return false;
-      }
+    // Sort values
+    arr.sort((a, b) => a - b);
 
+    // Shared index object
+    let obj = { index: 0 };
 
-      delete(value,node=this.root){
-        if(node===null)return null;
+    // Replace values in inorder
+    makeBST(root, arr, obj);
 
-        if(value<node.data){
-            node.left=delete(value,node.left)
-        }else if(value>node.data){
-           node.right= delete(value,node.right)
-        }else{
-            if( node.right===null && node.left===null){
-                  return null;
-            }
+    return root;
+}
 
-            if(node.left===null){
-                return node.right
-            }
+function putIntoArray(node, arr) {
 
-            if(node.right===null){
-                return node.left
-            }
+    if (node === null) return;
 
-            let minnode=findmin(node.right);
-            node.data=minnode.data;
-              node.right=delete(minnode.data,node.right)
-        }
-      }
+    putIntoArray(node.left, arr);
 
+    arr.push(node.data);
 
-      findmin(node){
-        while(node.left!==null){
-            node=node.left
-        }
-        return node
-      }
-    }
+    putIntoArray(node.right, arr);
+}
+
+function makeBST(node, arr, obj) {
+
+    if (node === null) return;
+
+    makeBST(node.left, arr, obj);
+
+    node.data = arr[obj.index++];
+
+    makeBST(node.right, arr, obj);
+}
+
+function print(node) {
+
+    if (node === null) return;
+
+    print(node.left);
+
+    console.log(node.data);
+
+    print(node.right);
+}
+
+root = btToBst(root);
+
+console.log("Inorder Traversal of BST:");
+print(root);
