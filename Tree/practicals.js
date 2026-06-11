@@ -1935,6 +1935,7 @@
 //             node.data=minnode.data;
 //               node.right=delete(minnode.data,node.right)
 //         }
+//          return node;
 //       }
 
 
@@ -1944,82 +1945,395 @@
 //         }
 //         return node
 //       }
+
+
+//       print(node=this.root){
+//         if(node===null)return ;
+
+//         this.print(node.left);
+//         console.log(node.data);
+//         this.print(node.right);
+//       }
 //     }
+
+
+
+//     let b=new Bst()
+//     b.insert(1)
+//      b.insert(3)
+//       b.insert(2)
+//        b.insert(8)
+//         b.insert(6)
+//          b.insert(10)
+//           b.insert(15)
+          
+          
+//           b.print()
 
 
     //==================convert binary tree in bst
 
-class Node {
-    constructor(data) {
-        this.data = data;
-        this.left = null;
-        this.right = null;
+// class Node {
+//     constructor(data) {
+//         this.data = data;
+//         this.left = null;
+//         this.right = null;
+//     }
+// }
+
+// let root = new Node(10);
+
+// root.left = new Node(2);
+// root.right = new Node(7);
+
+// root.left.left = new Node(8);
+// root.left.right = new Node(4);
+
+// root.right.left = new Node(6);
+
+// function btToBst(root) {
+
+//     let arr = [];
+
+//     // Store all values
+//     putIntoArray(root, arr);
+
+//     // Sort values
+//     arr.sort((a, b) => a - b);
+
+//     // Shared index object
+//     let obj = { index: 0 };
+
+//     // Replace values in inorder
+//     makeBST(root, arr, obj);
+
+//     return root;
+// }
+
+// function putIntoArray(node, arr) {
+
+//     if (node === null) return;
+
+//     putIntoArray(node.left, arr);
+
+//     arr.push(node.data);
+
+//     putIntoArray(node.right, arr);
+// }
+
+// function makeBST(node, arr, obj) {
+
+//     if (node === null) return;
+
+//     makeBST(node.left, arr, obj);
+
+//     node.data = arr[obj.index++];
+
+//     makeBST(node.right, arr, obj);
+// }
+
+// function print(node) {
+
+//     if (node === null) return;
+
+//     print(node.left);
+
+//     console.log(node.data);
+
+//     print(node.right);
+// }
+
+// root = btToBst(root);
+
+// console.log("Inorder Traversal of BST:");
+// print(root);
+
+//================c;losest to the values
+
+
+
+
+
+// class Node{
+//     constructor(data){
+//    this.data=data;
+//    this.left=null;
+//    this.right=null;
+//     }
+// }
+
+
+// class Bst{
+//     constructor(){
+//         this.root=null
+//     }
+
+//     insert(value){
+//         let newNode=new Node(value);
+//         if(this.root===null){
+//              this.root=newNode;
+//              return;
+//         }
+
+//         let curr=this.root;
+
+//       while(true){
+//         if(value<curr.data){
+//             if(curr.left===null){
+//                 curr.left=newNode;
+//                 return;
+//             }
+//             curr=curr.left;
+//         }else if(value>curr.data){
+//                 if(curr.right ===null){
+//                     curr.right=newNode;
+//                     return;
+//                 }
+//                 curr=curr.right;
+//             }else{
+//                 return;
+//             }
+//         }
+//       }
+
+
+//       search(value){
+//         let curr=this.root;
+//         while(curr !==null){
+//             if(value===curr.data){
+//                 return true;
+//             }else if(value<curr.data){
+//                 curr=curr.left
+//             }else{
+//                 curr=curr.right;
+//             }
+//         }
+
+//         return false;
+//       }
+
+
+//       delete(value,node=this.root){
+//         if(node===null)return null;
+
+//         if(value<node.data){
+//             node.left=delete(value,node.left)
+//         }else if(value>node.data){
+//            node.right= delete(value,node.right)
+//         }else{
+//             if( node.right===null && node.left===null){
+//                   return null;
+//             }
+
+//             if(node.left===null){
+//                 return node.right
+//             }
+
+//             if(node.right===null){
+//                 return node.left
+//             }
+
+//             let minnode=findmin(node.right);
+//             node.data=minnode.data;
+//               node.right=delete(minnode.data,node.right)
+//         }
+//          return node;
+//       }
+
+
+//       findmin(node){
+//         while(node.left!==null){
+//             node=node.left
+//         }
+//         return node
+//       }
+
+
+//       print(node=this.root){
+//         if(node===null)return ;
+
+//         this.print(node.left);
+//         console.log(node.data);
+//         this.print(node.right);
+//       }
+
+
+//       closestnode(value,node=this.root){
+//         let closest=node;
+
+//         while(node!==null){
+//             if(Math.abs(value-node.data)<Math.abs(value-closest.data)){
+//                 closest=node
+//             }
+
+//             if(value<node.data){
+//                 node=node.left;
+//             }else if(value>node.data){
+//                 node=node.right;
+//             }else{
+//                 return node.data
+//             }
+//         }
+
+//         return closest.data;
+//       }
+//     }
+
+
+
+//     let b=new Bst()
+//     b.insert(1)
+//      b.insert(3)
+//       b.insert(2)
+//        b.insert(8)
+//         b.insert(6)
+//          b.insert(10)
+//           b.insert(15)
+          
+          
+        //   b.print()
+    //    console.log(b.closestnode(7))
+
+
+
+//==================validating bst
+
+
+
+
+
+class Node{
+    constructor(data){
+   this.data=data;
+   this.left=null;
+   this.right=null;
     }
 }
 
-let root = new Node(10);
 
-root.left = new Node(2);
-root.right = new Node(7);
+class Bst{
+    constructor(){
+        this.root=null
+    }
 
-root.left.left = new Node(8);
-root.left.right = new Node(4);
+    insert(value){
+        let newNode=new Node(value);
+        if(this.root===null){
+             this.root=newNode;
+             return;
+        }
 
-root.right.left = new Node(6);
+        let curr=this.root;
 
-function btToBst(root) {
+      while(true){
+        if(value<curr.data){
+            if(curr.left===null){
+                curr.left=newNode;
+                return;
+            }
+            curr=curr.left;
+        }else if(value>curr.data){
+                if(curr.right ===null){
+                    curr.right=newNode;
+                    return;
+                }
+                curr=curr.right;
+            }else{
+                return;
+            }
+        }
+      }
 
-    let arr = [];
 
-    // Store all values
-    putIntoArray(root, arr);
+      search(value){
+        let curr=this.root;
+        while(curr !==null){
+            if(value===curr.data){
+                return true;
+            }else if(value<curr.data){
+                curr=curr.left
+            }else{
+                curr=curr.right;
+            }
+        }
 
-    // Sort values
-    arr.sort((a, b) => a - b);
+        return false;
+      }
 
-    // Shared index object
-    let obj = { index: 0 };
 
-    // Replace values in inorder
-    makeBST(root, arr, obj);
+      delete(value,node=this.root){
+        if(node===null)return null;
 
-    return root;
-}
+        if(value<node.data){
+            node.left=this.delete(value,node.left)
+        }else if(value>node.data){
+           node.right= this.delete(value,node.right)
+        }else{
+            if( node.right===null && node.left===null){
+                  return null;
+            }
 
-function putIntoArray(node, arr) {
+            if(node.left===null){
+                return node.right
+            }
 
-    if (node === null) return;
+            if(node.right===null){
+                return node.left
+            }
 
-    putIntoArray(node.left, arr);
+            let minnode=this.findmin(node.right);
+            node.data=minnode.data;
+              node.right=this.delete(minnode.data,node.right)
+        }
+         return node;
+      }
 
-    arr.push(node.data);
 
-    putIntoArray(node.right, arr);
-}
+      findmin(node){
+        while(node.left!==null){
+            node=node.left
+        }
+        return node
+      }
 
-function makeBST(node, arr, obj) {
 
-    if (node === null) return;
+      print(node=this.root){
+        if(node===null)return ;
 
-    makeBST(node.left, arr, obj);
+        this.print(node.left);
+        console.log(node.data);
+        this.print(node.right);
+      }
 
-    node.data = arr[obj.index++];
 
-    makeBST(node.right, arr, obj);
-}
 
-function print(node) {
+      vlaidate(node=this.root,min=-Infinity,max=Infinity){
 
-    if (node === null) return;
+        if(node===null)return true;
 
-    print(node.left);
+        if(node.data<=min ||node.data >=max){
+            return false;
+        }
 
-    console.log(node.data);
+        return (
+            this.vlaidate(node.left,min,node.data)  && this.vlaidate(node.right,node.data,max)
+        )
+      }
 
-    print(node.right);
-}
 
-root = btToBst(root);
+    }
 
-console.log("Inorder Traversal of BST:");
-print(root);
+
+
+    let b=new Bst()
+    b.insert(1)
+     b.insert(3)
+      b.insert(2)
+       b.insert(8)
+        b.insert(6)
+         b.insert(10)
+          b.insert(15)
+
+b.delete(10)
+b.print()
+        //   console.log(b.vlaidate())
