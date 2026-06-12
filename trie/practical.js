@@ -414,3 +414,58 @@ function long(node){
 
 
 console.log(long(tr.root))
+
+//===============impementing the trie
+
+
+class Node{
+    constructor(){
+        this.childNode={};
+        this.isEnd=false;
+
+    }
+}
+
+class Trie{
+    constructor(){
+        this.root=new Node()
+    }
+
+    insert(word){
+        let node=this.root;
+
+        for(let ch of word){
+            if(!node.children[ch]){
+                node.children[ch]=new Node();
+            }
+            node=node.children[ch];
+        }
+
+        node.isEnde=true;
+
+    }
+
+
+
+    search(word){
+        let node=this.root;
+
+
+        for(let ch of word){
+            if(!node.children[ch]){
+                return false;
+            }
+
+            node=node.children[ch]
+        }
+
+        return node.isEnd===true;
+
+    }
+
+    startwith(word){
+        let node
+    }
+
+
+}

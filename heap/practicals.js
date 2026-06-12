@@ -1171,3 +1171,54 @@ function heappifydown(arr,n,i){
 
 
 console.log(heapsort(arr))
+
+//==================array to minheap
+
+let arr=[9,2,4,3,5,6];
+
+function minheap(arr){
+    
+    let n=arr.length;
+    
+    let lp=Math.floor((n/2)-1);
+    
+    for(let i=lp;i>=0;i--){
+        heapifydown(arr,n,i)
+    }
+    
+    return arr;
+}
+
+function heapifydown(arr,n,i){
+    
+    while(true){
+        
+        let left=Math.floor((i*2)+1)
+          let right=Math.floor((i*2)+2)
+          
+          let smallest=i;
+          
+          if(left<n  && arr[left]<arr[smallest]){
+              smallest=left
+          }
+          
+           if(right<n  && arr[right]<arr[smallest]){
+              smallest=right
+          }
+          
+          if(smallest===i)break;
+          
+          [arr[smallest],arr[i]]=[arr[i],arr[smallest]];
+          
+          i=smallest;
+    }
+    
+}
+
+
+
+
+
+
+
+console.log(minheap(arr));
