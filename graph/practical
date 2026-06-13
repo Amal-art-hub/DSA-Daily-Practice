@@ -42,33 +42,33 @@
 
 
 
-// //============ Check whether an undirected graph contains a cycle
+// // //============ Check whether an undirected graph contains a cycle
 
-// let graph = {
-//     A: ["B", "D"],
-//     B: ["A", "C"],
-//     C: ["B", "D"],
-//     D: ["A", "C"]
-// };
+// // let graph = {
+// //     A: ["B", "D"],
+// //     B: ["A", "C"],
+// //     C: ["B", "D"],
+// //     D: ["A", "C"]
+// // };
 
-// function hascycle(graph){
-//      let visited=new Set();
+// // function hascycle(graph){
+// //      let visited=new Set();
      
-//      function dfs(node,par){
-//          visited.add(node);
+// //      function dfs(node,par){
+// //          visited.add(node);
          
-//          for(let neigh of graph[node]){
-//              if(!visited.has(neigh)){
-//                  if(dfs(neigh,node)){
-//                      return true;
-//                  }
-//              }else if(neigh !==par){
-//                  return true;
-//              }
-//          }
+// //          for(let neigh of graph[node]){
+// //              if(!visited.has(neigh)){
+// //                  if(dfs(neigh,node)){
+// //                      return true;
+// //                  }
+// //              }else if(neigh !==par){
+// //                  return true;
+// //              }
+// //          }
          
-//          return false;
-//      }
+// //          return false;
+// //      }
      
      
      
@@ -76,133 +76,177 @@
      
      
      
-//      for(let node in graph){
-//          if(!visited.has(node)){
-//              if(dfs(node,null)){
-//                  return true;
-//              }
-//          }
-//      }
-//      return false;
+// //      for(let node in graph){
+// //          if(!visited.has(node)){
+// //              if(dfs(node,null)){
+// //                  return true;
+// //              }
+// //          }
+// //      }
+// //      return false;
      
-// }
+// // }
 
 
-// console.log(hascycle(graph));
+// // console.log(hascycle(graph));
 
-/////////////9-06-2026
+// /////////////9-06-2026
 
-//================implement dfs in grap
-
-
-// const graph = {
-//   A: ["B", "C"],
-//   B: ["D"],
-//   C: [],
-//   D: []
-// };
+// //================implement dfs in grap
 
 
-// function print(graph,start){
+// // const graph = {
+// //   A: ["B", "C"],
+// //   B: ["D"],
+// //   C: [],
+// //   D: []
+// // };
 
-//     let visited=new Set();
-//     function dfs(node){
-//         if(visited.has(node))return;
 
-//         visited.add(node);
-//         console.log(node);
+// // function print(graph,start){
 
-//         for(let neig of graph[node]){
-//             dfs(neig)
+// //     let visited=new Set();
+// //     function dfs(node){
+// //         if(visited.has(node))return;
+
+// //         visited.add(node);
+// //         console.log(node);
+
+// //         for(let neig of graph[node]){
+// //             dfs(neig)
+// //         }
+// //     }
+
+// //     dfs(start);
+// // }
+
+
+// // print(graph,"A")
+
+
+// ///================printing by bfs
+
+
+// // const graph = {
+// //   A: ["B", "C"],
+// //   B: ["D"],
+// //   C: [],
+// //   D: []
+// // };
+
+// // function bfs(graph,start){
+
+// //     let visited=new Set();
+
+// //     let q=[start];
+// //     visited.add(start)
+
+
+// //     while(q.length>0){
+// //         let node=q.shift();
+
+// //         console.log(node);
+
+// //         for(let neig of graph[node]){
+// //             if(!visited.has(neig)){
+// //                 visited.add(neig);
+// //                 q.push(neig);
+// //             }
+// //         }
+// //     }
+// // }
+
+
+// // bfs(graph,"A")
+
+
+
+// //===================================12-06-2026
+// //===============complete Graph using Adjacency List implementation with vertex insertion
+
+
+// class Graph{
+//     constructor(){
+//         this.isList={}
+//     }
+
+
+
+//     addvertex(vertex){
+//         if(!this.isList[vertex]){
+//             this.isList[vertex]=[];
 //         }
 //     }
 
-//     dfs(start);
-// }
+//     addEdges(v1,v2){
+
+//         if(!this.isList[v1]){
+//             this.addvertex(v1)
+//         }
+
+//           if(!this.isList[v2]){
+//             this.addvertex(v2)
+//         }
 
 
-// print(graph,"A")
+//         this.isList[v1].push(v2)
+//          this.isList[v2].push(v1)
+//     }
 
-
-///================printing by bfs
-
-
-// const graph = {
-//   A: ["B", "C"],
-//   B: ["D"],
-//   C: [],
-//   D: []
-// };
-
-// function bfs(graph,start){
-
-//     let visited=new Set();
-
-//     let q=[start];
-//     visited.add(start)
-
-
-//     while(q.length>0){
-//         let node=q.shift();
-
-//         console.log(node);
-
-//         for(let neig of graph[node]){
-//             if(!visited.has(neig)){
-//                 visited.add(neig);
-//                 q.push(neig);
-//             }
+//     display(){
+//         for(let vertex in this.isList){
+//             console.log(vertex,"->",this.isList[vertex].join(","))
 //         }
 //     }
+
 // }
 
 
-// bfs(graph,"A")
+// let g=new Graph();
+
+// g.addEdges(1,2)
+// g.display()
+
+//===============adjecency matrix
+
+class graph{
+    constructor(vertices){
+        this.V=vertices;
+        this.matrix=[]
 
 
 
-//===================================12-06-2026
-//===============complete Graph using Adjacency List implementation with vertex insertion
+        for(let i=0;i<vertices;i++){
+            this.matrix[i]=[];
+            for(let j=0;j<vertices;j++){
+                this.matrix[i][j]=0
+            }
+        }
 
-
-class Graph{
-    constructor(){
-        this.isList={}
     }
 
 
+    addvertex(i,j){
 
-    addvertex(vertex){
-        if(!this.isList[vertex]){
-            this.isList[vertex]=[];
-        }
+        this.matrix[i][j]=1;
+        this.matrix[j][i]=1;
+
     }
 
-    addEdges(v1,v2){
-
-        if(!this.isList[v1]){
-            this.addvertex(v1)
-        }
-
-          if(!this.isList[v2]){
-            this.addvertex(v2)
-        }
-
-
-        this.isList[v1].push(v2)
-         this.isList[v2].push(v1)
-    }
-
-    display(){
-        for(let vertex in this.isList){
-            console.log(vertex,"->",this.isList[vertex].join(","))
+    printgraph(){
+        for(let i=0;i<this.V;i++){
+            console.log(this.matrix[i].join(" "))
         }
     }
 
 }
 
+let g=new graph(4);
 
-let g=new Graph();
+g.addvertex(0,1);
+g.addvertex(0,2);
+g.addvertex(1,2);
+g.addvertex(2,3);
 
-g.addEdges(1,2)
-g.display()
+
+g.printgraph()
