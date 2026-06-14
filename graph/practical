@@ -478,6 +478,84 @@
 //=====================shortest distance
 
 
+// class graph{
+//     constructor(){
+//         this.islist={}
+//     }
+
+//     addvertex(vertex){
+//         if(!this.islist[vertex]){
+//             this.islist[vertex]=[]
+//         }
+//     }
+
+//     addedge(v1,v2){
+//         if(!this.islist[v1]){
+//             this.addvertex(v1)
+//         }
+
+//           if(!this.islist[v2]){
+//             this.addvertex(v2)
+//         }
+
+
+//         this.islist[v1].push(v2);
+//         this.islist[v2].push(v1);
+//     }
+
+// print(){
+
+
+//     for(let vertex in this.islist){
+//         console.log(vertex,"->",this.islist[vertex])
+//     }
+// }
+
+// shortest(start,end){
+//     let q=[[start,0]];
+//     let visited =new Set();
+//     visited.add(start)
+
+
+//     while(q.length>0){
+//         let [node,distance]=q.shift();
+
+//         if(node===end){return distance}
+
+
+//         for(let nei of this.islist[node]){
+//             if(!visited.has(nei)){
+//                 visited.add(nei);
+//                 q.push([nei,distance+1]);
+//             }
+//         }
+//     }
+
+//     return -1
+
+// }
+
+
+
+// }
+
+
+// let g=new graph();
+
+// g.addedge("a","b")
+// g.addedge("a","c")
+// g.addedge("a","d")
+// g.addedge("c","e")
+// g.addedge("c","f")
+
+// g.print()
+
+// console.log(g.shortest("a","f"))
+
+//=================================shortest path
+
+
+
 class graph{
     constructor(){
         this.islist={}
@@ -511,28 +589,28 @@ print(){
     }
 }
 
-shortest(start,end){
-    let q=[[start,0]];
-    let visited =new Set();
-    visited.add(start)
+shortpath(start,end){
+    let q=[[start,[start]]];
+    let visited=new Set();
+
+    visited.add(start);
 
 
     while(q.length>0){
-        let [node,distance]=q.shift();
+        let [node,path]=q.shift();
 
-        if(node===end){return distance}
-
+        if(node===end) return path;
 
         for(let nei of this.islist[node]){
-            if(!visited.has(nei)){
+               if(!visited.has(nei)){
                 visited.add(nei);
-                q.push([nei,distance+1]);
-            }
+                q.push([nei,[...path,nei]])
+               }
         }
     }
 
-    return -1
-
+    return [];
+    
 }
 
 
@@ -548,6 +626,6 @@ g.addedge("a","d")
 g.addedge("c","e")
 g.addedge("c","f")
 
-g.print()
 
-console.log(g.shortest("a","f"))
+
+console.log(g.shortpath("a","f"))
