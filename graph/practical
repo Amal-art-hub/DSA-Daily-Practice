@@ -375,28 +375,108 @@
 //         if(!visited.has(nei)){
 //             this.dfshelper(nei,visited)
 //         }
+// //     }
+// // }
+
+
+
+
+
+
+// // }
+
+
+
+// // let g=new Graph();
+
+// // g.addEdges(1,2)
+// // g.display()
+
+// // // g.bfs(1)
+
+// // g.dfs(1)
+
+// //=================checking cycle in graph
+
+// class graph{
+//     constructor(){
+//         this.islist={}
+//     }
+
+//     addvertex(vertex){
+//         if(!this.islist[vertex]){
+//             this.islist[vertex]=[]
+//         }
+//     }
+
+//     addedge(v1,v2){
+//         if(!this.islist[v1]){
+//             this.addvertex(v1)
+//         }
+
+//           if(!this.islist[v2]){
+//             this.addvertex(v2)
+//         }
+
+
+//         this.islist[v1].push(v2);
+//         this.islist[v2].push(v1);
+//     }
+
+// print(){
+
+
+//     for(let vertex in this.islist){
+//         console.log(vertex,"->",this.islist[vertex])
 //     }
 // }
 
+// checkcylcle(){
+//     let visited=new Set();
 
 
 
+//     let dfs=(node,parent=-1)=>{
+//         visited.add(node);
 
+//         for(let nei of this.islist[node] ||[]){
+//                    if(!visited.has(nei)){
+//                     if(dfs(nei,node))return true;
+//                    }else if(nei !==parent){
+
+//                     return true;
+
+//                    }
+//         }
+
+//         return false;
+//     }
+
+// for(let node of Object.keys(this.islist)){
+//     if(!visited.has(node) && dfs(node,null)){
+//        return true;
+//     }
+// }
+
+// return false;
+
+// }
 
 // }
 
 
+// let g=new graph();
+// g.addedge(1,2)
+// g.addedge(3,4)
+// g.addedge(5,6)
+// g.addedge(7,8)
 
-// let g=new Graph();
 
-// g.addEdges(1,2)
-// g.display()
+// console.log(g.checkcylcle(1));
 
-// // g.bfs(1)
 
-// g.dfs(1)
+//=====================shortest distance
 
-//=================checking cycle in graph
 
 class graph{
     constructor(){
@@ -431,45 +511,43 @@ print(){
     }
 }
 
-checkcylcle(){
-    let visited=new Set();
+shortest(start,end){
+    let q=[[start,0]];
+    let visited =new Set();
+    visited.add(start)
 
 
+    while(q.length>0){
+        let [node,distance]=q.shift();
 
-    let dfs=(node,parent=-1)=>{
-        visited.add(node);
+        if(node===end){return distance}
 
-        for(let nei of this.islist[node] ||[]){
-                   if(!visited.has(nei)){
-                    if(dfs(nei,node))return true;
-                   }else if(nei !==parent){
 
-                    return true;
-
-                   }
+        for(let nei of this.islist[node]){
+            if(!visited.has(nei)){
+                visited.add(nei);
+                q.push([nei,distance+1]);
+            }
         }
-
-        return false;
     }
 
-for(let node of Object.keys(this.islist)){
-    if(!visited.has(node) && dfs(node,null)){
-       return true;
-    }
-}
-
-return false;
+    return -1
 
 }
+
+
 
 }
 
 
 let g=new graph();
-g.addedge(1,2)
-g.addedge(3,4)
-g.addedge(5,6)
-g.addedge(7,8)
 
+g.addedge("a","b")
+g.addedge("a","c")
+g.addedge("a","d")
+g.addedge("c","e")
+g.addedge("c","f")
 
-console.log(g.checkcylcle(1));
+g.print()
+
+console.log(g.shortest("a","f"))
