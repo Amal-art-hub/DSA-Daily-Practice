@@ -209,44 +209,267 @@
 
 //===============adjecency matrix
 
+// class graph{
+//     constructor(vertices){
+//         this.V=vertices;
+//         this.matrix=[]
+
+
+   
+//         for(let i=0;i<vertices;i++){
+//             this.matrix[i]=[];
+//             for(let j=0;j<vertices;j++){
+//                 this.matrix[i][j]=0
+//             }
+//         }
+
+//     }
+
+
+//     addvertex(i,j){
+
+//         this.matrix[i][j]=1;
+//         this.matrix[j][i]=1;
+
+//     }
+
+//     printgraph(){
+//         for(let i=0;i<this.V;i++){
+//             console.log(this.matrix[i].join(" "))
+//         }
+//     }
+
+// }
+
+// let g=new graph(4);
+
+// g.addvertex(0,1);
+// g.addvertex(0,2);
+// g.addvertex(1,2);
+// g.addvertex(2,3);
+
+
+// g.printgraph()
+
+
+//=================adjecy list bfs 
+
+
+// class Graph{
+//     constructor(){
+//         this.isList={}
+//     }
+
+
+
+//     addvertex(vertex){
+//         if(!this.isList[vertex]){
+//             this.isList[vertex]=[];
+//         }
+//     }
+
+//     addEdges(v1,v2){
+
+//         if(!this.isList[v1]){
+//             this.addvertex(v1)
+//         }
+
+//           if(!this.isList[v2]){
+//             this.addvertex(v2)
+//         }
+
+
+//         this.isList[v1].push(v2)
+//          this.isList[v2].push(v1)
+//     }
+
+//     display(){
+//         for(let vertex in this.isList){
+//             console.log(vertex,"->",this.isList[vertex].join(","))
+//         }
+//     }
+
+//     bfs(start){
+//         let q=[start];
+//         let visited=new Set();
+//         visited.add(start);
+
+//         while(q.length>0){
+// let curr=q.shift();
+// console.log(curr);
+
+// for(let nei of this.isList[curr]){
+//     if(!visited.has(nei)){
+//         visited.add(nei);
+//         q.push(nei)
+//     }
+// }
+//         }
+
+//     }
+
+// }
+
+
+
+// let g=new Graph();
+
+// g.addEdges(1,2)
+// g.display()
+
+// g.bfs(1)
+
+//====================dfs
+
+
+// class Graph{
+//     constructor(){
+//         this.isList={}
+//     }
+
+
+
+//     addvertex(vertex){
+//         if(!this.isList[vertex]){
+//             this.isList[vertex]=[];
+//         }
+//     }
+
+//     addEdges(v1,v2){
+
+//         if(!this.isList[v1]){
+//             this.addvertex(v1)
+//         }   
+
+//           if(!this.isList[v2]){
+//             this.addvertex(v2)
+//         }
+
+
+//         this.isList[v1].push(v2)
+//          this.isList[v2].push(v1)
+//     }
+
+//     display(){
+//         for(let vertex in this.isList){
+//             console.log(vertex,"->",this.isList[vertex].join(","))
+//         }
+//     }
+
+
+
+
+
+// dfs(start){
+
+//     let viisted=new Set();
+//     this.dfshelper(start,visited)
+// }
+
+
+
+// dfshelper(vertex,visited){
+//     visited.add(vertex);
+// console.log(vertex);
+//     for(let nei of this.isList(vertex)){
+//         if(!visited.has(nei)){
+//             this.dfshelper(nei,visited)
+//         }
+//     }
+// }
+
+
+
+
+
+
+// }
+
+
+
+// let g=new Graph();
+
+// g.addEdges(1,2)
+// g.display()
+
+// // g.bfs(1)
+
+// g.dfs(1)
+
+//=================checking cycle in graph
+
 class graph{
-    constructor(vertices){
-        this.V=vertices;
-        this.matrix=[]
-
-
-
-        for(let i=0;i<vertices;i++){
-            this.matrix[i]=[];
-            for(let j=0;j<vertices;j++){
-                this.matrix[i][j]=0
-            }
-        }
-
+    constructor(){
+        this.islist={}
     }
 
-
-    addvertex(i,j){
-
-        this.matrix[i][j]=1;
-        this.matrix[j][i]=1;
-
-    }
-
-    printgraph(){
-        for(let i=0;i<this.V;i++){
-            console.log(this.matrix[i].join(" "))
+    addvertex(vertex){
+        if(!this.islist[vertex]){
+            this.islist[vertex]=[]
         }
     }
+
+    addedge(v1,v2){
+        if(!this.islist[v1]){
+            this.addvertex(v1)
+        }
+
+          if(!this.islist[v2]){
+            this.addvertex(v2)
+        }
+
+
+        this.islist[v1].push(v2);
+        this.islist[v2].push(v1);
+    }
+
+print(){
+
+
+    for(let vertex in this.islist){
+        console.log(vertex,"->",this.islist[vertex])
+    }
+}
+
+checkcylcle(){
+    let visited=new Set();
+
+
+
+    let dfs=(node,parent=-1)=>{
+        visited.add(node);
+
+        for(let nei of this.islist[node] ||[]){
+                   if(!visited.has(nei)){
+                    if(dfs(nei,node))return true;
+                   }else if(nei !==parent){
+
+                    return true;
+
+                   }
+        }
+
+        return false;
+    }
+
+for(let node of Object.keys(this.islist)){
+    if(!visited.has(node) && dfs(node,null)){
+       return true;
+    }
+}
+
+return false;
 
 }
 
-let g=new graph(4);
-
-g.addvertex(0,1);
-g.addvertex(0,2);
-g.addvertex(1,2);
-g.addvertex(2,3);
+}
 
 
-g.printgraph()
+let g=new graph();
+g.addedge(1,2)
+g.addedge(3,4)
+g.addedge(5,6)
+g.addedge(7,8)
+
+
+console.log(g.checkcylcle(1));
