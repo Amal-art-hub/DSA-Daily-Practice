@@ -258,62 +258,260 @@
 //===========================- Sort an array using heap sort
 
 
-let arr=[2,1,4,3,6,5,9];
+// let arr=[2,1,4,3,6,5,9];
 
 
-function heapsort(arr){
+// function heapsort(arr){
 
-    let n=arr.length;
-    let p=Math.floor((n/2)-1);
-    for(let i=p;i>=0;i--){
-        heapifydown(arr,n,i);
-    }
+//     let n=arr.length;
+//     let p=Math.floor((n/2)-1);
+//     for(let i=p;i>=0;i--){
+//         heapifydown(arr,n,i);
+//     }
 
-function heapifydown(arr,n,i){
+// function heapifydown(arr,n,i){
   
 
-    while(true){
-          let largest=i;
+//     while(true){
+//           let largest=i;
 
-    let left=Math.floor((i*2)+1);
-    let right=Math.floor((i*2)+2);
+//     let left=Math.floor((i*2)+1);
+//     let right=Math.floor((i*2)+2);
 
 
 
-    if(left<n && arr[largest]<arr[left]){
-        largest=left;
+//     if(left<n && arr[largest]<arr[left]){
+//         largest=left;
+//     }
+
+//     if(right<n  && arr[largest]<arr[right]){
+//         largest=right;
+//     }
+
+
+//     if(largest===i)break;
+
+//     [arr[largest],arr[i]]=[arr[i],arr[largest]]
+
+//     i=largest;
+
+//     }
+
+
+
+// }
+
+
+// for(let j=n-1;j>=0;j--){
+
+//     [arr[j],arr[0]]=[arr[0],arr[j]]
+
+//     heapifydown(arr,j,0)
+// }
+
+
+// return arr;
+
+// }
+
+
+
+// console.log(heapsort(arr));
+
+//================array to heap
+
+
+// let arr=[1,4,5,7,9,2];
+
+// function arrtoheap(arr){
+
+//     let n=arr.length;
+
+//     let p=Math.floor((n/2)-1);
+
+//     for(let i=p;i>=0;i--){
+//         heapifydown(arr,n,i)
+//     }
+
+//     return arr;
+// }
+
+
+// function heapifydown(arr,n,i){
+
+//     while(true){
+//         let left=Math.floor((i*2)+1);
+//         let right=Math.floor((i*2)+2);
+
+//         let largest=i;
+
+//         if(left<n && arr[largest]<arr[left]){
+//             largest=left;
+//         }
+
+        
+//         if(right<n && arr[largest]<arr[right]){
+//             largest=right;
+//         }
+
+
+//         if(largest===i)break;
+
+//         [arr[largest],arr[i]]=[arr[i],arr[largest]];
+
+//            i=largest;
+
+//     }
+// }
+
+// console.log(arrtoheap(arr));
+
+//================trie implementtaionb
+
+
+class TrieNode{
+    constructor(){
+        this.children={};
+        this.isEnd=false;
+    }
+}
+
+class Trie{
+    constructor(){
+        this.root=new TrieNode();
     }
 
-    if(right<n  && arr[largest]<arr[right]){
-        largest=right;
+
+insert(word){
+    let node=this.root;
+
+    for(let char of word){
+        if(!node.children[char]){
+            node.children[char]=new TrieNode();
+        }
+        node=node.children[char]
     }
 
+    node.isEnd=true;
+}
 
-    if(largest===i)break;
 
-    [arr[largest],arr[i]]=[arr[i],arr[largest]]
+search(word){
 
-    i=largest;
+    let node=this.root;
 
+    for(let cha of word){
+        if(!node.children[cha]){
+            return false;
+        }
+        node=node.children[cha]
     }
+
+    return node.isEnd;
+
+}
+
+
+print(){
+    this.dfs(this.root,"");
+}
+
+dfs(node,word){
+    if(node.isEnd){
+        console.log(word);
+    }
+
+    for(let char in node.children){
+        this.dfs(node.children[char],word+char)
+    }
+}
+
+
+autocomplete(prefix){
+
+    let node=this.root;
+
+    for(let cha of prefix){
+        if(!node.children[cha]){
+            return []
+        }
+
+        node=node.children[cha];
+    }
+
+    let result=[];
+
+
+let dfs=(node,word)=>{
+    if(node.isEnd){
+        result.push(word)
+    }
+
+    for(let cha in node.children){
+        dfs(node.children[cha],word+cha)
+    }
+}
+
+dfs(node,prefix)
+
+return result;
+}
+
+
+delete(word){
+    this.dfsd(this.root,word,0);
+}
+
+dfsd(node,word,i){
+
+if(i===word.length){
+    if(!node.isEnd){
+        return false;
+    }
+
+    node.isEnd=false;
+    return Object.keys(node.children).length===0;
+}
+
+let cha=word[i];
+
+if(!node.children[cha]){
+    return false;
+}
+
+let letdeletecha=this.dfsd(node.children[cha],word,i+1);
+
+if(letdeletecha){
+    delete node.children[cha]
+
+    return(
+        Object.keys(node.children).length===0  && !node.isEnd
+    )
+}
+
+return false;
+
 
 
 
 }
 
 
-for(let j=n-1;j>=0;j--){
-
-    [arr[j],arr[0]]=[arr[0],arr[j]]
-
-    heapifydown(arr,j,0)
 }
 
 
-return arr;
+let t=new Trie();
 
-}
+t.insert("amal");
+t.insert("amalk");
+t.insert("amall");
+t.insert("kaal");
+t.insert("al");
+
+// t.print();
+
+console.log(t.autocomplete("am"))
 
 
-
-console.log(heapsort(arr));
+t.delete("kaal");
+t.print();
