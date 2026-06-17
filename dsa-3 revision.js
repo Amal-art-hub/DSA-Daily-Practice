@@ -369,149 +369,364 @@
 //================trie implementtaionb
 
 
-class TrieNode{
-    constructor(){
-        this.children={};
-        this.isEnd=false;
-    }
-}
+// class TrieNode{
+//     constructor(){
+//         this.children={};
+//         this.isEnd=false;
+//     }
+// }
 
-class Trie{
-    constructor(){
-        this.root=new TrieNode();
-    }
-
-
-insert(word){
-    let node=this.root;
-
-    for(let char of word){
-        if(!node.children[char]){
-            node.children[char]=new TrieNode();
-        }
-        node=node.children[char]
-    }
-
-    node.isEnd=true;
-}
+// class Trie{
+//     constructor(){
+//         this.root=new TrieNode();
+//     }
 
 
-search(word){
+// insert(word){
+//     let node=this.root;
 
-    let node=this.root;
+//     for(let char of word){
+//         if(!node.children[char]){
+//             node.children[char]=new TrieNode();
+//         }
+//         node=node.children[char]
+//     }
 
-    for(let cha of word){
-        if(!node.children[cha]){
-            return false;
-        }
-        node=node.children[cha]
-    }
-
-    return node.isEnd;
-
-}
+//     node.isEnd=true;
+// }
 
 
-print(){
-    this.dfs(this.root,"");
-}
+// search(word){
 
-dfs(node,word){
-    if(node.isEnd){
-        console.log(word);
-    }
+//     let node=this.root;
 
-    for(let char in node.children){
-        this.dfs(node.children[char],word+char)
-    }
-}
+//     for(let cha of word){
+//         if(!node.children[cha]){
+//             return false;
+//         }
+//         node=node.children[cha]
+//     }
 
+//     return node.isEnd;
 
-autocomplete(prefix){
-
-    let node=this.root;
-
-    for(let cha of prefix){
-        if(!node.children[cha]){
-            return []
-        }
-
-        node=node.children[cha];
-    }
-
-    let result=[];
+// }
 
 
-let dfs=(node,word)=>{
-    if(node.isEnd){
-        result.push(word)
-    }
+// print(){
+//     this.dfs(this.root,"");
+// }
 
-    for(let cha in node.children){
-        dfs(node.children[cha],word+cha)
-    }
-}
+// dfs(node,word){
+//     if(node.isEnd){
+//         console.log(word);
+//     }
 
-dfs(node,prefix)
-
-return result;
-}
-
-
-delete(word){
-    this.dfsd(this.root,word,0);
-}
-
-dfsd(node,word,i){
-
-if(i===word.length){
-    if(!node.isEnd){
-        return false;
-    }
-
-    node.isEnd=false;
-    return Object.keys(node.children).length===0;
-}
-
-let cha=word[i];
-
-if(!node.children[cha]){
-    return false;
-}
-
-let letdeletecha=this.dfsd(node.children[cha],word,i+1);
-
-if(letdeletecha){
-    delete node.children[cha]
-
-    return(
-        Object.keys(node.children).length===0  && !node.isEnd
-    )
-}
-
-return false;
+//     for(let char in node.children){
+//         this.dfs(node.children[char],word+char)
+//     }
+// }
 
 
+// autocomplete(prefix){
+
+//     let node=this.root;
+
+//     for(let cha of prefix){
+//         if(!node.children[cha]){
+//             return []
+//         }
+
+//         node=node.children[cha];
+//     }
+
+//     let result=[];
 
 
-}
+// let dfs=(node,word)=>{
+//     if(node.isEnd){
+//         result.push(word)
+//     }
+
+//     for(let cha in node.children){
+//         dfs(node.children[cha],word+cha)
+//     }
+// }
+
+// dfs(node,prefix)
+
+// return result;
+// }
 
 
-}
+// delete(word){
+//     this.dfsd(this.root,word,0);
+// }
+
+// dfsd(node,word,i){
+
+// if(i===word.length){
+//     if(!node.isEnd){
+//         return false;
+//     }
+
+//     node.isEnd=false;
+//     return Object.keys(node.children).length===0;
+// }
+
+// let cha=word[i];
+
+// if(!node.children[cha]){
+//     return false;
+// }
+
+// let letdeletecha=this.dfsd(node.children[cha],word,i+1);
+
+// if(letdeletecha){
+//     delete node.children[cha]
+
+//     return(
+//         Object.keys(node.children).length===0  && !node.isEnd
+//     )
+// }
+
+// return false;
 
 
-let t=new Trie();
 
-t.insert("amal");
-t.insert("amalk");
-t.insert("amall");
-t.insert("kaal");
-t.insert("al");
 
+// }
+
+
+// }
+
+
+// let t=new Trie();
+
+// t.insert("amal");
+// t.insert("amalk");
+// t.insert("amall");
+// t.insert("kaal");
+// t.insert("al");
+
+// // t.print();
+
+// // console.log(t.autocomplete("am"))
+
+
+// // t.delete("kaal");
 // t.print();
 
-console.log(t.autocomplete("am"))
+//=====================sort an aray using sorting algorithum
 
 
-t.delete("kaal");
-t.print();
+// let arr=[2,5,3,7,8,9];
+
+
+// function heapsort(arr){
+//     let n=arr.length;
+
+//     let p=Math.floor((n/2)-1);
+
+//     for(let i=p;i>=0;i--){
+//         heapifydown(arr,n,i)
+//     }
+
+//     for(let j=n-1;j>=0;j--){
+//         [arr[0],arr[j]]=[arr[j],arr[0]]
+//         heapifydown(arr,j,0)
+//     }
+
+//     return arr;
+// }
+
+// function heapifydown(arr,n,i){
+
+//     while(true){
+//         let left=Math.floor((i*2)+1);
+//           let right=Math.floor((i*2)+2);
+
+
+//           let larger=i;
+
+//           if(left<n  && arr[left]>arr[larger]){
+//             larger=left
+//           }
+
+//              if(right<n  && arr[right]>arr[larger]){
+//             larger=right
+//           }
+
+
+//           if(larger===i)break;
+
+//           [arr[larger],arr[i]]=[arr[i],arr[larger]];
+
+
+//           i=larger
+
+
+//     }
+
+// }
+
+// console.log(heapsort(arr));
+
+
+//Heap Sort is a comparison-based sorting algorithm that first builds a binary heap from the input data and then repeatedly removes the root element to produce a sorted array.
+ //It has a time complexity of O(n log n) in the best, average, and worst cases, and a space complexity of O(1).
+
+
+
+ //================deleting dupleicate from bt
+
+//  class Node{
+//     constructor(data){
+//         this.data=data;
+//         this.left=null;
+//         this.right=null;
+//     }
+//  }
+
+
+
+// let root=new Node(1)
+//  root.left=new Node(2);
+//  root.right=new Node(3);
+//  root.left.left=new Node(4);
+//  root.right.left=new Node(2);
+//   root.left.right=new Node(8);
+
+
+//   function remdupli(root){
+
+//     let seen=new Set();
+
+//     function dfs(node){
+//         if(node===null)return null;
+
+//          node.left=dfs(node.left);
+//          node.right=dfs(node.right);
+
+
+//          if(seen.has(node.data)){
+//             return null;
+//          }
+
+//          seen.add(node.data);
+//          return node;
+//     }
+
+
+//     return dfs(root)
+//   }
+
+//   function print(node){
+// if(node===null)return;
+
+// console.log(node.data);
+// print(node.left);
+// print(node.right);
+//   }
+
+// remdupli(root)
+//   print(root);
+
+  //======================array to bst
+
+  class Node{
+    constructor(data){
+        this.data=data;
+        this.left=null;
+        this.right=null;
+    }
+  }
+
+
+  class bst{
+    constructor(){
+        this.root=null
+    }
+
+
+    insert(value){
+    let newNode=new Node(value);
+
+    if(this.root===null){
+        this.root=newNode;
+        return;
+    }
+
+    let node=this.root;
+
+
+    while(node !==null){
+        if(value<node.data){
+            if(node.left===null){
+                node.left=newNode;
+                return;
+            }
+            node=node.left;
+        }else if(value>node.data){
+            if(node.right===null){
+                node.right=newNode
+                return;
+            }
+            node=node.right;
+        }else{
+            return;
+        }
+    }
+    }
+
+    artobst(arr){
+        for(let ele of arr){
+            this.insert(ele)
+        }
+    }
+
+    inorder(node=this.root){
+        if(node===null)return null;
+        this.inorder(node.left);
+        console.log(node.data);
+        this.inorder(node.right);
+
+    }
+
+  nthlarg(n){
+
+    let count=0;
+    let result=null;
+
+    let dfs=(node=this.root)=>{
+        if(node===null || result!==null)return;
+
+        dfs(node.right);
+        count++;
+        if(count===n){
+            result=node.data;
+            return;
+        }
+
+        dfs(node.left);
+    }
+
+    dfs(this.root);
+    return result;
+
+  }
+
+
+  }
+
+  let b=new bst();
+
+
+  let arr=[1,4,2,3,6,8,7];
+
+  b.artobst(arr);
+
+//   b.inorder();
+
+  console.log(b.nthlarg(3))
+
+
