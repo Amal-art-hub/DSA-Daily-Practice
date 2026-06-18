@@ -301,13 +301,13 @@
 
 // }
 
-
 // for(let j=n-1;j>=0;j--){
 
 //     [arr[j],arr[0]]=[arr[0],arr[j]]
 
 //     heapifydown(arr,j,0)
 // }
+
 
 
 // return arr;
@@ -321,50 +321,50 @@
 //================array to heap
 
 
-// let arr=[1,4,5,7,9,2];
+let arr=[1,4,5,7,9,2];
 
-// function arrtoheap(arr){
+function arrtoheap(arr){
 
-//     let n=arr.length;
+    let n=arr.length;
 
-//     let p=Math.floor((n/2)-1);
+    let p=Math.floor((n/2)-1);
 
-//     for(let i=p;i>=0;i--){
-//         heapifydown(arr,n,i)
-//     }
+    for(let i=p;i>=0;i--){
+        heapifydown(arr,n,i)
+    }
 
-//     return arr;
-// }
+    return arr;
+}
 
 
-// function heapifydown(arr,n,i){
+function heapifydown(arr,n,i){
 
-//     while(true){
-//         let left=Math.floor((i*2)+1);
-//         let right=Math.floor((i*2)+2);
+    while(true){
+        let left=Math.floor((i*2)+1);
+        let right=Math.floor((i*2)+2);
 
-//         let largest=i;
+        let largest=i;
 
-//         if(left<n && arr[largest]<arr[left]){
-//             largest=left;
-//         }
+        if(left<n && arr[largest]<arr[left]){
+            largest=left;
+        }
 
         
-//         if(right<n && arr[largest]<arr[right]){
-//             largest=right;
-//         }
+        if(right<n && arr[largest]<arr[right]){
+            largest=right;
+        }
 
 
-//         if(largest===i)break;
+        if(largest===i)break;
 
-//         [arr[largest],arr[i]]=[arr[i],arr[largest]];
+        [arr[largest],arr[i]]=[arr[i],arr[largest]];
 
-//            i=largest;
+           i=largest;
 
-//     }
-// }
+    }
+}
 
-// console.log(arrtoheap(arr));
+console.log(arrtoheap(arr));
 
 //================trie implementtaionb
 
@@ -633,100 +633,431 @@
 
   //======================array to bst
 
-  class Node{
+//   class Node{
+//     constructor(data){
+//         this.data=data;
+//         this.left=null;
+//         this.right=null;
+//     }
+//   }
+
+
+//   class bst{
+//     constructor(){
+//         this.root=null
+//     }
+
+
+//     insert(value){
+//     let newNode=new Node(value);
+
+//     if(this.root===null){
+//         this.root=newNode;
+//         return;
+//     }
+
+//     let node=this.root;
+
+
+//     while(node !==null){
+//         if(value<node.data){
+//             if(node.left===null){
+//                 node.left=newNode;
+//                 return;
+//             }
+//             node=node.left;
+//         }else if(value>node.data){
+//             if(node.right===null){
+//                 node.right=newNode
+//                 return;
+//             }
+//             node=node.right;
+//         }else{
+//             return;
+//         }
+//     }
+//     }
+
+//     artobst(arr){
+//         for(let ele of arr){
+//             this.insert(ele)
+//         }
+//     }
+
+//     inorder(node=this.root){
+//         if(node===null)return null;
+//         this.inorder(node.left);
+//         console.log(node.data);
+//         this.inorder(node.right);
+
+//     }
+
+//   nthlarg(n){
+
+//     let count=0;
+//     let result=null;
+
+//     let dfs=(node=this.root)=>{
+//         if(node===null || result!==null)return;
+
+//         dfs(node.right);
+//         count++;
+//         if(count===n){
+//             result=node.data;
+//             return;
+//         }
+
+//         dfs(node.left);
+//     }
+
+//     dfs(this.root);
+//     return result;
+
+//   }
+
+
+//   search(value,node=this.root){
+
+// if(node===null)return false;
+
+// if(node.data===value)return true;
+
+// if(value<node.data){
+//    return this.search(value,node.left);
+// }else {
+//    return this.search(value,node.right);
+// }
+
+
+
+
+//   }
+
+
+//   nearest(value,node=this.root){
+//     if(node===null)return null;
+
+//     let closest=node.data;
+
+
+//     while(node !==null){
+
+//     if(Math.abs(value-node.data)<Math.abs(value-closest)){
+//         closest=node.data
+//     }
+
+
+//       if(value<node.data){
+//         node=node.left
+//       }else if(value>node.data){
+//         node=node.right;
+//       }else{
+//         return node.data;
+//       }
+
+
+//     }
+
+//     return closest;
+//   }
+
+//   valid(node=this.root,min=-Infinity,max=Infinity){
+    
+//     if(node===null)return true;;
+
+//     if(node.data<=min || node.data >=max)return false;
+
+
+//     return (
+//         this.valid(node.left,min,node.data) && this.valid(node.right,node.data,max)
+//     )
+
+//   }
+
+
+
+//   }
+
+//   let b=new bst();
+
+
+//   let arr=[1,4,22,31,16,18,37];
+
+//   b.artobst(arr);
+
+// //   b.inorder();
+
+// //   console.log(b.nthlarg(3))
+
+// //   console.log(b.search(10))
+
+// // console.log(b.nearest(2))
+
+// console.log(b.valid())
+
+//======================================heap k th largest in array using heap
+
+// let arr=[1,4,5,8,9];
+
+// function nthlarg(arr,k){
+//     let n=arr.length;
+   
+//     let p=Math.floor((n/2)-1);
+
+//     for(let i=p;i>=0;i--){
+//         heapifydown(arr,n,i);
+//     }
+  
+
+//   for(let j=1;j<k;j++){
+//     arr[0]=arr[n-1];
+//     arr.pop()
+//     n--;
+//     heapifydown(arr,n,0)
+//   }
+
+//     return arr[0];
+
+
+
+// }
+
+
+// function heapifydown(arr,n,i){
+//     while(true){
+//            let larger=i;
+
+//            let left=Math.floor((i*2)+1);
+//            let right=Math.floor((i*2)+2);
+
+
+//            if(left<n && arr[left]>arr[larger]){
+//             larger=left
+//            }
+
+
+//              if(right<n && arr[right]>arr[larger]){
+//             larger=right
+//            }
+     
+//              if(larger===i)break;
+
+//              [arr[larger],arr[i]]=[arr[i],arr[larger]];
+
+//              i=larger;
+//     }
+// }
+
+
+
+// console.log(nthlarg(arr,3))
+
+//====================adjecency list
+
+
+// class Graph{
+//     constructor(data){
+//         this.list={}
+//     }
+
+//     addVertex(vertex){
+//         if(!this.list[vertex]){
+//             this.list[vertex]=[];
+
+//         }
+
+
+//     }
+
+//     addEdge(v1,v2){
+//         if(!this.list[v1]){
+//             this.addVertex(v1)
+//         }
+
+//            if(!this.list[v2]){
+//             this.addVertex(v2)
+//         }
+
+//         this.list[v1].push(v2);
+//         this.list[v2].push(v1);
+//     }
+
+
+//     print(){
+//         for(let vertex in this.list){
+//             console.log(vertex,"->",this.list[vertex].join(","))
+//         }
+//     }
+// }
+
+// let g=new Graph();
+
+// g.addEdge(1,2);
+// g.addEdge(1,3);
+// g.addEdge(2,4);
+// g.addEdge(4,22);
+
+// g.print();
+
+//=================================adjencency matricx
+
+// class Graph{
+//     constructor(size){
+//         this.matrix=[]
+
+
+
+//         for(let i=0;i<size;i++){
+//             this.matrix[i]=[];
+//             for(let j=0;j<size;j++){
+//                 this.matrix[i][j]=0;
+//             }
+//         }
+//     }
+
+// addEdge(v1,v2){
+//     this.matrix[v1][v2]=1;
+//     this.matrix[v2][v1]=1;
+// }
+
+// display(){
+//     for(let row of this.matrix){
+//         console.log(row)
+//     }
+// }
+
+// }
+
+
+// let g=new Graph(4);
+
+// g.addEdge(1,2);
+
+// g.addEdge(2,3);
+
+
+// g.display()
+
+//===============checking cycle in garph
+
+
+class Graph{
+    constructor(data){
+        this.list={}
+    }
+
+    addVertex(vertex){
+        if(!this.list[vertex]){
+            this.list[vertex]=[];
+
+        }
+
+
+    }
+
+    addEdge(v1,v2){
+        if(!this.list[v1]){
+            this.addVertex(v1)
+        }
+
+           if(!this.list[v2]){
+            this.addVertex(v2)
+        }
+
+        this.list[v1].push(v2);
+        this.list[v2].push(v1);
+    }
+
+
+    print(){
+        for(let vertex in this.list){
+            console.log(vertex,"->",this.list[vertex].join(","))
+        }
+    }
+
+    checkcycle(){
+        let seen=new Set();
+
+
+    }
+}
+
+let g=new Graph();
+
+g.addEdge(1,2);
+g.addEdge(2,3);
+g.addEdge(3,1);
+g.addEdge(4,22);
+
+g.print();
+
+
+
+//=================================bt to bst
+
+
+
+ class Node{
     constructor(data){
         this.data=data;
         this.left=null;
         this.right=null;
     }
-  }
+ }
 
 
-  class bst{
-    constructor(){
-        this.root=null
-    }
+
+let root=new Node(1)
+ root.left=new Node(2);
+ root.right=new Node(3);
+ root.left.left=new Node(4);
+ root.right.left=new Node(2);
+  root.left.right=new Node(8);
+  
+  
+  
+   let arr=[];
+ 
+ function dfs(root){
+   
+     if(root===null)return;
+     
+     dfs(root.left);
+     arr.push(root.data);
+     dfs(root.right);
+     
+ }
+ 
+ dfs(root);
+ 
+ arr.sort((a,b)=>a-b)
+ 
+function convert(arr){
+let i=0;
+function bst(root){
+    if(root===null)return;
+    
+    bst(root.left);
+    root.data=arr[i++];
+    bst(root.right);
+}
+bst(root);
+}
+ 
+ 
+ 
+ convert(arr);
+ 
+ function print(root){
+     if(root===null)return;
+     
+     print(root.left);
+     console.log(root.data);
+     print(root.right);
+ }
+ 
+ print(root);
 
 
-    insert(value){
-    let newNode=new Node(value);
-
-    if(this.root===null){
-        this.root=newNode;
-        return;
-    }
-
-    let node=this.root;
-
-
-    while(node !==null){
-        if(value<node.data){
-            if(node.left===null){
-                node.left=newNode;
-                return;
-            }
-            node=node.left;
-        }else if(value>node.data){
-            if(node.right===null){
-                node.right=newNode
-                return;
-            }
-            node=node.right;
-        }else{
-            return;
-        }
-    }
-    }
-
-    artobst(arr){
-        for(let ele of arr){
-            this.insert(ele)
-        }
-    }
-
-    inorder(node=this.root){
-        if(node===null)return null;
-        this.inorder(node.left);
-        console.log(node.data);
-        this.inorder(node.right);
-
-    }
-
-  nthlarg(n){
-
-    let count=0;
-    let result=null;
-
-    let dfs=(node=this.root)=>{
-        if(node===null || result!==null)return;
-
-        dfs(node.right);
-        count++;
-        if(count===n){
-            result=node.data;
-            return;
-        }
-
-        dfs(node.left);
-    }
-
-    dfs(this.root);
-    return result;
-
-  }
-
-
-  }
-
-  let b=new bst();
-
-
-  let arr=[1,4,2,3,6,8,7];
-
-  b.artobst(arr);
-
-//   b.inorder();
-
-  console.log(b.nthlarg(3))
 
 
