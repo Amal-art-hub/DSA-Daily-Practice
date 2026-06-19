@@ -321,50 +321,50 @@
 //================array to heap
 
 
-let arr=[1,4,5,7,9,2];
+// let arr=[1,4,5,7,9,2];
 
-function arrtoheap(arr){
+// function arrtoheap(arr){
 
-    let n=arr.length;
+//     let n=arr.length;
 
-    let p=Math.floor((n/2)-1);
+//     let p=Math.floor((n/2)-1);
 
-    for(let i=p;i>=0;i--){
-        heapifydown(arr,n,i)
-    }
+//     for(let i=p;i>=0;i--){
+//         heapifydown(arr,n,i)
+//     }
 
-    return arr;
-}
+//     return arr;
+// }
 
 
-function heapifydown(arr,n,i){
+// function heapifydown(arr,n,i){
 
-    while(true){
-        let left=Math.floor((i*2)+1);
-        let right=Math.floor((i*2)+2);
+//     while(true){
+//         let left=Math.floor((i*2)+1);
+//         let right=Math.floor((i*2)+2);
 
-        let largest=i;
+//         let largest=i;
 
-        if(left<n && arr[largest]<arr[left]){
-            largest=left;
-        }
+//         if(left<n && arr[largest]<arr[left]){
+//             largest=left;
+//         }
 
         
-        if(right<n && arr[largest]<arr[right]){
-            largest=right;
-        }
+//         if(right<n && arr[largest]<arr[right]){
+//             largest=right;
+//         }
 
 
-        if(largest===i)break;
+//         if(largest===i)break;
 
-        [arr[largest],arr[i]]=[arr[i],arr[largest]];
+//         [arr[largest],arr[i]]=[arr[i],arr[largest]];
 
-           i=largest;
+//            i=largest;
 
-    }
-}
+//     }
+// }
 
-console.log(arrtoheap(arr));
+// console.log(arrtoheap(arr));
 
 //================trie implementtaionb
 
@@ -941,55 +941,55 @@ console.log(arrtoheap(arr));
 //===============checking cycle in garph
 
 
-class Graph{
-    constructor(data){
-        this.list={}
-    }
+// class Graph{
+//     constructor(data){
+//         this.list={}
+//     }
 
-    addVertex(vertex){
-        if(!this.list[vertex]){
-            this.list[vertex]=[];
+//     addVertex(vertex){
+//         if(!this.list[vertex]){
+//             this.list[vertex]=[];
 
-        }
-
-
-    }
-
-    addEdge(v1,v2){
-        if(!this.list[v1]){
-            this.addVertex(v1)
-        }
-
-           if(!this.list[v2]){
-            this.addVertex(v2)
-        }
-
-        this.list[v1].push(v2);
-        this.list[v2].push(v1);
-    }
+//         }
 
 
-    print(){
-        for(let vertex in this.list){
-            console.log(vertex,"->",this.list[vertex].join(","))
-        }
-    }
+//     }
 
-    checkcycle(){
-        let seen=new Set();
+//     addEdge(v1,v2){
+//         if(!this.list[v1]){
+//             this.addVertex(v1)
+//         }
+
+//            if(!this.list[v2]){
+//             this.addVertex(v2)
+//         }
+
+//         this.list[v1].push(v2);
+//         this.list[v2].push(v1);
+//     }
 
 
-    }
-}
+//     print(){
+//         for(let vertex in this.list){
+//             console.log(vertex,"->",this.list[vertex].join(","))
+//         }
+//     }
 
-let g=new Graph();
+//     checkcycle(){
+//         let seen=new Set();
 
-g.addEdge(1,2);
-g.addEdge(2,3);
-g.addEdge(3,1);
-g.addEdge(4,22);
 
-g.print();
+//     }
+// }
+
+// let g=new Graph();
+
+// g.addEdge(1,2);
+// g.addEdge(2,3);
+// g.addEdge(3,1);
+// g.addEdge(4,22);
+
+// g.print();
 
 
 
@@ -997,67 +997,350 @@ g.print();
 
 
 
- class Node{
-    constructor(data){
-        this.data=data;
-        this.left=null;
-        this.right=null;
-    }
- }
+//  class Node{
+//     constructor(data){
+//         this.data=data;
+//         this.left=null;
+//         this.right=null;
+//     }
+//  }
 
 
 
-let root=new Node(1)
- root.left=new Node(2);
- root.right=new Node(3);
- root.left.left=new Node(4);
- root.right.left=new Node(2);
-  root.left.right=new Node(8);
+// let root=new Node(1)
+//  root.left=new Node(2);
+//  root.right=new Node(3);
+//  root.left.left=new Node(4);
+//  root.right.left=new Node(2);
+//   root.left.right=new Node(8);
   
   
   
-   let arr=[];
+//    let arr=[];
  
- function dfs(root){
+//  function dfs(root){
    
-     if(root===null)return;
+//      if(root===null)return;
      
-     dfs(root.left);
-     arr.push(root.data);
-     dfs(root.right);
+//      dfs(root.left);
+//      arr.push(root.data);
+//      dfs(root.right);
      
- }
+//  }
  
- dfs(root);
+//  dfs(root);
  
- arr.sort((a,b)=>a-b)
+//  arr.sort((a,b)=>a-b)
  
-function convert(arr){
-let i=0;
-function bst(root){
-    if(root===null)return;
+// function convert(arr){
+// let i=0;
+// function bst(root){
+// //     if(root===null)return;
     
-    bst(root.left);
-    root.data=arr[i++];
-    bst(root.right);
-}
-bst(root);
-}
+// //     bst(root.left);
+// //     root.data=arr[i++];
+// //     bst(root.right);
+// // }
+// // bst(root);
+// // }
  
  
  
- convert(arr);
+// //  convert(arr);
  
- function print(root){
-     if(root===null)return;
+// //  function print(root){
+// //      if(root===null)return;
      
-     print(root.left);
-     console.log(root.data);
-     print(root.right);
- }
+// //      print(root.left);
+// //      console.log(root.data);
+// //      print(root.right);
+// //  }
  
- print(root);
+// //  print(root);
 
 
 
 
+// //===========================implementing adjececny list
+
+
+// class Graph{
+//    constructor(){
+//     this.list={}
+//    }
+
+// addvertex(vertex){
+//     if(!this.list[vertex]){
+//         this.list[vertex]=[];
+//     }
+// }
+
+// addedge(v1,v2){
+//     if(this.list[v1]){
+//         this.addvertex(v1)
+//     }
+
+
+//      if(this.list[v2]){
+//         this.addvertex(v2)
+//     }
+
+//     this.list[v1].push(v2)
+//     this.list[v2].push(v1)
+// }
+
+// print(){
+//     for(let ver in this.list){
+//         console.log(ver,"->",this.list[ver].join(","))
+//     }
+// }
+
+// bfs(start){
+//    let visited=new Set();
+//    let q=[start];
+//    visited.add(start);
+
+//    while(q.length>0){
+
+//     let node=q.shift();
+
+//     console.log(node.data)
+
+//     for(let nei of this.list[node]){
+//         if(!visited.has(nei)){
+//             visited.add(nei);
+//             q.push(nei)
+//         }
+//     }
+
+//    }
+// }
+
+
+// }
+
+// let g=new Graph();
+// g.addedge(1,2)
+// g.addedge(2,3)
+// g.addedge(3,4)
+// g.addedge(4,5)
+
+
+// g.print()
+
+//==============binarty tree with odd on the left side and the even in right side
+
+
+// class Node{
+//     constructor(data){
+//         this.data=data;
+//         this.left=null;
+//         this.right=null
+//     }
+// }
+
+
+// class Bt{
+//     constructor(){
+//         this.root=null;
+//     }
+    
+    
+//     insert(value){
+//         let newNode=new Node(value);
+        
+//         if(this.root===null){
+//             this.root=newNode;
+//             return;
+//         }
+        
+//         let node=this.root;
+        
+//      while(node !==null){
+//             if(value%2 !==0){
+//             if(node.left===null){
+//                 node.left=newNode;
+//                 return;
+//             }
+//             node=node.left;
+//         }else{
+//             if(node.right===null){
+//                 node.right=newNode;
+//                 return;
+//             }
+//             node=node.right;
+//         }
+//      }
+//     }
+    
+//     delete(value,node=this.root){
+//        this.root= this.dfs(value,node);
+//     }
+    
+//     dfs(value,node){
+//         if(node===null)return null;
+        
+//         if(value%2!==0 && value !==node.data){
+//             node.left=this.dfs(value,node.left);
+//         }else if(value%2 ===0 && value !==node.data){
+//             node.right=this.dfs(value,node.right)
+//         }else if(value===node.data){
+            
+//             if(node.left===null && node.right===null)return null;
+//             if(node.left===null)return node.right;
+//             if(node.right===null)return node.left;
+//              let lastNode;
+//             if(value%2!==0){
+//                  lastNode=this.lastNode(node.left,value)
+//                    node.data=lastNode.data
+//                  node.left = this.dfs(lastNode.data, node.left);
+                
+//             }else{
+//                  lastNode=this.lastNode(node.right,value)
+//                    node.data=lastNode.data
+//                  node.right = this.dfs(lastNode.data, node.right);
+                
+//             }
+          
+            
+            
+            
+//         }
+//         return node;
+//     }
+// lastNode(node,value){
+//     while(node.left !==null || node.right !==null){
+//           if(value%2!==0){
+//             node=node.left;
+//           }else{
+//             node=node.right;
+//           }
+//     }
+//     return node;
+// }
+
+// }
+
+// let t=new Bt();
+
+// t.insert(1)
+// t.insert(2)
+// t.insert(3)
+// t.insert(4)
+// t.insert(5)
+// t.insert(6)
+// t.insert(7)
+
+// t.delete(2)
+
+// console.log(JSON.stringify(t,null,2))
+
+//=====================================checking bst is complete or not
+
+
+class Node {
+    constructor(data) {
+        this.data = data;
+        this.left = null;
+        this.right = null;
+    }
+}
+
+class Bst {
+    constructor() {
+        this.root = null;
+    }
+
+    // INSERT
+    insert(value) {
+        let newNode = new Node(value);
+
+        if (this.root === null) {
+            this.root = newNode;
+            return;
+        }
+
+        let node = this.root;
+
+        while (node !== null) {
+            if (value < node.data) {
+                if (node.left === null) {
+                    node.left = newNode;
+                    return;
+                }
+                node = node.left;
+            } else if (value > node.data) {
+                if (node.right === null) {
+                    node.right = newNode;
+                    return;
+                }
+                node = node.right;
+            } else {
+                return; // no duplicates
+            }
+        }
+    }
+
+    // SEARCH
+   
+
+
+
+
+        leafnode(node=this.root){
+            let level=0;
+            while(node.left !==null){
+                node=node.left;
+                level++;
+            }
+
+            return level
+       
+
+        }
+
+        checkperfect(){
+        let expectlevel=-1;
+
+        let dfs=(node=this.root,level)=>{
+            if(node===null)return true;
+
+            if(node.left===null && node.right===null){
+                if(expectlevel===-1){
+                    expectlevel=level
+                }
+
+                return expectlevel===level;
+            }
+
+
+               if(node.left===null || node.right===null){
+                return false;
+               }
+
+               return dfs(node.left,level+1)  && dfs(node.right,level+1)
+               
+        }
+
+        return dfs(this.root,0)
+        }
+
+   
+}
+
+
+let b=new Bst();
+
+
+b.insert(1);
+b.insert(5);
+b.insert(8);
+b.insert(2);
+b.insert(11);
+b.insert(10);
+b.insert(16);
+
+console.log(b.checkperfect())
+
+
+//========================
