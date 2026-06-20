@@ -1595,27 +1595,87 @@
 //========================graph
 
 
-class Graph{
-    constructor(v){
-        this.matrix=[];
-        this.size=v;
+// class Graph{
+//     constructor(v){
+//         this.matrix=[];
+//         this.size=v;
 
 
 
 
-        for(let i=0;i<v;i++){
-            this.matrix[i]=[];
-            for(let j=0;j<v;j++){
-                this.matrix[i][j]=0;
-            }
-        }
+//         for(let i=0;i<v;i++){
+//             this.matrix[i]=[];
+//             for(let j=0;j<v;j++){
+//                 this.matrix[i][j]=0;
+//             }
+//         }
+//     }
+
+
+//     addEdge(v1,v2){
+//         this.matrix[v1][v2]=1;
+//          this.matrix[v2][v1]=1;
+//     }
+
+
+// }
+
+//==============checking the subtree was in the main tree
+
+class Node {
+    constructor(data) {
+        this.data = data;
+        this.left = null;
+        this.right = null;
     }
-
-
-    addEdge(v1,v2){
-        this.matrix[v1][v2]=1;
-         this.matrix[v2][v1]=1;
-    }
-
-
 }
+
+// Main Tree
+let root1 = new Node(10);
+
+root1.left = new Node(5);
+root1.right = new Node(15);
+
+root1.left.left = new Node(2);
+root1.left.right = new Node(7);
+
+root1.right.left = new Node(12);
+root1.right.right = new Node(20);
+
+root1.left.right.left = new Node(6);
+root1.left.right.right = new Node(8);
+
+// Subtree
+let subRoot = new Node(7);
+
+subRoot.left = new Node(6);
+subRoot.right = new Node(8);
+
+function check(t1,t2){
+if(t2===null)return true;
+if(t1===null)return false;
+
+if(identical(t1,t2)){
+    return true;
+}
+
+return (
+    check(t1.left,t2)||check(t1.right,t2)
+)
+}
+
+
+function identical(t1,t2){
+    if(t1===null && t2===null)return true;
+
+    if(t1===null || t2===null)return true;
+
+    if(t1.data !==t2.data)return false;
+
+    return (
+        identical(t1.left,t2.left) && identical(t1.right,t2.right)
+    )
+}
+
+
+console.log(check(root1,subRoot))
