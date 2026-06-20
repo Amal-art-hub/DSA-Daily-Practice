@@ -1238,109 +1238,384 @@
 //=====================================checking bst is complete or not
 
 
-class Node {
-    constructor(data) {
-        this.data = data;
-        this.left = null;
-        this.right = null;
-    }
-}
+// class Node {
+//     constructor(data) {
+//         this.data = data;
+//         this.left = null;
+//         this.right = null;
+//     }
+// }
 
-class Bst {
-    constructor() {
-        this.root = null;
-    }
+// class Bst {
+//     constructor() {
+//         this.root = null;
+//     }
 
-    // INSERT
-    insert(value) {
-        let newNode = new Node(value);
+//     // INSERT
+//     insert(value) {
+//         let newNode = new Node(value);
 
-        if (this.root === null) {
-            this.root = newNode;
-            return;
-        }
+//         if (this.root === null) {
+//             this.root = newNode;
+//             return;
+//         }
 
-        let node = this.root;
+//         let node = this.root;
 
-        while (node !== null) {
-            if (value < node.data) {
-                if (node.left === null) {
-                    node.left = newNode;
-                    return;
-                }
-                node = node.left;
-            } else if (value > node.data) {
-                if (node.right === null) {
-                    node.right = newNode;
-                    return;
-                }
-                node = node.right;
-            } else {
-                return; // no duplicates
-            }
-        }
-    }
+//         while (node !== null) {
+//             if (value < node.data) {
+//                 if (node.left === null) {
+//                     node.left = newNode;
+//                     return;
+//                 }
+//                 node = node.left;
+//             } else if (value > node.data) {
+//                 if (node.right === null) {
+//                     node.right = newNode;
+//                     return;
+//                 }
+//                 node = node.right;
+//             } else {
+//                 return; // no duplicates
+//             }
+//         }
+//     }
 
-    // SEARCH
+//     // SEARCH
    
 
 
 
 
-        leafnode(node=this.root){
-            let level=0;
-            while(node.left !==null){
-                node=node.left;
-                level++;
-            }
+//         leafnode(node=this.root){
+//             let level=0;
+//             while(node.left !==null){
+//                 node=node.left;
+//                 level++;
+//             }
 
-            return level
+//             return level
        
 
-        }
+//         }
 
-        checkperfect(){
-        let expectlevel=-1;
+//         checkperfect(){
+//         let expectlevel=-1;
 
-        let dfs=(node=this.root,level)=>{
-            if(node===null)return true;
+//         let dfs=(node=this.root,level)=>{
+//             if(node===null)return true;
 
-            if(node.left===null && node.right===null){
-                if(expectlevel===-1){
-                    expectlevel=level
-                }
+//             if(node.left===null && node.right===null){
+//                 if(expectlevel===-1){
+//                     expectlevel=level
+//                 }
 
-                return expectlevel===level;
-            }
+//                 return expectlevel===level;
+//             }
 
 
-               if(node.left===null || node.right===null){
-                return false;
-               }
+//                if(node.left===null || node.right===null){
+//                 return false;
+//                }
 
-               return dfs(node.left,level+1)  && dfs(node.right,level+1)
+//                return dfs(node.left,level+1)  && dfs(node.right,level+1)
                
-        }
+//         }
 
-        return dfs(this.root,0)
-        }
+//         return dfs(this.root,0)
+//         }
 
    
+// }
+
+
+// let b=new Bst();
+
+
+// b.insert(1);
+// b.insert(5);
+// b.insert(8);
+// b.insert(2);
+// b.insert(11);
+// b.insert(10);
+// b.insert(16);
+
+// console.log(b.checkperfect())
+
+
+//========================finding lca in tree
+
+
+// class Node {
+//     constructor(data) {
+//         this.data = data;
+//         this.left = null;
+//         this.right = null;
+//     }
+// }
+
+// class Bst {
+//     constructor() {
+//         this.root = null;
+//     }
+
+//     // INSERT
+//     insert(value) {
+//         let newNode = new Node(value);
+
+//         if (this.root === null) {
+//             this.root = newNode;
+//             return;
+//         }
+
+//         let node = this.root;
+
+//         while (node !== null) {
+//             if (value < node.data) {
+//                 if (node.left === null) {
+//                     node.left = newNode;
+//                     return;
+//                 }
+//                 node = node.left;
+//             } else if (value > node.data) {
+//                 if (node.right === null) {
+//                     node.right = newNode;
+//                     return;
+//                 }
+//                 node = node.right;
+//             } else {
+//                 return; // no duplicates
+//             }
+//         }
+//     }
+
+//     // SEARCH
+   
+
+
+
+
+//         leafnode(node=this.root){
+//             let level=0;
+//             while(node.left !==null){
+//                 node=node.left;
+//                 level++;
+//             }
+
+//             return level
+       
+
+//         }
+
+//         checkperfect(){
+//         let expectlevel=-1;
+
+//         let dfs=(node=this.root,level)=>{
+//             if(node===null)return true;
+
+//             if(node.left===null && node.right===null){
+//                 if(expectlevel===-1){
+//                     expectlevel=level
+//                 }
+
+//                 return expectlevel===level;
+//             }
+
+
+//                if(node.left===null || node.right===null){
+//                 return false;
+//                }
+
+//                return dfs(node.left,level+1)  && dfs(node.right,level+1)
+               
+//         }
+
+//         return dfs(this.root,0)
+//         }
+
+//         checklca(p,q,node=this.root){
+//             if(node===null)return null;
+
+//             if(node.data===p ||node.data===q){
+//                 return node;
+//             }
+
+// let left=this.checklca(p,q,node.left);
+// let right=this.checklca(p,q,node.right,);
+
+// if(left && right)return node;
+
+// return left ?left:right;
+
+//         }
+
+   
+// }
+
+
+// let b=new Bst();
+
+
+// b.insert(1);
+// b.insert(5);
+// b.insert(8);
+// b.insert(2);
+// b.insert(11);
+// b.insert(10);
+// b.insert(16);
+
+
+// console.log(b.checklca(10,16).data);
+//==================================21-6=2026
+//===========================================================checcking 2 bt is identical or not   in case of bt and bst
+
+// class Node{
+//     constructor(data){
+//         this.data=data;
+//         this.left=null;
+//         this.right=null;
+//     }
+// }
+
+
+// let root1 = new Node(10);
+// root1.left = new Node(5);
+// root1.right = new Node(15);
+// root1.left.left = new Node(2);
+// root1.left.right = new Node(7);
+
+
+// let root2 = new Node(10);
+// root2.left = new Node(5);
+// root2.right = new Node(15);
+// root2.left.left = new Node(2);
+// root2.left.right = new Node(7);
+
+
+// function identical(t1,t2){
+//     if(t1===null && t2===null){
+//         return true;
+//     }
+    
+//     if(t1===null || t2===null){
+//         return false;
+        
+//     }
+    
+//     return (
+//         t1.data===t2.data && identical(t1.left,t2.left) && identical(t1.right,t2.right)
+//         )
+// }
+
+// console.log(identical(root1,root2));
+
+//==================deleteing vertex and edges from the graph
+
+
+// class Graph{
+//    constructor(){
+//     this.list={}
+//    }
+
+// addvertex(vertex){
+//     if(!this.list[vertex]){
+//         this.list[vertex]=[];
+//     }
+// }
+
+// addedge(v1,v2){
+//     if(!this.list[v1]){
+//         this.addvertex(v1)
+//     }
+
+
+//      if(!this.list[v2]){
+//         this.addvertex(v2)
+//     }
+
+//     this.list[v1].push(v2)
+//     this.list[v2].push(v1)
+// }
+
+// print(){
+//     for(let ver in this.list){
+//         console.log(ver,"->",this.list[ver].join(","))
+//     }
+// }
+
+// bfs(start){
+//    let visited=new Set();
+//    let q=[start];
+//    visited.add(start);
+
+//    while(q.length>0){
+
+//     let node=q.shift();
+
+//     console.log(node.data)
+
+//     for(let nei of this.list[node]){
+//         if(!visited.has(nei)){
+//             visited.add(nei);
+//             q.push(nei)
+//         }
+//     }
+
+//    }
+// }
+
+
+// removevertex(vertex){
+//   for(let key in this.list){
+//     this.removeEdge(key,vertex);
+//   }
+
+//   delete this.list[vertex];
+// }
+
+// removeEdge(key,vertex){
+//     this.list[key]=this.list[key].filter(edge=>edge!==vertex);
+// }
+
+
+
+
+// }
+
+// let g=new Graph();
+// g.addedge(1,2)
+// g.addedge(2,3)
+// g.addedge(3,4)
+// g.addedge(4,5)
+
+// g.removevertex(4)
+
+// g.print()
+
+//========================graph
+
+
+class Graph{
+    constructor(v){
+        this.matrix=[];
+        this.size=v;
+
+
+
+
+        for(let i=0;i<v;i++){
+            this.matrix[i]=[];
+            for(let j=0;j<v;j++){
+                this.matrix[i][j]=0;
+            }
+        }
+    }
+
+
+    addEdge(v1,v2){
+        this.matrix[v1][v2]=1;
+         this.matrix[v2][v1]=1;
+    }
+
+
 }
-
-
-let b=new Bst();
-
-
-b.insert(1);
-b.insert(5);
-b.insert(8);
-b.insert(2);
-b.insert(11);
-b.insert(10);
-b.insert(16);
-
-console.log(b.checkperfect())
-
-
-//========================
