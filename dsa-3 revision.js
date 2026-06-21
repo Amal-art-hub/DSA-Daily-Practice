@@ -2032,7 +2032,143 @@
 
   //=====================finding kth max value in bst
 
-  class Node{
+//   class Node{
+//     constructor(data){
+//         this.data=data;
+//         this.left=null;
+//         this.right=null;
+
+//     }
+// }
+
+// class bst{
+//     constructor(){
+//         this.root=null;
+//     }
+
+// insert(value){
+
+//     let newNode=new Node(value);
+//     if(this.root===null){
+//         this.root=newNode;
+//         return;
+
+//     }
+
+//     let curr=this.root;
+
+//     while(curr !==null){
+//         if(value<curr.data){
+//             if(curr.left===null){
+//                 curr.left=newNode;
+//                 return;
+//             }
+//             curr=curr.left;
+//         }else if(value>curr.data){
+//             if(curr.right===null){
+//                 curr.right=newNode;
+//                 return;
+//             }
+
+//             curr=curr.right;
+//         }else{
+//             return;
+//         }
+//     }
+// }
+
+
+// print(node=this.root){
+//     if(node===null)return ;
+
+//     this.print(node.left);
+//     console.log(node.data);
+//     this.print(node.right);
+// }
+
+// delete(value,node=this.root){
+//     if(node===null)return null;
+
+
+//     if(value<node.data){
+//         node.left=this.delete(value,node.left);
+//     }else if(value>node.data){
+//         node.right=this.delete(value,node.right);
+//     }else{
+
+
+//         if(node.left===null && node.right===null)return null;
+
+//         if(node.left===null)return node.right;
+//         if(node.right===null)return node.left;
+
+//         let minright=this.minNode(node.right);
+//         node.data=minright.data;
+
+//         node.right=this.delete(minright.data,node.right)
+
+
+
+//     }
+
+//     return node;
+// }
+
+
+
+
+// search(value,node=this.root){
+//     if(node===null)return false;
+
+//     if(value===node.data)return true;
+
+//     if(value<node.data)  return this.search(value,node.left)
+
+//         return this.search(value,node.right);
+// }
+
+
+// nthsmall(k){
+//     let count=0;
+//     let result=null;
+
+//     let dfs=(node)=>{
+
+
+//         if(node===null || result !==null)return;
+
+//         dfs(node.left);
+//         count++;
+//         if(count===k){
+//             result=node.data;
+//             return;
+//         }
+
+//         dfs(node.right);
+//     }
+
+//     dfs(this.root);
+//     return result;
+// }
+
+// }
+
+
+// let b=new bst();
+
+// b.insert(1)
+// b.insert(2)
+// b.insert(5)
+// b.insert(7)
+// b.insert(9)
+// b.insert(10)
+// b.insert(100)
+
+// console.log(b.nthsmall(2))
+
+//===============check bst is perfect or not
+
+ class Node{
     constructor(data){
         this.data=data;
         this.left=null;
@@ -2114,42 +2250,38 @@ delete(value,node=this.root){
     return node;
 }
 
+isperfect(){
+
+    let expected=-1;
+
+    let dfs=(node,level)=>{
 
 
-
-search(value,node=this.root){
-    if(node===null)return false;
-
-    if(value===node.data)return true;
-
-    if(value<node.data)  return this.search(value,node.left)
-
-        return this.search(value,node.right);
-}
-
-
-nthlarg(k){
-    let count=0;
-    let result=null;
-
-    let dfs=(node)=>{
-
-
-        if(node===null || result !==null)return;
-
-        dfs(node.left);
-        count++;
-        if(count===k){
-            result=node.data;
-            return;
+         if (node === null) {
+            return true;
         }
 
-        dfs(node.right);
+        if(node.left===null && node.right===null){
+            if(expected===-1){
+                expected=level;
+            }
+
+            if(expected===level)return true;
+        }
+
+        if(node.left===null || node.right===null){
+            return false;
+        }
+
+        return(
+            dfs(node.left,level+1)  && dfs(node.right,level+1)
+        )
+
     }
 
-    dfs(this.root);
-    return result;
+    return dfs(this.root,0);
 }
+
 
 }
 
@@ -2164,4 +2296,5 @@ b.insert(9)
 b.insert(10)
 b.insert(100)
 
-console.log(2)
+
+console.log(b.isperfect());
