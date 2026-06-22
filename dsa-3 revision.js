@@ -2168,133 +2168,475 @@
 
 //===============check bst is perfect or not
 
- class Node{
-    constructor(data){
-        this.data=data;
-        this.left=null;
-        this.right=null;
+//  class Node{
+//     constructor(data){
+//         this.data=data;
+//         this.left=null;
+//         this.right=null;
 
-    }
+//     }
+// }
+
+// class bst{
+//     constructor(){
+//         this.root=null;
+//     }
+
+// insert(value){
+
+//     let newNode=new Node(value);
+//     if(this.root===null){
+//         this.root=newNode;
+//         return;
+
+//     }
+
+//     let curr=this.root;
+
+//     while(curr !==null){
+//         if(value<curr.data){
+//             if(curr.left===null){
+//                 curr.left=newNode;
+//                 return;
+//             }
+//             curr=curr.left;
+//         }else if(value>curr.data){
+//             if(curr.right===null){
+//                 curr.right=newNode;
+//                 return;
+//             }
+
+//             curr=curr.right;
+//         }else{
+//             return;
+//         }
+//     }
+// }
+
+
+// print(node=this.root){
+//     if(node===null)return ;
+
+//     this.print(node.left);
+//     console.log(node.data);
+//     this.print(node.right);
+// }
+
+
+
+// isperfect(){
+
+//     let expected=-1;
+
+//     let dfs=(node,level)=>{
+
+
+//          if (node === null) {
+//             return true;
+//         }
+
+//         if(node.left===null && node.right===null){
+//             if(expected===-1){
+//                 expected=level;
+//             }
+ 
+//             if(expected===level)return true;
+//         }
+
+//         if(node.left===null || node.right===null){
+//             return false;
+//         }
+
+//         return(
+//             dfs(node.left,level+1)  && dfs(node.right,level+1)
+//         )
+
+//     }
+
+//     return dfs(this.root,0);
+// }
+
+
+// }
+
+
+// let b=new bst();
+
+// b.insert(1)
+// b.insert(2)
+// b.insert(5)
+// b.insert(7)
+// b.insert(9)
+// b.insert(10)
+// b.insert(100)
+
+
+// console.log(b.isperfect());
+
+//========================count of the leaf node
+
+
+//  class Node{
+//     constructor(data){
+//         this.data=data;
+//         this.left=null;
+//         this.right=null;
+//     }
+//  }
+
+
+
+// let root=new Node(1)
+//  root.left=new Node(2);
+//  root.right=new Node(3);
+//  root.left.left=new Node(4);
+//  root.right.left=new Node(2);
+//   root.left.right=new Node(8);
+
+
+
+//   function countleaf(root){
+//     let sum=0;
+//     let dfs=(node)=>{
+//         if(node===null)return true;
+
+//         if(node.left===null  && node.right===null){
+//           sum=sum+node.data
+//         }
+
+//         return (
+//             dfs(node.left)  && dfs(node.right)
+//         )
+//     }
+//     dfs(root)
+
+//     return sum
+//   }
+
+//   console.log(countleaf(root))
+
+
+//=========22/06/2026
+  //===============check binary tree is full
+
+  
+
+//  class Node{
+//     constructor(data){
+//         this.data=data;
+//         this.left=null;
+// //         this.right=null;
+// //     }
+// //  }
+
+
+
+// // let root=new Node(1)
+// //  root.left=new Node(2);
+// //  root.right=new Node(3);
+// //  root.left.left=new Node(4);
+// //  root.right.left=new Node(2);
+// //   root.left.right=new Node(8);
+
+
+// //   function checkfull(node){
+// //     if(node===null)return true;
+
+// //     if(node.left===null && node.right===null)return true;
+
+// //     if(node.left===null || node.right===null)return false;
+
+// //     return (checkfull(node.left) && checkfull(node.right))
+// //   }
+
+// // console.log(checkfull(root))
+
+// //=========================Convert min heap to max heap
+
+
+// let arr = [1, 3, 5, 7, 9, 11];
+
+
+// function maxheap(arr){
+
+//   let n=arr.length;
+//   let p=Math.floor((n/2)-1);
+
+  
+
+//   for(let i=p;i>=0;i--){
+//     heapifydown(arr,n,i)
+//   }
+
+//   return arr;
+// }
+
+// function heapifydown(arr,n,i){
+
+
+//   while(true){
+//     let left=Math.floor((i*2)+1);
+//     let right=Math.floor((i*2)+2);
+
+
+//     let larger=i;
+
+//     if(left<n && arr[left]>arr[larger]){
+//       larger=left
+//     }
+
+//       if(right<n && arr[right]>arr[larger]){
+//       larger=right
+//     }
+
+
+//     if(larger===i)break;
+
+//     [arr[larger],arr[i]]=[arr[i],arr[larger]];
+
+//     i=larger;
+
+//   }
+
+
+// }
+
+
+// // console.log(maxheap(arr))
+
+
+// //=====================sort in ascending order using heapsort
+
+
+// let arr = [111, 3, 11, 7, 9, 11];
+
+
+// function maxheap(arr){
+
+//   let n=arr.length;
+//   let p=Math.floor((n/2)-1);
+
+  
+
+//   for(let i=p;i>=0;i--){
+//     heapifydown(arr,n,i)
+//   }
+
+
+//   for(let j=n-1;j>=0;j--){
+//     [arr[j],arr[0]]=[arr[0],arr[j]];
+//     heapifydown(arr,j,0)
+//   }
+
+//   return arr;
+// }
+
+// function heapifydown(arr,n,i){
+
+
+//   while(true){
+//     let left=Math.floor((i*2)+1);
+//     let right=Math.floor((i*2)+2);
+
+
+//     let larger=i;
+
+//     if(left<n && arr[left]>arr[larger]){
+//       larger=left
+//     }
+
+//       if(right<n && arr[right]>arr[larger]){
+//       larger=right
+//     }
+
+
+//     if(larger===i)break;
+
+//     [arr[larger],arr[i]]=[arr[i],arr[larger]];
+
+//     i=larger;
+
+//   }
+
+
+// }
+
+
+// console.log(maxheap(arr))
+
+//=========================kth largest uusing heapsort
+
+
+
+// let arr = [111, 3, 11, 7, 9, 12];
+
+
+// function maxheap(arr,k){
+
+//   let n=arr.length;
+//   let p=Math.floor((n/2)-1);
+
+  
+
+//   for(let i=p;i>=0;i--){
+//     heapifydown(arr,n,i)
+//   }
+
+
+//   for(let j=n-1;j>=n-k+1;j--){
+//     [arr[j],arr[0]]=[arr[0],arr[j]];
+//     heapifydown(arr,j,0)
+//   }
+
+//   return arr[0];
+// }
+
+// function heapifydown(arr,n,i){
+
+
+//   while(true){
+//     let left=Math.floor((i*2)+1);
+//     let right=Math.floor((i*2)+2);
+
+
+//     let larger=i;
+
+//     if(left<n && arr[left]>arr[larger]){
+//       larger=left
+//     }
+
+//       if(right<n && arr[right]>arr[larger]){
+//       larger=right
+//     }
+
+
+//     if(larger===i)break;
+
+//     [arr[larger],arr[i]]=[arr[i],arr[larger]];
+
+//     i=larger;
+
+//   }
+
+
+// }
+
+
+// console.log(maxheap(arr,3))
+
+//========================implememnt tree and delete
+
+
+class Node{
+  constructor(data){
+    this.data=data;
+    this.left=null;
+    this.right=null;
+  }
 }
 
-class bst{
-    constructor(){
-        this.root=null;
+
+class Tree{
+  constructor(){
+    this.root=null
+  }
+
+  insert(val){
+    let newNode=new Node(val);
+   if(this.root===null){
+      this.root=newNode;
+      return;
+   }
+
+   let node=this.root;
+
+  while(node!==null){
+     if(val%2===0){
+    if(node.left===null){
+      node.left=newNode;
+      return ;
     }
-
-insert(value){
-
-    let newNode=new Node(value);
-    if(this.root===null){
-        this.root=newNode;
+    node=node.left;
+   }else if(val%2!==0){
+      if(node.right===null){
+        node.right=newNode;
         return;
+      }
+   node=node.right;
+   }
+  }
+  }
 
+
+  delete(val){
+    this.root=this.remove(this.root,val);
+  }
+
+
+  remove(node,val){
+  if(node===null)return null;
+
+    if(val%2===0 && val!==node.data){
+      node.left=this.remove(node.left,val);
+    }else if(val%2!==0  && val!==node.data){
+      node.right=this.remove(node.right,val);
+    }else if(val==node.data){
+      if(node.left===null && node.right===null){
+        return null;
+      }
+
+      if(node.left===null)return node.right;
+      if(node.right===null)return node.left;
+
+
+      let minNode=0;
+      if(val%2===0){
+        let minNode=this.findnodeleft(node.left);
+        node.data=minNode.data;
+        node.left=this.remove(node.left,minNode.data)
+      }else{
+      
+        let minNode=this.findnoderight(node.right);
+        node.data=minNode.data;
+        node.right=this.remove(node.right,minNode.data)
+      }
+      }
+           return node;
     }
 
-    let curr=this.root;
 
-    while(curr !==null){
-        if(value<curr.data){
-            if(curr.left===null){
-                curr.left=newNode;
-                return;
-            }
-            curr=curr.left;
-        }else if(value>curr.data){
-            if(curr.right===null){
-                curr.right=newNode;
-                return;
-            }
+      findnodeleft(node){
+    if(node.left===null)return node;
 
-            curr=curr.right;
-        }else{
-            return;
-        }
-    }
-}
+    return this.findnodeleft(node.left)
+  }
 
+    findnoderight(node){
+    if(node.right===null)return node;
 
-print(node=this.root){
-    if(node===null)return ;
-
-    this.print(node.left);
-    console.log(node.data);
-    this.print(node.right);
-}
-
-delete(value,node=this.root){
-    if(node===null)return null;
-
-
-    if(value<node.data){
-        node.left=this.delete(value,node.left);
-    }else if(value>node.data){
-        node.right=this.delete(value,node.right);
-    }else{
-
-
-        if(node.left===null && node.right===null)return null;
-
-        if(node.left===null)return node.right;
-        if(node.right===null)return node.left;
-
-        let minright=this.minNode(node.right);
-        node.data=minright.data;
-
-        node.right=this.delete(minright.data,node.right)
+    return this.findnoderight(node.right)
+  }
+  }
 
 
 
-    }
-
-    return node;
-}
-
-isperfect(){
-
-    let expected=-1;
-
-    let dfs=(node,level)=>{
 
 
-         if (node === null) {
-            return true;
-        }
-
-        if(node.left===null && node.right===null){
-            if(expected===-1){
-                expected=level;
-            }
-
-            if(expected===level)return true;
-        }
-
-        if(node.left===null || node.right===null){
-            return false;
-        }
-
-        return(
-            dfs(node.left,level+1)  && dfs(node.right,level+1)
-        )
-
-    }
-
-    return dfs(this.root,0);
-}
 
 
-}
 
 
-let b=new bst();
+let t=new Tree();
 
-b.insert(1)
-b.insert(2)
-b.insert(5)
-b.insert(7)
-b.insert(9)
-b.insert(10)
-b.insert(100)
+t.insert(1)
+t.insert(2)
+t.insert(14)
+t.insert(15)
+t.insert(18)
+t.insert(10)
+t.insert(122)
 
 
-console.log(b.isperfect());
+t.delete(10)
+
+console.log(JSON.stringify(t.root,null,2))
