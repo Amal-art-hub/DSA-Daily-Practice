@@ -274,3 +274,108 @@ Check Balanced Tree
 Subtree Check
 
 These are asked much more often than "Perfect BST" or "Convert BT to BST."
+
+
+
+
+
+// //////////////////////////////////////////////////////////////////////Question 10: Log numbers 1 to 5 with 1-second delay each.
+let i=0;
+let result=setInterval(()=>{
+    console.log(new Date().toLocaleTimeString());
+    i++;
+    if(i>5){
+        clearInterval(result);
+    }
+},1000)
+
+// - delay(3).then(data => console.log(data))
+
+// function delay(sec){
+//     return new Promise(resolve=>{
+//         setTimeout(()=>{
+//             resolve(`Waited for ${sec} seconds(s)`);
+//         },sec*1000);
+//     })
+// }
+
+// delay(3).then((d)=>{console.log(d)})
+
+//////////////////////////////////////////////////////////////////////////Question 11: Create a countdown from 10 to 1 using setInterval.
+
+// //Output: 10 9 8 ... 1 "Happy New Year!"
+
+// function delay(sec){
+//     return new Promise(resolve=>{ 
+//         let i=10;
+//         let result=setInterval(()=>{
+//             console.log(i);
+//             i--;
+//             if(i<1){
+//                 console.log("happy newyear")
+//                 resolve("Countdown finished!");
+//                 clearInterval(result)
+//             }
+//         },sec*1000)
+//     })
+// }
+
+// delay(1).then(data=>{
+//     console.log(data)
+// })
+
+///////////////////////////////////////////////////////////Create a function that repeats a string every 2 seconds 3 times using setTimeout.
+
+// function delay(sec){
+//     return new Promise(resolve=>{
+//         setTimeout(()=>{
+//            resolve("hello");
+//         },sec*1000);
+//     })
+// }
+
+// delay(3).then(data=>{
+//     console.log(data)
+// })
+
+///////////////////////////////////////
+
+
+// let i=1;
+// let timer=setInterval(()=>{
+//     console.log(++i);
+    
+
+// if(i>10){
+//     clearInterval(timer);
+// }
+
+// },1000)
+
+//==============================
+
+////////////////////////////////////////prime numbers
+//
+// Function to check prime numbers
+// let arr=[1,2,3,4,5,6,7,8,9,11];
+
+// function prime(n){
+//     if(n<2) return false;
+//     for(let i=2;i<Math.sqrt(n);i++){
+    
+//         if(n%i===0) return false;
+     
+//     }
+//    return true;
+  
+// };
+
+// let result=arr.map(ele=>{
+//     if(prime(ele)){
+//         return 0;
+//     }else{
+//         return ele;
+//     }
+// });
+
+// console.log(result);
