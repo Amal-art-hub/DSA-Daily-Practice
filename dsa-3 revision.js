@@ -2527,116 +2527,178 @@
 //========================implememnt tree and delete
 
 
-class Node{
-  constructor(data){
-    this.data=data;
-    this.left=null;
-    this.right=null;
-  }
-}
+// class Node{
+//   constructor(data){
+//     this.data=data;
+//     this.left=null;
+//     this.right=null;
+//   }
+// }
 
 
-class Tree{
+// class Tree{
+//   constructor(){
+//     this.root=null
+//   }
+
+//   insert(val){
+//     let newNode=new Node(val);
+//    if(this.root===null){
+//       this.root=newNode;
+//       return;
+//    }
+
+//    let node=this.root;
+
+//   while(node!==null){
+//      if(val%2===0){
+//     if(node.left===null){
+//       node.left=newNode;
+//       return ;
+//     }
+//     node=node.left;
+//    }else if(val%2!==0){
+//       if(node.right===null){
+//         node.right=newNode;
+//         return;
+//       }
+//    node=node.right;
+//    }
+//   }
+//   }
+
+
+//   delete(val){
+//     this.root=this.remove(this.root,val);
+//   }
+
+
+//   remove(node,val){
+//   if(node===null)return null;
+
+//     if(val%2===0 && val!==node.data){
+//       node.left=this.remove(node.left,val);
+//     }else if(val%2!==0  && val!==node.data){
+//       node.right=this.remove(node.right,val);
+//     }else if(val==node.data){
+//       if(node.left===null && node.right===null){
+//         return null;
+//       }
+
+//       if(node.left===null)return node.right;
+//       if(node.right===null)return node.left;
+
+
+//       let minNode=0;
+//       if(val%2===0){
+//         let minNode=this.findnodeleft(node.left);
+//         node.data=minNode.data;
+//         node.left=this.remove(node.left,minNode.data)
+//       }else{
+      
+//         let minNode=this.findnoderight(node.right);
+//         node.data=minNode.data;
+//         node.right=this.remove(node.right,minNode.data)
+//       }
+//       }
+//            return node;
+//     }
+
+
+//       findnodeleft(node){
+//     if(node.left===null)return node;
+
+//     return this.findnodeleft(node.left)
+//   }
+
+//     findnoderight(node){
+//     if(node.right===null)return node;
+
+//     return this.findnoderight(node.right)
+//   }
+//   }
+
+
+
+
+
+
+
+
+
+// let t=new Tree();
+
+// t.insert(1)
+// t.insert(2)
+// t.insert(14)
+// t.insert(15)
+// t.insert(18)
+// t.insert(10)
+// t.insert(122)
+
+
+// t.delete(10)
+
+// console.log(JSON.stringify(t.root,null,2))
+
+//====================heap implementation
+
+class Heap{
   constructor(){
-    this.root=null
+    this.heap=[];
+
   }
 
   insert(val){
-    let newNode=new Node(val);
-   if(this.root===null){
-      this.root=newNode;
-      return;
-   }
+    this.heap.push(val);
+    this.heapifyup()
+  }
 
-   let node=this.root;
+  heapifyup(){
+    let i=this.heap.length-1;
+    
 
-  while(node!==null){
-     if(val%2===0){
-    if(node.left===null){
-      node.left=newNode;
-      return ;
+    while(i>0){
+      let p=Math.floor((i-1)/2);
+      if(this.heap[p]<=this.heap[i])break;
+      [this.heap[p],this.heap[i]]=[this.heap[i],this.heap[p]];
+
+      i=p;
     }
-    node=node.left;
-   }else if(val%2!==0){
-      if(node.right===null){
-        node.right=newNode;
-        return;
-      }
-   node=node.right;
-   }
   }
+
+  extractmin(){
+    let min=this.heap[0];
+    this.heap[0]=this.heap.pop()
+    this.heapifydown()
   }
 
 
-  delete(val){
-    this.root=this.remove(this.root,val);
-  }
+  heapifydown(){
+    let i=0;
+    let n=this.heap.length
+    while(true){
+      let smallest=i;
+      let left=Math.floor((n*2)+1);
+      let right=Math.floor((n*2)+2);
+
+      if(left<n  && this.heap[smallest]>this.heap[left]){
+        smallest=left}
 
 
-  remove(node,val){
-  if(node===null)return null;
-
-    if(val%2===0 && val!==node.data){
-      node.left=this.remove(node.left,val);
-    }else if(val%2!==0  && val!==node.data){
-      node.right=this.remove(node.right,val);
-    }else if(val==node.data){
-      if(node.left===null && node.right===null){
-        return null;
+          if(left<n  && this.heap[smallest]>this.heap[left]){
+        smallest=left
       }
 
-      if(node.left===null)return node.right;
-      if(node.right===null)return node.left;
+      if(smallest=i)break;
 
+      [this.heap[smallest],this.heap[i]]=[this.heap[i],this.heap[smallest]]
 
-      let minNode=0;
-      if(val%2===0){
-        let minNode=this.findnodeleft(node.left);
-        node.data=minNode.data;
-        node.left=this.remove(node.left,minNode.data)
-      }else{
-      
-        let minNode=this.findnoderight(node.right);
-        node.data=minNode.data;
-        node.right=this.remove(node.right,minNode.data)
-      }
-      }
-           return node;
+      i=smallest;
     }
 
 
-      findnodeleft(node){
-    if(node.left===null)return node;
-
-    return this.findnodeleft(node.left)
+   
+    }
   }
 
-    findnoderight(node){
-    if(node.right===null)return node;
-
-    return this.findnoderight(node.right)
-  }
-  }
-
-
-
-
-
-
-
-
-
-let t=new Tree();
-
-t.insert(1)
-t.insert(2)
-t.insert(14)
-t.insert(15)
-t.insert(18)
-t.insert(10)
-t.insert(122)
-
-
-t.delete(10)
-
-console.log(JSON.stringify(t.root,null,2))
