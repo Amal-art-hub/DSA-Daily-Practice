@@ -160,7 +160,7 @@
 
 // // console.log(b.checkbst());
 // console.log(b.nthlarg(3))
-//===================creating minheap
+//=====================================================================================================creating minheap
 
 
 // class Minheap{
@@ -255,7 +255,7 @@
 // minh.print()
 // console.log(minh.peek())
 
-//===========================- Sort an array using heap sort
+//===========================-========================================================== Sort an array using heap sort
 
 
 // let arr=[2,1,4,3,6,5,9];
@@ -318,7 +318,7 @@
 
 // console.log(heapsort(arr));
 
-//================array to heap
+//=====================================================================================array to heap
 
 
 // let arr=[1,4,5,7,9,2];
@@ -366,7 +366,7 @@
 
 // console.log(arrtoheap(arr));
 
-//================trie implementtaionb
+//=================================================================================trie implementtaionb
 
 
 // class TrieNode{
@@ -516,7 +516,7 @@
 // // t.delete("kaal");
 // t.print();
 
-//=====================sort an aray using sorting algorithum
+//=========================================================sort an aray using sorting algorithum
 
 
 // let arr=[2,5,3,7,8,9];
@@ -795,7 +795,7 @@
 
 // console.log(b.valid())
 
-//======================================heap k th largest in array using heap
+//====================================================================================heap k th largest in array using heap
 
 // let arr=[1,4,5,8,9];
 
@@ -938,7 +938,7 @@
 
 // g.display()
 
-//===============checking cycle in garph
+//=================================================================================checking cycle in garph
 
 
 // class Graph{
@@ -993,7 +993,7 @@
 
 
 
-//=================================bt to bst
+//===================================================================bt to bst
 
 
 
@@ -1061,7 +1061,7 @@
 
 
 
-// //===========================implementing adjececny list
+// //===========================================================================implementing adjececny list
 
 
 // class Graph{
@@ -1128,7 +1128,7 @@
 
 // g.print()
 
-//==============binarty tree with odd on the left side and the even in right side
+//===================================================================binarty tree with odd on the left side and the even in right side
 
 
 // class Node{
@@ -1235,7 +1235,7 @@
 
 // console.log(JSON.stringify(t,null,2))
 
-//=====================================checking bst is complete or not
+//=============================================================================================checking bst is complete or not
 
 
 // class Node {
@@ -1343,7 +1343,7 @@
 // console.log(b.checkperfect())
 
 
-//========================finding lca in tree
+//=====================================================================================finding lca in tree
 
 
 // class Node {
@@ -1509,7 +1509,7 @@
 
 // console.log(identical(root1,root2));
 
-//==================deleteing vertex and edges from the graph
+//=======================================================deleteing vertex and edges from the graph
 
 
 // class Graph{
@@ -1592,7 +1592,7 @@
 
 // g.print()
 
-//========================graph
+//================================================================================graph
 
 
 // class Graph{
@@ -2110,7 +2110,7 @@
 
 
 //     }
-
+ 
 //     return node;
 // }
 
@@ -2340,7 +2340,7 @@
 
 
 // //   function checkfull(node){
-// //     if(node===null)return true;
+ // //     if(node===null)return true;
 
 // //     if(node.left===null && node.right===null)return true;
 
@@ -2522,7 +2522,7 @@
 // }
 
 
-// console.log(maxheap(arr,3))
+// console.log(maxheap(arr,4))
 
 //========================implememnt tree and delete
 
@@ -2600,68 +2600,232 @@
 //         node.data=minNode.data;
 //         node.right=this.remove(node.right,minNode.data)
 //       }
+// //       }
+// //            return node;
+// //     }
+
+
+// //       findnodeleft(node){
+// //     if(node.left===null)return node;
+
+// //     return this.findnodeleft(node.left)
+// //   }
+
+// //     findnoderight(node){
+// //     if(node.right===null)return node;
+
+// //     return this.findnoderight(node.right)
+// //   }
+// //   }
+
+
+
+
+
+
+
+
+
+// // let t=new Tree();
+
+// // t.insert(1)
+// // t.insert(2)
+// // t.insert(14)
+// // t.insert(15)
+// // t.insert(18)
+// // t.insert(10)
+// // t.insert(122)
+
+
+// // t.delete(10)
+
+// // console.log(JSON.stringify(t.root,null,2))
+
+// //====================heap implementation
+
+// class Heap{
+//   constructor(){
+//     this.heap=[];
+
+//   }
+
+//   insert(val){
+//     this.heap.push(val);
+//     this.heapifyup()
+//   }
+
+//   heapifyup(){
+//     let i=this.heap.length-1;
+    
+
+//     while(i>0){
+//       let p=Math.floor((i-1)/2);
+//       if(this.heap[p]<=this.heap[i])break;
+//       [this.heap[p],this.heap[i]]=[this.heap[i],this.heap[p]];
+
+//       i=p;
+//     }
+//   }
+
+//   extractmin(){
+
+//     if (this.heap.length === 0) return null;
+// if (this.heap.length === 1) return this.heap.pop();
+//     let min=this.heap[0];
+//     this.heap[0]=this.heap.pop()
+//     this.heapifydown();
+//     return min;
+//   }
+
+
+//   heapifydown(){
+//     let i=0;
+//     let n=this.heap.length
+//     while(true){
+//       let smallest=i;
+//       let left=Math.floor((i*2)+1);
+//       let right=Math.floor((i*2)+2);
+
+//       if(left<n  && this.heap[smallest]>this.heap[left]){
+//         smallest=left}
+
+
+//           if(right<n  && this.heap[smallest]>this.heap[right]){
+//         smallest=right
 //       }
-//            return node;
+
+//       if(smallest===i)break;
+
+//       [this.heap[smallest],this.heap[i]]=[this.heap[i],this.heap[smallest]]
+
+//       i=smallest;
 //     }
 
 
-//       findnodeleft(node){
-//     if(node.left===null)return node;
+   
+//     }
 
-//     return this.findnodeleft(node.left)
+//     diplay(){
+//       console.log(this.heap)
+//     }
 //   }
 
-//     findnoderight(node){
-//     if(node.right===null)return node;
+// let h=new Heap();
 
-//     return this.findnoderight(node.right)
+// h.insert(11)
+// h.insert(2)
+// h.insert(3)
+// h.insert(4)
+// h.insert(5)
+// h.insert(7)
+
+// // h.diplay();
+// console.log(h.extractmin())
+
+//==============================================Remove duplicates from BT
+
+
+
+//  class Node{
+//     constructor(data){
+//         this.data=data;
+//         this.left=null;
+//         this.right=null;
+//     }
+//  }
+
+
+
+// let root=new Node(1)
+//  root.left=new Node(2);
+//  root.right=new Node(3);
+//  root.left.left=new Node(4);
+//  root.right.left=new Node(2);
+//   root.left.right=new Node(8);
+
+
+//   function removedupli(root){
+//     let seen=new Set();
+
+//     let dfs=(node)=>{
+//       if(node===null)return null;
+
+//        node.left=dfs(node.left);
+//       node.right=dfs(node.right);
+
+//       if(seen.has(node.data)){
+//         if(node.left===null && node.right===null)return null;
+
+
+//            if(node.left===null)return node.right;
+//       if(node.right===null)return node.left;
+
+//       let temp=node.left;
+
+//       while(temp.right!==null){
+//         temp=temp.right;
+//       }
+
+//       temp.right=node.right;
+//      return node.left;
+
+      
+//       }
+
+//    seen.add(node.data);
+//    return node;
+
+//     }
+
+//     return dfs(root);
 //   }
-//   }
 
 
 
 
 
+//   console.log(JSON.stringify(root,null,2))
 
+  //=====================================================================23=06-2026
+//=====================================================Sort the tasks with a priority number using Heap.
+let tasks = [
+  { task: "A", priority: 3 },
+  { task: "B", priority: 1 },
+  { task: "C", priority: 2 },
+  { task: "D", priority: 5 }
+];
 
-
-
-// let t=new Tree();
-
-// t.insert(1)
-// t.insert(2)
-// t.insert(14)
-// t.insert(15)
-// t.insert(18)
-// t.insert(10)
-// t.insert(122)
-
-
-// t.delete(10)
-
-// console.log(JSON.stringify(t.root,null,2))
-
-//====================heap implementation
 
 class Heap{
   constructor(){
-    this.heap=[];
-
+    this.heap=[]
   }
 
-  insert(val){
-    this.heap.push(val);
-    this.heapifyup()
+  parent(i){
+    return Math.floor((i-1)/2);
   }
+
+  left(i){
+    return Math.floor((i*2)+1);
+  }
+
+  right(i){
+    return Math.floor((i*2)+2);
+  }
+
+  insert(obj){
+    this.heap.push(obj);
+    this.heapifyup();
+  }
+
 
   heapifyup(){
     let i=this.heap.length-1;
-    
-
+   
     while(i>0){
-      let p=Math.floor((i-1)/2);
-      if(this.heap[p]<=this.heap[i])break;
-      [this.heap[p],this.heap[i]]=[this.heap[i],this.heap[p]];
+      let p=this.parent(i);
+      if(this.heap[p].priority<=this.heap[i].priority)break;
+      [this.heap[p],this.heap[i]]=[this.heap[i],this.heap[p]]
 
       i=p;
     }
@@ -2669,36 +2833,52 @@ class Heap{
 
   extractmin(){
     let min=this.heap[0];
-    this.heap[0]=this.heap.pop()
-    this.heapifydown()
-  }
+    this.heap[0]=this.heap.pop();
 
+    this.heapifydown()
+
+    return min
+  }
 
   heapifydown(){
-    let i=0;
-    let n=this.heap.length
+
+    let n=this.heap.length;
+    let i=0
     while(true){
-      let smallest=i;
-      let left=Math.floor((n*2)+1);
-      let right=Math.floor((n*2)+2);
+      let left=this.left(i);
+      let right=this.right(i);
 
-      if(left<n  && this.heap[smallest]>this.heap[left]){
-        smallest=left}
-
-
-          if(left<n  && this.heap[smallest]>this.heap[left]){
-        smallest=left
+      let smaller=i;
+      if(left<n  && this.heap[smaller].priority>this.heap[left].priority){
+        smaller=left
+      }
+      if(right<n  && this.heap[smaller].priority>this.heap[right].priority){
+        smaller=right
       }
 
-      if(smallest=i)break;
+  if(smaller===i)break;
 
-      [this.heap[smallest],this.heap[i]]=[this.heap[i],this.heap[smallest]]
+  [this.heap[smaller],this.heap[i]]=[this.heap[i],this.heap[smaller]];
+  i=smaller;
 
-      i=smallest;
-    }
-
-
-   
     }
   }
 
+
+  display(){
+    console.log(this.heap)
+  }
+
+}
+
+
+let h=new Heap();
+
+for(let task of tasks){
+  h.insert(task)
+}
+
+// h.display()
+
+console.log(h.extractmin())
+h.display()
