@@ -2788,97 +2788,574 @@
 
   //=====================================================================23=06-2026
 //=====================================================Sort the tasks with a priority number using Heap.
-let tasks = [
-  { task: "A", priority: 3 },
-  { task: "B", priority: 1 },
-  { task: "C", priority: 2 },
-  { task: "D", priority: 5 }
-];
+// let tasks = [
+//   { task: "A", priority: 3 },
+//   { task: "B", priority: 1 },
+//   { task: "C", priority: 2 },
+//   { task: "D", priority: 5 }
+// ];
 
 
-class Heap{
-  constructor(){
-    this.heap=[]
-  }
+// class Heap{
+//   constructor(){
+//     this.heap=[]
+//   }
 
-  parent(i){
-    return Math.floor((i-1)/2);
-  }
+//   parent(i){
+//     return Math.floor((i-1)/2);
+//   }
 
-  left(i){
-    return Math.floor((i*2)+1);
-  }
+//   left(i){
+//     return Math.floor((i*2)+1);
+//   }
 
-  right(i){
-    return Math.floor((i*2)+2);
-  }
+//   right(i){
+//     return Math.floor((i*2)+2);
+//   }
 
-  insert(obj){
-    this.heap.push(obj);
-    this.heapifyup();
-  }
+//   insert(obj){
+//     this.heap.push(obj);
+//     this.heapifyup();
+//   }
 
 
-  heapifyup(){
-    let i=this.heap.length-1;
+//   heapifyup(){
+//     let i=this.heap.length-1;
    
-    while(i>0){
-      let p=this.parent(i);
-      if(this.heap[p].priority<=this.heap[i].priority)break;
-      [this.heap[p],this.heap[i]]=[this.heap[i],this.heap[p]]
+//     while(i>0){
+//       let p=this.parent(i);
+//       if(this.heap[p].priority<=this.heap[i].priority)break;
+//       [this.heap[p],this.heap[i]]=[this.heap[i],this.heap[p]]
 
-      i=p;
-    }
-  }
+//       i=p;
+//     }
+//   }
 
-  extractmin(){
-    let min=this.heap[0];
-    this.heap[0]=this.heap.pop();
+//   extractmin(){
+//     let min=this.heap[0];
+//     this.heap[0]=this.heap.pop();
 
-    this.heapifydown()
+//     this.heapifydown()
 
-    return min
-  }
+//     return min
+//   }
 
-  heapifydown(){
+//   heapifydown(){
 
-    let n=this.heap.length;
-    let i=0
-    while(true){
-      let left=this.left(i);
-      let right=this.right(i);
+//     let n=this.heap.length;
+//     let i=0
+//     while(true){
+//       let left=this.left(i);
+//       let right=this.right(i);
 
-      let smaller=i;
-      if(left<n  && this.heap[smaller].priority>this.heap[left].priority){
-        smaller=left
-      }
-      if(right<n  && this.heap[smaller].priority>this.heap[right].priority){
-        smaller=right
-      }
+//       let smaller=i;
+//       if(left<n  && this.heap[smaller].priority>this.heap[left].priority){
+//         smaller=left
+//       }
+//       if(right<n  && this.heap[smaller].priority>this.heap[right].priority){
+//         smaller=right
+//       }
 
-  if(smaller===i)break;
+//   if(smaller===i)break;
 
-  [this.heap[smaller],this.heap[i]]=[this.heap[i],this.heap[smaller]];
-  i=smaller;
+//   [this.heap[smaller],this.heap[i]]=[this.heap[i],this.heap[smaller]];
+//   i=smaller;
 
-    }
-  }
-
-
-  display(){
-    console.log(this.heap)
-  }
-
-}
+//     }
+//   }
 
 
-let h=new Heap();
+//   display(){
+//     console.log(this.heap)
+//   }
 
-for(let task of tasks){
-  h.insert(task)
-}
+// }
 
+
+// let h=new Heap();
+
+// for(let task of tasks){
+//   h.insert(task)
+// }
+
+// // h.display()
+
+// console.log(h.extractmin())
 // h.display()
 
-console.log(h.extractmin())
-h.display()
+//==========================minmum using recursion
+
+// class Node{
+//     constructor(data){
+//         this.data=data;
+//         this.left=null;
+//         this.right=null;
+
+//     }
+// }
+
+// class bst{
+//     constructor(){
+//         this.root=null;
+//     }
+
+// insert(value){
+
+//     let newNode=new Node(value);
+//     if(this.root===null){
+//         this.root=newNode;
+//         return;
+
+//     }
+
+//     let curr=this.root;
+
+//     while(curr !==null){
+//         if(value<curr.data){
+//             if(curr.left===null){
+//                 curr.left=newNode;
+//                 return;
+//             }
+//             curr=curr.left;
+//         }else if(value>curr.data){
+//             if(curr.right===null){
+//                 curr.right=newNode;
+//                 return;
+//             }
+
+//             curr=curr.right;
+//         }else{
+//             return;
+//         }
+//     }
+// }
+
+// min(node=this.root){   
+
+  
+//   if(!node.left)return node.data;
+
+//   return this.min(node.left)
+// }
+
+// countsch(node=this.root){
+//  let count=0;
+//  let dfs=(node=this.root)=>{
+//   if(node===null)return ;
+
+//   if(!node.left && node.right  ||  node.left && !node.right){
+//     count++;
+//   }
+
+//   dfs(node.left);
+//   dfs(node.right);
+//  }
+
+//  dfs(this.root);
+//  return count;
+// }
+
+
+// }
+
+// let b=new bst();
+// b.insert(1111)
+// b.insert(2)
+// b.insert(11)
+// b.insert(14)
+// b.insert(17)
+// b.insert(111)
+
+
+// console.log(b.countsch(b.root))
+// // console.log(b.min(b.root))
+
+//=======================cloning an graph
+
+
+
+
+// class Graph{
+//    constructor(){
+//     this.list={}
+//    }
+
+// addvertex(vertex){
+//     if(!this.list[vertex]){
+//         this.list[vertex]=[];
+//     }
+// }
+
+// addedge(v1,v2){
+//     if(!this.list[v1]){
+//         this.addvertex(v1)
+//     }
+
+
+//      if(!this.list[v2]){
+//         this.addvertex(v2)
+//     }
+
+//     this.list[v1].push(v2)
+//     this.list[v2].push(v1)
+// }
+
+// print(obj=this.list){
+//     for(let ver in obj){
+//         console.log(ver,"->",this.list[ver].join(","))
+//     }
+// }
+
+// bfs(start){
+//    let visited=new Set();
+//    let q=[start];
+//    visited.add(start);
+
+//    while(q.length>0){
+
+//     let node=q.shift();
+
+//     console.log(node.data)
+
+//     for(let nei of this.list[node]){
+//         if(!visited.has(nei)){
+//             visited.add(nei);
+//             q.push(nei)
+//         }
+//     }
+
+//    }
+// }
+
+
+
+
+//  clone(){
+//   let clonegraph={};
+//   for(let node in this.list ){
+//     clonegraph[node]=[...this.list[node]];
+//   }
+
+//   return clonegraph;
+// }
+
+// }
+
+
+// let g=new Graph();
+
+// g.addedge(1,2)
+
+// g.addedge(2,3)
+
+// g.addedge(3,1)
+
+
+
+
+// let c=g.clone()
+
+// g.addedge(3,4)
+// console.log(c)
+
+
+// g.print()
+
+
+
+
+
+
+
+//========================island
+
+// class Grpah{
+//     constructor(v){
+//         this.matrix=[];
+//         this.size=v;
+
+//         for(let i=1;i<=this.size;i++){
+//             this.matrix[i]=[];
+//             for(let j=1;j<=this.size;j++){
+//                 this.matrix[i][j]="0";
+//             }
+//         }
+//     }
+
+//     addEdge(v1,v2){
+//          this.matrix[v1][v2]="1";
+//          this.matrix[v2][v1]="1";
+
+//     }
+// }
+
+
+// let g=new Grpah(4);
+// g.addEdge(1,2)
+// g.addEdge(2,3)
+// g.addEdge(3,4)
+
+
+//==================================================
+
+// let grid = [
+//   ["1","1","0","0","0"],
+//   ["1","1","0","0","0"],
+//   ["0","0","1","0","0"],
+//   ["0","0","0","1","1"]
+// ];
+
+
+
+// function island(grid){
+
+//     let count=0;
+//     let dfs=(row,col)=>{
+
+
+
+//         if(row<0||row>=grid.length||col<0||col>=grid[0].length||grid[row][col]==="0")return;
+
+
+//         grid[row][col]="0";
+
+
+//         dfs(row-1,col)
+//         dfs(row+1,col)
+//         dfs(row,col-1)
+//         dfs(row,col+1)
+
+
+
+
+     
+//     }
+//        for(let i=0;i<grid.length;i++){
+//             for(let j=0;j<grid[0].length;j++){
+//                 if(grid[i][j]==="1"){
+//                     count++;
+//                     dfs(i,j);
+//                 }
+//             }
+//         }
+
+//         return count;
+// }
+
+// console.log(island(grid))
+
+//===========================checking binary tree is full
+
+//  class Node{
+//     constructor(data){
+//         this.data=data;
+//         this.left=null;
+//         this.right=null;
+//     }
+//  }
+
+
+
+// let root=new Node(1)
+//  root.left=new Node(2);
+//  root.right=new Node(3);
+//  root.left.left=new Node(4);
+//  root.right.left=new Node(2);
+// root.left.right=new Node(8);
+
+
+//   function full(node){
+   
+//     if(node===null)return true;
+
+//       if(node.left ===null && node.right===null){
+// return true;
+//     }
+
+//     if(node.left ===null || node.right===null){
+// return false;
+//     }
+
+//     return (full(node.left) && full(node.right))
+//   }
+
+
+//   console.log(full(root))
+
+  //================checcking complte binary tree
+
+//    class Node{
+//     constructor(data){
+//         this.data=data;
+//         this.left=null;
+//         this.right=null;
+//     }
+//  }
+
+
+
+// let root=new Node(1)
+//  root.left=new Node(2);
+//  root.right=new Node(3);
+//  root.left.left=new Node(4);
+//  root.right.left=new Node(2);
+// root.left.right=new Node(8);
+
+// function complt(node){
+//     let leaflevel=-1;
+
+//     let dfs=(node,level)=>{
+//         if(node===null) return true;
+
+//         if(node.left===null && node.right===null){
+//             if(leaflevel===-1){
+//                 leaflevel=level
+//             }
+
+//             if(level!==leaflevel){
+// return false;
+//             }
+//         }
+
+
+//         if((!node.left && node.right) || (node.left && !node.right) ){
+//             return false;
+//         }
+
+
+//         return (dfs(node.left,level+1) &&dfs(node.right,level+1))
+//     }
+
+//     return dfs(node,0);
+
+
+// }
+
+// console.log(complt(root))
+
+//================================================Find the total average and the student average mark in an array 
+// const students = [
+//   {
+//     id: 1,
+//     name: "John",
+//     batch: "MERN",
+//     marks: [
+//       { subject: "JavaScript", score: 80 },
+//       { subject: "React", score: 75 },
+//       { subject: "Node", score: 90 }
+//     ]
+//   },
+//   {
+//     id: 2,
+//     name: "Alice",
+//     batch: "MERN",
+//     marks: [
+//       { subject: "JavaScript", score: 95 },
+//       { subject: "React", score: 88 },
+//       { subject: "Node", score: 92 }
+//     ]
+//   },
+//   {
+//     id: 3,
+//     name: "Bob",
+//     batch: "Python",
+//     marks: [
+//       { subject: "Python", score: 70 },
+//       { subject: "Django", score: 85 },
+//       { subject: "Flask", score: 78 }
+//     ]
+//   }
+// ];
+
+
+// function average(students){
+// let averg=students.map(obj=>{
+//     let avg=obj.marks.reduce((sum,ele)=>{
+//         return sum+ele.score
+//     },0)/obj.marks.length;
+//     return {
+//         "name":obj.name,
+//         "avg":avg
+//     };
+// })
+
+// return averg
+// }
+
+// console.log(average(students))
+
+// let avgt=average(students);
+
+// function totavg(avgt){
+// return avgt.reduce((sum,obj)=>{
+//    return sum+obj.avg
+// },0)/avgt.length
+// }
+
+// console.log("total avg:",totavg(avgt));
+
+//============================//  removing duplicate
+class Node{    
+constructor(data){
+        this.data=data;
+        this.left=null;
+        this.right=null;
+    }
+}
+ 
+
+
+
+let root=new Node(1)
+ root.left=new Node(2);
+ root.right=new Node(3);
+ root.left.left=new Node(4);
+ root.right.left=new Node(2);
+root.left.right=new Node(8);
+
+
+function duplirem(root){
+    let seen=new Set();
+
+    let dfs=(node)=>{
+        if(node===null)return ;
+
+        node.left=dfs(node.left);
+        node.right=dfs(node.right);
+
+        if(seen.has(node.data)){
+
+            if(!node.left && !node.right){
+                return null
+            }
+
+
+            if(!node.left )return node.right;
+            if(!node.right)return node.left;
+
+
+            let temp=node.left;
+
+            while(temp.right!==null){
+                temp=temp.right;
+            }
+
+
+
+            temp.right=node.right;
+            return node.left;
+
+        }
+
+        seen.add(node.data);
+        return node
+    }
+
+   return dfs(root)
+
+}
+
+root = duplirem(root);
+console.log(JSON.stringify(root,null,2))
+
+//=======================================Closest element in BST to target
