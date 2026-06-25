@@ -3289,73 +3289,792 @@
 // function totavg(avgt){
 // return avgt.reduce((sum,obj)=>{
 //    return sum+obj.avg
-// },0)/avgt.length
+// // },0)/avgt.length
+// // }
+
+// // console.log("total avg:",totavg(avgt));
+
+// //============================//  removing duplicate
+// class Node{    
+// constructor(data){
+//         this.data=data;
+//         this.left=null;
+//         this.right=null;
+//     }
 // }
-
-// console.log("total avg:",totavg(avgt));
-
-//============================//  removing duplicate
-class Node{    
-constructor(data){
-        this.data=data;
-        this.left=null;
-        this.right=null;
-    }
-}
  
 
 
 
-let root=new Node(1)
- root.left=new Node(2);
- root.right=new Node(3);
- root.left.left=new Node(4);
- root.right.left=new Node(2);
-root.left.right=new Node(8);
+// let root=new Node(1)
+//  root.left=new Node(2);
+//  root.right=new Node(3);
+//  root.left.left=new Node(4);
+//  root.right.left=new Node(2);
+// root.left.right=new Node(8);
 
 
-function duplirem(root){
-    let seen=new Set();
+// function duplirem(root){
+//     let seen=new Set();
 
-    let dfs=(node)=>{
-        if(node===null)return ;
+//     let dfs=(node)=>{
+//         if(node===null)return ;
 
-        node.left=dfs(node.left);
-        node.right=dfs(node.right);
+//         node.left=dfs(node.left);
+//         node.right=dfs(node.right);
 
-        if(seen.has(node.data)){
+//         if(seen.has(node.data)){
 
-            if(!node.left && !node.right){
-                return null
-            }
-
-
-            if(!node.left )return node.right;
-            if(!node.right)return node.left;
+//             if(!node.left && !node.right){
+//                 return null
+//             }
 
 
-            let temp=node.left;
-
-            while(temp.right!==null){
-                temp=temp.right;
-            }
+//             if(!node.left )return node.right;
+//             if(!node.right)return node.left;
 
 
+//             let temp=node.left;
 
-            temp.right=node.right;
-            return node.left;
+//             while(temp.right!==null){
+//                 temp=temp.right;
+//             }
 
-        }
 
-        seen.add(node.data);
-        return node
+
+//             temp.right=node.right;
+//             return node.left;
+
+//         }
+
+//         seen.add(node.data);
+//         return node
+//     }
+
+//    return dfs(root)
+
+// }
+
+// root = duplirem(root);
+// console.log(JSON.stringify(root,null,2))
+
+//=======================================Closest element in BST to target
+
+
+// class Node{
+//     constructor(data){
+//         this.data=data;
+//         this.left=null;
+//         this.right=null;
+//     }
+// }
+
+// class Bst{
+// constructor(){
+//     this.root=null
+// }
+
+
+// insert(val){
+//     let newNode=new Node(val);
+
+//     if(this.root===null){
+//         this.root=newNode;
+//         return;
+//     }
+
+//     let node=this.root;
+
+
+//     while(node!==null){
+//         if(val<node.data){
+//             if(!node.left){
+//                 node.left=newNode;
+//                 return;
+//             }
+//             node=node.left;
+
+//         }else if(val >node.data){
+//             if(!node.right){
+//                 node.right=newNode;
+//                 return;
+//             }
+//             node=node.right;
+//         }else{
+//             return
+//         }
+//     }
+// }
+
+
+// inorder(node=this.root){
+// if(!node)return null;
+
+// this.inorder(node.left);
+// console.log(node.data)
+// this.inorder(node.right);
+// }
+
+
+// delete(val){
+//     this.root=this.remov(val,this.root);
+// }
+
+
+// remov(val,node){
+//     if(!node)return null;
+
+//     if(val<node.data){
+//         node.left=this.remov(val,node.left)
+//     }else if(val>node.data){
+//         node.right=this.remov(val,node.right)
+//     }else{
+
+//         if(!node.left && !node.right){
+//             return null
+//         }
+
+//         if(!node.left)return node.right;
+//         if(!node.right)return node.left;
+
+
+//         let minNode=this.min(node.right);
+//         node.data=minNode.data;
+
+//         node.right=this.remov(minNode.data,node.right)
+
+//     }
+
+// return node;
+// }
+
+
+// min(node){
+//     while(node.left!==null){
+//         node=node.left;
+//     }
+
+//     return node
+// }
+
+
+// }
+
+// let b=new Bst();
+
+// b.insert(1)
+// b.insert(2)
+// b.insert(5)
+// b.insert(6)
+// b.insert(8)
+// b.insert(0)
+// b.delete(1)
+
+// // console.log(JSON.stringify(b.root,null,2))
+
+// b.inorder()
+
+
+
+//================
+// class Graph{
+//    constructor(){
+//     this.list={}
+//    }
+
+// addvertex(vertex){
+//     if(!this.list[vertex]){
+//         this.list[vertex]=[];
+//     }
+// }
+
+// addedge(v1,v2){
+//     if(!this.list[v1]){
+//         this.addvertex(v1)
+//     }
+
+
+//      if(!this.list[v2]){
+//         this.addvertex(v2)
+//     }
+
+//     this.list[v1].push(v2)
+//     this.list[v2].push(v1)
+// }
+
+// print(obj=this.list){
+//     for(let ver in obj){
+//         console.log(ver,"->",this.list[ver].join(","))
+//     }
+// }
+
+// bfs(node=this.root){
+//     let visited=new Set();
+//     let q=[node];
+//     visited.add(node)
+
+
+//     while(q,length>0){
+//         let node=q.shift();
+//         console.log(node);
+
+//          for(let nei of this.list[node]){
+//             if(!visited.has(nei)){
+//                 visited.add(nei);
+//                 q.push(nei)
+//             }
+//          }
+//     }
+// }
+
+
+// travers(node=this.root){
+//     let visited=new Set();
+
+// let dfs=(node)=>{
+//     if(visited.has(node))return;
+
+//     visited.add(node);
+//     console.log(node)
+
+
+//     for(let nei of this.list[node] ){
+//         dfs(nei)
+//     }
+
+
+// }
+
+// return dfs(node);
+// }
+
+// }
+
+// let g=new Graph();
+
+// g.addedge(1,2)
+// g.addedge(2,3)
+// g.addedge(3,4)
+// g.addedge(4,5)
+// g.bfs(1)
+// g.travers(1)
+
+//======================== Find the number of connected components in an undirected graph.
+
+// class Graph{
+//    constructor(){
+//     this.list={}
+//    }
+
+// addvertex(vertex){
+//     if(!this.list[vertex]){
+//         this.list[vertex]=[];
+//     }
+// }
+
+// addedge(v1,v2){
+//     if(!this.list[v1]){
+//         this.addvertex(v1)
+//     }
+
+
+//      if(!this.list[v2]){
+//         this.addvertex(v2)
+//     }
+
+//     this.list[v1].push(v2)
+//     this.list[v2].push(v1)
+// }
+
+// print(obj=this.list){
+//     for(let ver in obj){
+//         console.log(ver,"->",this.list[ver].join(","))
+//     }
+// }
+
+// bfs(node=this.root){
+//     let visited=new Set();
+//     let q=[node];
+//     visited.add(node)
+
+
+//     while(q.length>0){
+//         let node=q.shift();
+//         console.log(node);
+
+//          for(let nei of this.list[node]){
+//             if(!visited.has(nei)){
+//                 visited.add(nei);
+//                 q.push(nei)
+//             }
+//          }
+//     }
+// }
+
+// // cc(node){
+// //     let visited=new Set();
+// //     let count=0;
+// //     let dfs=(node)=>{
+// // visited.add(node);
+
+// // for(let nei of this.list[node]){
+// //     if(!visited.has(nei)){
+// //         dfs(nei)
+// //     }
+// // }
+
+// //     }
+
+// //     for(let node in this.list|| []){
+// //         node=Number(node)
+// //         if(!visited.has(node)){
+// //             dfs(node);
+// //             count++
+// //         }
+// //     }
+
+// //     return count;
+// // }
+
+
+
+// // }
+
+// // let g=new Graph();
+
+// // g.addedge(1,2)
+// // g.addedge(2,3)
+// // // g.addedge(3,4)
+// // g.addedge(4,5)
+// // console.log(g.cc())
+
+
+// //=====================
+
+// class Graph{
+//    constructor(){
+//     this.list={}
+//    }
+
+// addvertex(vertex){
+//     if(!this.list[vertex]){
+//         this.list[vertex]=[];
+//     }
+// }
+
+// addedge(v1,v2){
+//     if(!this.list[v1]){
+//         this.addvertex(v1)
+//     }
+
+
+//      if(!this.list[v2]){
+//         this.addvertex(v2)
+//     }
+
+//     this.list[v1].push(v2)
+//     this.list[v2].push(v1)
+// }
+
+// print(obj=this.list){
+//     for(let ver in obj){
+//         console.log(ver,"->",this.list[ver].join(","))
+//     }
+// }
+
+// bfs(node=this.root){
+//     let visited=new Set();
+//     let q=[node];
+//     visited.add(node)
+
+
+//     while(q.length>0){
+//         let node=q.shift();
+//         console.log(node);
+
+//          for(let nei of this.list[node]){
+//             if(!visited.has(nei)){
+//                 visited.add(nei);
+//                 q.push(nei)
+//             }
+//          }
+//     }
+// }
+
+// shortestpath(start,end){
+//     let visited=new Set();
+//     let q=[[start,0]];
+//     visited.add(start);
+
+//     while(q.length>0){
+//         let [node,dis]=q.shift();
+
+//         if(node===end)return dis;
+       
+
+//         for(let nei of this.list[node]){
+//             if(!visited.has(nei))
+//              visited.add(nei)
+//             q.push([nei,dis+1])
+//         }
+//     }
+// }
+
+// cyclecheck(node=this.root){
+//     let visited=new Set();
+
+//     let dfs=(node,parent)=>{
+//         visited.add(node);
+
+//         for(let nei of this.list[node]){
+//             if(!visited.has(nei)){
+//     if(dfs(nei,node))return true;
+//             }else if(nei !==parent){
+//                 return true;
+//             }
+//         }
+
+//         return false;
+
+
+//     }
+
+//    return dfs(node,null)
+// }
+
+
+
+// }
+
+// let g=new Graph();
+
+// g.addedge(1,2)
+// g.addedge(2,3)
+// g.addedge(3,4)
+// g.addedge(4,5)
+
+
+// // console.log(g.shortestpath(1,5))
+
+// console.log(g.cyclecheck(1))
+
+// //====================Closest element in BST to target
+
+
+
+// class Node{
+//     constructor(data){
+//         this.data=data;
+//         this.left=null;
+//         this.right=null;
+
+//     }
+// }
+
+// class bst{
+//     constructor(){
+//         this.root=null;
+//     }
+
+// insert(value){
+
+//     let newNode=new Node(value);
+//     if(this.root===null){
+//         this.root=newNode;
+//         return;
+
+//     }
+
+//     let curr=this.root;
+
+//     while(curr !==null){
+//         if(value<curr.data){
+//             if(curr.left===null){
+//                 curr.left=newNode;
+//                 return;
+//             }
+//             curr=curr.left;
+//         }else if(value>curr.data){
+//             if(curr.right===null){
+//                 curr.right=newNode;
+//                 return;
+//             }
+
+//             curr=curr.right;
+//         }else{
+//             return;
+//         }
+//     }
+// }
+
+
+// print(node=this.root){
+//     if(node===null)return ;
+
+//     this.print(node.left);
+//     console.log(node.data);
+//     this.print(node.right);
+// }
+
+// delete(value,node=this.root){
+//     if(node===null)return null;
+
+
+//     if(value<node.data){
+//         node.left=this.delete(value,node.left);
+//     }else if(value>node.data){
+//         node.right=this.delete(value,node.right);
+//     }else{
+
+
+//         if(node.left===null && node.right===null)return null;
+
+//         if(node.left===null)return node.right;
+//         if(node.right===null)return node.left;
+
+//         let minright=this.minNode(node.right);
+//         node.data=minright.data;
+
+//         node.right=this.delete(minright.data,node.right)
+
+
+
+//     }
+
+//     return node;
+// }
+
+// minNode(node){
+//     if(node===null)return;
+   
+//     while(node.left!==null){
+//         node=node.left;
+//     }
+//     return node;
+// }
+
+
+// search(value,node=this.root){
+//     if(node===null)return false;
+
+//     if(value===node.data)return true;
+
+//     if(value<node.data)  return this.search(value,node.left)
+
+//         return this.search(value,node.right);
+// }
+
+
+// checkbst(node=this.root,min=-Infinity,max=Infinity){
+
+//     if(node===null)return true;
+
+//     if(node.data<=min || node.data >=max)return false;
+
+//     return (
+//         this.checkbst(node.left,min,node.data) && this.checkbst(node.right,node.data,max)
+//     )
+// }
+
+// nthlarg(n){
+//     let count=0;
+//     let result=null;
+
+//     let nth=(node)=>{
+//         if(node===null || result !==null)return ;
+//           nth(node.right);
+
+//           count++;
+
+//           if(count===n){
+//             result=node;
+//             return result;
+//           }
+
+//           nth(node.left);
+
+
+        
+//     }
+//      nth(this.root)
+//      return result.data;
+// }
+
+// }
+
+
+// let b=new bst();
+
+// b.insert(1)
+// b.insert(2)
+// b.insert(5)
+// b.insert(7)
+// b.insert(9)
+// b.insert(10)
+// b.insert(100)
+
+
+
+// b.delete(7)
+
+
+// b.print()
+
+// // console.log(b.search(10))
+
+// // console.log(b.checkbst());
+// console.log(b.nthlarg(3))
+
+
+//================================closest
+
+
+class Node{
+    constructor(data){
+        this.data=data;
+        this.left=null;
+        this.right=null;
+
+    }
+}
+
+class bst{
+    constructor(){
+        this.root=null;
     }
 
-   return dfs(root)
+insert(value){
+
+    let newNode=new Node(value);
+    if(this.root===null){
+        this.root=newNode;
+        return;
+
+    }
+
+    let curr=this.root;
+
+    while(curr !==null){
+        if(value<curr.data){
+            if(curr.left===null){
+                curr.left=newNode;
+                return;
+            }
+            curr=curr.left;
+        }else if(value>curr.data){
+            if(curr.right===null){
+                curr.right=newNode;
+                return;
+            }
+
+            curr=curr.right;
+        }else{
+            return;
+        }
+    }
+}
+
+
+print(node=this.root){
+    if(node===null)return ;
+
+    this.print(node.left);
+    console.log(node.data);
+    this.print(node.right);
+}
+
+delete(value,node=this.root){
+    if(node===null)return null;
+
+
+    if(value<node.data){
+        node.left=this.delete(value,node.left);
+    }else if(value>node.data){
+        node.right=this.delete(value,node.right);
+    }else{
+
+
+        if(node.left===null && node.right===null)return null;
+
+        if(node.left===null)return node.right;
+        if(node.right===null)return node.left;
+
+        let minright=this.minNode(node.right);
+        node.data=minright.data;
+
+        node.right=this.delete(minright.data,node.right)
+
+
+
+    }
+
+    return node;
+}
+
+minNode(node){
+    if(node===null)return;
+   
+    while(node.left!==null){
+        node=node.left;
+    }
+    return node;
+}
+
+
+search(value,node=this.root){
+    if(node===null)return false;
+
+    if(value===node.data)return true;
+
+    if(value<node.data)  return this.search(value,node.left)
+
+        return this.search(value,node.right);
+}
+
+
+
+
+
+
+
+closest(value,node=this.root){
+    
+
+let closest=node.data;
+
+    let dfs=(node,value)=>{
+  if(!node)return closest;
+
+  if(Math.abs(value-closest)>Math.abs(value-node.data)){
+    closest=node.data;
+  }
+
+if(value<node.data){
+    dfs(node.left,value);
+}else if(value>node.data){
+    dfs(node.right,value)
+}else{
+    closest= node.data;
+}
+
+// return closest;
+
+    }
+
+     dfs(node,value)
+     return closest;
+}
 
 }
 
-root = duplirem(root);
-console.log(JSON.stringify(root,null,2))
 
-//=======================================Closest element in BST to target
+
+let b=new bst();
+b.insert(1)
+b.insert(4)
+b.insert(17)
+b.insert(14)
+b.insert(12)
+b.insert(11)
+b.insert(18)
+console.log(b.closest(15))
